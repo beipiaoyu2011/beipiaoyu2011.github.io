@@ -13,10 +13,10 @@
   <link rel="shortcut icon" href="./favicon.ico" />
   
   
-<link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet" href="/css/main.css">
 
   
-<script src="./js/pace.min.js"></script>
+<script src="/js/pace.min.js"></script>
 
 
   
@@ -35,7 +35,7 @@
     
       
       <a class="forkMe" href="https://github.com/Shen-Yu/hexo-theme-ayer"
-        target="_blank"><img width="149" height="149" src="./images/forkme.png"
+        target="_blank"><img width="149" height="149" src="/images/forkme.png"
           class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
     
   <div class="cover-frame">
@@ -43,7 +43,7 @@
       <img src="./images/cover1.jpg" alt="image frame" />
     </div>
     <div class="cover-inner text-center text-white">
-      <h1><a href="./">欢迎来到个人博客</a></h1>
+      <h1><a href="/">欢迎来到个人博客</a></h1>
       <div id="subtitle-box">
         
         <span id="subtitle"></span>
@@ -78,7 +78,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="./2020/03/04/%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83/"
+  <a class="article-title" href="/2020/03/04/%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83/"
     >前端规范</a
   >
 </h2>
@@ -89,7 +89,7 @@
 
     
     <div class="article-meta">
-      <a href="./2020/03/04/%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83/" class="article-date">
+      <a href="/2020/03/04/%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83/" class="article-date">
   <time datetime="2020-03-04T03:32:00.677Z" itemprop="datePublished">2020-03-04</time>
 </a>
       
@@ -503,7 +503,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="./2020/03/04/spring%20boot%E7%94%9F%E6%88%90%E5%8A%A8%E6%80%81%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B9%B6%E9%AA%8C%E8%AF%81/"
+  <a class="article-title" href="/2020/03/04/spring%20boot%E7%94%9F%E6%88%90%E5%8A%A8%E6%80%81%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B9%B6%E9%AA%8C%E8%AF%81/"
     >spring boot生成动态验证码并验证</a
   >
 </h2>
@@ -514,7 +514,7 @@
 
     
     <div class="article-meta">
-      <a href="./2020/03/04/spring%20boot%E7%94%9F%E6%88%90%E5%8A%A8%E6%80%81%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B9%B6%E9%AA%8C%E8%AF%81/" class="article-date">
+      <a href="/2020/03/04/spring%20boot%E7%94%9F%E6%88%90%E5%8A%A8%E6%80%81%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B9%B6%E9%AA%8C%E8%AF%81/" class="article-date">
   <time datetime="2020-03-04T03:32:00.672Z" itemprop="datePublished">2020-03-04</time>
 </a>
       
@@ -596,6 +596,120 @@
 
 </article>
     
+    <article id="post-spring boot同时上传多个图片和下载" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/03/04/spring%20boot%E5%90%8C%E6%97%B6%E4%B8%8A%E4%BC%A0%E5%A4%9A%E4%B8%AA%E5%9B%BE%E7%89%87%E5%92%8C%E4%B8%8B%E8%BD%BD/"
+    >spring boot同时上传多个图片和下载</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/04/spring%20boot%E5%90%8C%E6%97%B6%E4%B8%8A%E4%BC%A0%E5%A4%9A%E4%B8%AA%E5%9B%BE%E7%89%87%E5%92%8C%E4%B8%8B%E8%BD%BD/" class="article-date">
+  <time datetime="2020-03-04T03:32:00.671Z" itemprop="datePublished">2020-03-04</time>
+</a>
+      
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="spring-boot解决如何同时上传多个图片和下载的问题"><a href="#spring-boot解决如何同时上传多个图片和下载的问题" class="headerlink" title="spring boot解决如何同时上传多个图片和下载的问题"></a>spring boot解决如何同时上传多个图片和下载的问题</h2><p>[TOC]</p>
+<p>在平时的业务场景中，避免不了，要搭建文件上传服务器，作为公共服务。一般情况，只做了单个文件的上传，实际业务场景中，却发现单个文件上传，并不能满足一些业务需求，因此我们需要解决如何写一个同时上传多个文件的借口，并返回可下载的文件地址；</p>
+<p>废话不多讲，不再从头建立一个<code>Spring boot</code>项目，如果不知道的话，请直接前往官网查看实例。</p>
+<p>下面我们以上传图片为例，示例相对简单，仅供参考：</p>
+<h3 id="1-后端上传图片接口逻辑"><a href="#1-后端上传图片接口逻辑" class="headerlink" title="1 后端上传图片接口逻辑"></a>1 后端上传图片接口逻辑</h3><blockquote>
+<p>UploadController.java</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zz.controllers.fileUpload;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.zz.Application;</span><br><span class="line"><span class="keyword">import</span> com.zz.model.Response;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.web.server.LocalServerPort;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.multipart.MultipartFile;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.net.Inet4Address;</span><br><span class="line"><span class="keyword">import</span> java.net.InetAddress;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.UUID;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> com.zz.config.ConfigConstants.getFileDir;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UploadController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger log = LoggerFactory.getLogger(Application<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;server.port&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String port;</span><br><span class="line">    </span><br><span class="line">  	<span class="comment">//获取当前IP地址</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getIp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        InetAddress localhost = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            localhost = Inet4Address.getLocalHost();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            log.error(e.getMessage());</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> localhost.getHostAddress();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@PostMapping</span>(value = <span class="string">"/upload"</span>, consumes = &#123;<span class="string">"multipart/form-data"</span>&#125;)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Response <span class="title">upload</span><span class="params">(@RequestParam(<span class="string">"file"</span>)</span> MultipartFile[] files, Response response) </span>&#123;</span><br><span class="line">        log.info(<span class="string">"上传多个文件"</span>);</span><br><span class="line">        StringBuilder builder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="comment">// file address</span></span><br><span class="line">        String fileAddress =<span class="string">"http://"</span>+ getIp()+ <span class="string">":"</span> + port + File.separator;</span><br><span class="line">    </span><br><span class="line">        ArrayList&lt;String&gt; imgUrls = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; files.length; i++) &#123;</span><br><span class="line">                <span class="comment">// old file name</span></span><br><span class="line">                String fileName = files[i].getOriginalFilename();</span><br><span class="line">                <span class="comment">// new filename</span></span><br><span class="line">                String generateFileName = UUID.randomUUID().toString().replaceAll(<span class="string">"-"</span>, <span class="string">""</span>) + fileName.substring(fileName.lastIndexOf(<span class="string">"."</span>));</span><br><span class="line">                <span class="comment">// store filename</span></span><br><span class="line">                String distFileAddress = fileAddress + generateFileName;</span><br><span class="line">                builder.append(distFileAddress+<span class="string">","</span>);</span><br><span class="line">                imgUrls.add(distFileAddress);</span><br><span class="line">                <span class="comment">// generate file to disk</span></span><br><span class="line">                files[i].transferTo(<span class="keyword">new</span> File(getFileDir() + generateFileName));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        response.setMsg(<span class="string">"success"</span>);</span><br><span class="line">        log.info(builder.toString());</span><br><span class="line">        response.setData(imgUrls);</span><br><span class="line">        <span class="keyword">return</span> response;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>相对于单个文件的接收，我们这里直接接受多个<code>file</code>对象，然后遍历生成每个对应的地址。</p>
+<p>其中：</p>
+<blockquote>
+<p>getFileDir 设置存放图片的地址，我选择存在项目外的其他地方</p>
+<p>com.zz.config.ConfigConstants.getFileDir</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">package com.zz.config;</span><br><span class="line"></span><br><span class="line">public class ConfigConstants &#123;</span><br><span class="line">    </span><br><span class="line">    public static String fileDir;</span><br><span class="line">    </span><br><span class="line">    public static String getFileDir() &#123;</span><br><span class="line">        fileDir &#x3D; &quot;&#x2F;Users&#x2F;wz&#x2F;projects&#x2F;blog&#x2F;uploadFile&#x2F;&quot;;</span><br><span class="line">        return fileDir;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>当我们把文件生成到指定的文件夹后，我们如何配置在当前server下访问项目外的静态文件图片资源呢？</p>
+</blockquote>
+<p>这个我们就要利用<code>spring boot配置文件 application.yml,</code> 当前还有其他方法比如 <code>WebMvcConfigurer</code>   这里不再赘述。</p>
+<blockquote>
+<p>application.yml</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pring:</span></span><br><span class="line">  <span class="attr">jpa:</span></span><br><span class="line">    <span class="attr">show-sql:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">hibernate:</span></span><br><span class="line">      <span class="attr">ddl-auto:</span> <span class="string">update</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">servlet:</span></span><br><span class="line">    <span class="attr">multipart:</span></span><br><span class="line">      <span class="attr">max-file-size:</span> <span class="string">10MB</span></span><br><span class="line">      <span class="attr">max-request-size:</span> <span class="string">10MB</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 静态资源配置</span></span><br><span class="line">  <span class="attr">mvc:</span></span><br><span class="line">    <span class="attr">static-path-pattern:</span> <span class="string">/**</span></span><br><span class="line">  <span class="attr">resources:</span></span><br><span class="line">    <span class="attr">static-locations:</span> <span class="string">file:/Users/wz/projects/blog/uploadFile/,classpath:/static/,classpath:/resources/,classpath:/file/,classpath:/templates/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">use-forward-headers:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">tomcat:</span></span><br><span class="line">    <span class="attr">remote-ip-header:</span> <span class="string">X-Real-IP</span></span><br><span class="line">    <span class="attr">protocol-header:</span> <span class="string">X-Forwarded-Proto</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#自定义</span></span><br><span class="line"><span class="attr">my:</span></span><br><span class="line">  <span class="attr">tokenURL:</span> <span class="string">"55555"</span></span><br><span class="line">  <span class="attr">authURL:</span> <span class="string">"88888"</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>这样之后我们在生成的结果中的 <code>http://192.168.31.77:8080/a7ef32e3922b46aea256a93dd53de288.png</code>,这样的地址就可以把文件实质性的指向了<code>file:/Users/wz/projects/blog/uploadFile/</code>,这样大致就是一个简单文件服务器的配置了，当然远不及此，还有压缩一类的功能，后续再聊。</p>
+<p>后端逻辑已经很清晰；</p>
+<p>那前端如何向后端同时发送多个<code>file</code>对象呢？</p>
+<h3 id="2-前端多个文件上传如何传参"><a href="#2-前端多个文件上传如何传参" class="headerlink" title="2 前端多个文件上传如何传参"></a>2 前端多个文件上传如何传参</h3><blockquote>
+<p>html</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">multiple</span> <span class="attr">class</span>=<span class="string">"el-upload"</span> <span class="attr">accept</span>=<span class="string">"image/*"</span> <span class="attr">name</span>=<span class="string">"file"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//upload</span></span><br><span class="line"><span class="keyword">var</span> uploadBtn = <span class="built_in">document</span>.querySelector(<span class="string">'.el-upload'</span>);</span><br><span class="line"></span><br><span class="line">uploadBtn.onchange = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> files = <span class="keyword">this</span>.files;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.files);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    xhr.open(<span class="string">"post"</span>, <span class="string">"/upload"</span>, <span class="literal">true</span>);</span><br><span class="line">    <span class="comment">// xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");</span></span><br><span class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.readyState === XMLHttpRequest.DONE &amp;&amp; <span class="keyword">this</span>.status === <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.responseText));</span><br><span class="line">            <span class="keyword">const</span> &#123;data&#125; = <span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.responseText);</span><br><span class="line">            <span class="keyword">if</span>(!data) <span class="keyword">return</span>;</span><br><span class="line">            <span class="keyword">const</span> imageList = data.slice(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">let</span> imageStr = <span class="string">''</span>;</span><br><span class="line">            imageList.forEach(<span class="function"><span class="params">img</span>=&gt;</span>&#123;</span><br><span class="line">                imageStr += <span class="string">`&lt;img src="<span class="subst">$&#123;img&#125;</span>" /&gt;`</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">"result"</span>).innerHTML = imageStr;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> formData = <span class="keyword">new</span> FormData();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 多个file 同时上传</span></span><br><span class="line">    <span class="keyword">if</span>(files &amp;&amp; files.length)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;files.length;i++) &#123;</span><br><span class="line">            formData.append(<span class="string">"file"</span>, files[i])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(formData);</span><br><span class="line"></span><br><span class="line">    xhr.send(formData);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>前端通过<code>FormData</code>传参数发送POST请求；</p>
+<p>区别于之前的单个<code>formData.append();</code> 这里我们可以同时<code>append</code>多个相同名字的文件二进制文件流；</p>
+<p><img src="assets/image-20191123234150228-4523763.png" alt="image-20191123234150228"></p>
+<p><img src="assets/image-20191123234325831.png" alt="image-20191123234325831"></p>
+<p><img src="assets/image-20191123234358451.png" alt="image-20191123234358451"></p>
+<p><img src="assets/image-20191123234557023.png" alt="image-20191123234557023"></p>
+<p>如图结果正常显示，当我们部署到服务器的时候，这个就可以当作一个web服务器供大家使用。</p>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-spring boot从零搭建登录注册功能并进行所有接口验证" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -604,7 +718,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="./2020/03/04/spring%20boot%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD%E5%B9%B6%E8%BF%9B%E8%A1%8C%E6%89%80%E6%9C%89%E6%8E%A5%E5%8F%A3%E9%AA%8C%E8%AF%81/"
+  <a class="article-title" href="/2020/03/04/spring%20boot%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD%E5%B9%B6%E8%BF%9B%E8%A1%8C%E6%89%80%E6%9C%89%E6%8E%A5%E5%8F%A3%E9%AA%8C%E8%AF%81/"
     >spring boot从零搭建登录注册功能并进行所有接口验证</a
   >
 </h2>
@@ -615,7 +729,7 @@
 
     
     <div class="article-meta">
-      <a href="./2020/03/04/spring%20boot%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD%E5%B9%B6%E8%BF%9B%E8%A1%8C%E6%89%80%E6%9C%89%E6%8E%A5%E5%8F%A3%E9%AA%8C%E8%AF%81/" class="article-date">
+      <a href="/2020/03/04/spring%20boot%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD%E5%B9%B6%E8%BF%9B%E8%A1%8C%E6%89%80%E6%9C%89%E6%8E%A5%E5%8F%A3%E9%AA%8C%E8%AF%81/" class="article-date">
   <time datetime="2020-03-04T03:32:00.671Z" itemprop="datePublished">2020-03-04</time>
 </a>
       
@@ -902,120 +1016,6 @@
 
 </article>
     
-    <article id="post-spring boot同时上传多个图片和下载" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="./2020/03/04/spring%20boot%E5%90%8C%E6%97%B6%E4%B8%8A%E4%BC%A0%E5%A4%9A%E4%B8%AA%E5%9B%BE%E7%89%87%E5%92%8C%E4%B8%8B%E8%BD%BD/"
-    >spring boot同时上传多个图片和下载</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="./2020/03/04/spring%20boot%E5%90%8C%E6%97%B6%E4%B8%8A%E4%BC%A0%E5%A4%9A%E4%B8%AA%E5%9B%BE%E7%89%87%E5%92%8C%E4%B8%8B%E8%BD%BD/" class="article-date">
-  <time datetime="2020-03-04T03:32:00.671Z" itemprop="datePublished">2020-03-04</time>
-</a>
-      
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h2 id="spring-boot解决如何同时上传多个图片和下载的问题"><a href="#spring-boot解决如何同时上传多个图片和下载的问题" class="headerlink" title="spring boot解决如何同时上传多个图片和下载的问题"></a>spring boot解决如何同时上传多个图片和下载的问题</h2><p>[TOC]</p>
-<p>在平时的业务场景中，避免不了，要搭建文件上传服务器，作为公共服务。一般情况，只做了单个文件的上传，实际业务场景中，却发现单个文件上传，并不能满足一些业务需求，因此我们需要解决如何写一个同时上传多个文件的借口，并返回可下载的文件地址；</p>
-<p>废话不多讲，不再从头建立一个<code>Spring boot</code>项目，如果不知道的话，请直接前往官网查看实例。</p>
-<p>下面我们以上传图片为例，示例相对简单，仅供参考：</p>
-<h3 id="1-后端上传图片接口逻辑"><a href="#1-后端上传图片接口逻辑" class="headerlink" title="1 后端上传图片接口逻辑"></a>1 后端上传图片接口逻辑</h3><blockquote>
-<p>UploadController.java</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zz.controllers.fileUpload;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.zz.Application;</span><br><span class="line"><span class="keyword">import</span> com.zz.model.Response;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.web.server.LocalServerPort;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.multipart.MultipartFile;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.net.Inet4Address;</span><br><span class="line"><span class="keyword">import</span> java.net.InetAddress;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.UUID;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> com.zz.config.ConfigConstants.getFileDir;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UploadController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger log = LoggerFactory.getLogger(Application<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;server.port&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String port;</span><br><span class="line">    </span><br><span class="line">  	<span class="comment">//获取当前IP地址</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getIp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        InetAddress localhost = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            localhost = Inet4Address.getLocalHost();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            log.error(e.getMessage());</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> localhost.getHostAddress();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@PostMapping</span>(value = <span class="string">"/upload"</span>, consumes = &#123;<span class="string">"multipart/form-data"</span>&#125;)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Response <span class="title">upload</span><span class="params">(@RequestParam(<span class="string">"file"</span>)</span> MultipartFile[] files, Response response) </span>&#123;</span><br><span class="line">        log.info(<span class="string">"上传多个文件"</span>);</span><br><span class="line">        StringBuilder builder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="comment">// file address</span></span><br><span class="line">        String fileAddress =<span class="string">"http://"</span>+ getIp()+ <span class="string">":"</span> + port + File.separator;</span><br><span class="line">    </span><br><span class="line">        ArrayList&lt;String&gt; imgUrls = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; files.length; i++) &#123;</span><br><span class="line">                <span class="comment">// old file name</span></span><br><span class="line">                String fileName = files[i].getOriginalFilename();</span><br><span class="line">                <span class="comment">// new filename</span></span><br><span class="line">                String generateFileName = UUID.randomUUID().toString().replaceAll(<span class="string">"-"</span>, <span class="string">""</span>) + fileName.substring(fileName.lastIndexOf(<span class="string">"."</span>));</span><br><span class="line">                <span class="comment">// store filename</span></span><br><span class="line">                String distFileAddress = fileAddress + generateFileName;</span><br><span class="line">                builder.append(distFileAddress+<span class="string">","</span>);</span><br><span class="line">                imgUrls.add(distFileAddress);</span><br><span class="line">                <span class="comment">// generate file to disk</span></span><br><span class="line">                files[i].transferTo(<span class="keyword">new</span> File(getFileDir() + generateFileName));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        response.setMsg(<span class="string">"success"</span>);</span><br><span class="line">        log.info(builder.toString());</span><br><span class="line">        response.setData(imgUrls);</span><br><span class="line">        <span class="keyword">return</span> response;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>相对于单个文件的接收，我们这里直接接受多个<code>file</code>对象，然后遍历生成每个对应的地址。</p>
-<p>其中：</p>
-<blockquote>
-<p>getFileDir 设置存放图片的地址，我选择存在项目外的其他地方</p>
-<p>com.zz.config.ConfigConstants.getFileDir</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">package com.zz.config;</span><br><span class="line"></span><br><span class="line">public class ConfigConstants &#123;</span><br><span class="line">    </span><br><span class="line">    public static String fileDir;</span><br><span class="line">    </span><br><span class="line">    public static String getFileDir() &#123;</span><br><span class="line">        fileDir &#x3D; &quot;&#x2F;Users&#x2F;wz&#x2F;projects&#x2F;blog&#x2F;uploadFile&#x2F;&quot;;</span><br><span class="line">        return fileDir;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>当我们把文件生成到指定的文件夹后，我们如何配置在当前server下访问项目外的静态文件图片资源呢？</p>
-</blockquote>
-<p>这个我们就要利用<code>spring boot配置文件 application.yml,</code> 当前还有其他方法比如 <code>WebMvcConfigurer</code>   这里不再赘述。</p>
-<blockquote>
-<p>application.yml</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pring:</span></span><br><span class="line">  <span class="attr">jpa:</span></span><br><span class="line">    <span class="attr">show-sql:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">hibernate:</span></span><br><span class="line">      <span class="attr">ddl-auto:</span> <span class="string">update</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">servlet:</span></span><br><span class="line">    <span class="attr">multipart:</span></span><br><span class="line">      <span class="attr">max-file-size:</span> <span class="string">10MB</span></span><br><span class="line">      <span class="attr">max-request-size:</span> <span class="string">10MB</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 静态资源配置</span></span><br><span class="line">  <span class="attr">mvc:</span></span><br><span class="line">    <span class="attr">static-path-pattern:</span> <span class="string">/**</span></span><br><span class="line">  <span class="attr">resources:</span></span><br><span class="line">    <span class="attr">static-locations:</span> <span class="string">file:/Users/wz/projects/blog/uploadFile/,classpath:/static/,classpath:/resources/,classpath:/file/,classpath:/templates/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">use-forward-headers:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">tomcat:</span></span><br><span class="line">    <span class="attr">remote-ip-header:</span> <span class="string">X-Real-IP</span></span><br><span class="line">    <span class="attr">protocol-header:</span> <span class="string">X-Forwarded-Proto</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#自定义</span></span><br><span class="line"><span class="attr">my:</span></span><br><span class="line">  <span class="attr">tokenURL:</span> <span class="string">"55555"</span></span><br><span class="line">  <span class="attr">authURL:</span> <span class="string">"88888"</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>这样之后我们在生成的结果中的 <code>http://192.168.31.77:8080/a7ef32e3922b46aea256a93dd53de288.png</code>,这样的地址就可以把文件实质性的指向了<code>file:/Users/wz/projects/blog/uploadFile/</code>,这样大致就是一个简单文件服务器的配置了，当然远不及此，还有压缩一类的功能，后续再聊。</p>
-<p>后端逻辑已经很清晰；</p>
-<p>那前端如何向后端同时发送多个<code>file</code>对象呢？</p>
-<h3 id="2-前端多个文件上传如何传参"><a href="#2-前端多个文件上传如何传参" class="headerlink" title="2 前端多个文件上传如何传参"></a>2 前端多个文件上传如何传参</h3><blockquote>
-<p>html</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">multiple</span> <span class="attr">class</span>=<span class="string">"el-upload"</span> <span class="attr">accept</span>=<span class="string">"image/*"</span> <span class="attr">name</span>=<span class="string">"file"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>js</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//upload</span></span><br><span class="line"><span class="keyword">var</span> uploadBtn = <span class="built_in">document</span>.querySelector(<span class="string">'.el-upload'</span>);</span><br><span class="line"></span><br><span class="line">uploadBtn.onchange = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> files = <span class="keyword">this</span>.files;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.files);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    xhr.open(<span class="string">"post"</span>, <span class="string">"/upload"</span>, <span class="literal">true</span>);</span><br><span class="line">    <span class="comment">// xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");</span></span><br><span class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.readyState === XMLHttpRequest.DONE &amp;&amp; <span class="keyword">this</span>.status === <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.responseText));</span><br><span class="line">            <span class="keyword">const</span> &#123;data&#125; = <span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.responseText);</span><br><span class="line">            <span class="keyword">if</span>(!data) <span class="keyword">return</span>;</span><br><span class="line">            <span class="keyword">const</span> imageList = data.slice(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">let</span> imageStr = <span class="string">''</span>;</span><br><span class="line">            imageList.forEach(<span class="function"><span class="params">img</span>=&gt;</span>&#123;</span><br><span class="line">                imageStr += <span class="string">`&lt;img src="<span class="subst">$&#123;img&#125;</span>" /&gt;`</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">"result"</span>).innerHTML = imageStr;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> formData = <span class="keyword">new</span> FormData();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 多个file 同时上传</span></span><br><span class="line">    <span class="keyword">if</span>(files &amp;&amp; files.length)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;files.length;i++) &#123;</span><br><span class="line">            formData.append(<span class="string">"file"</span>, files[i])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(formData);</span><br><span class="line"></span><br><span class="line">    xhr.send(formData);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>前端通过<code>FormData</code>传参数发送POST请求；</p>
-<p>区别于之前的单个<code>formData.append();</code> 这里我们可以同时<code>append</code>多个相同名字的文件二进制文件流；</p>
-<p><img src="assets/image-20191123234150228-4523763.png" alt="image-20191123234150228"></p>
-<p><img src="assets/image-20191123234325831.png" alt="image-20191123234325831"></p>
-<p><img src="assets/image-20191123234358451.png" alt="image-20191123234358451"></p>
-<p><img src="assets/image-20191123234557023.png" alt="image-20191123234557023"></p>
-<p>如图结果正常显示，当我们部署到服务器的时候，这个就可以当作一个web服务器供大家使用。</p>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
     <article id="post-RESETful API 设计规范" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -1024,7 +1024,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="./2020/03/04/RESETful%20API%20%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/"
+  <a class="article-title" href="/2020/03/04/RESETful%20API%20%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/"
     >RESETful API 设计规范</a
   >
 </h2>
@@ -1035,7 +1035,7 @@
 
     
     <div class="article-meta">
-      <a href="./2020/03/04/RESETful%20API%20%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/" class="article-date">
+      <a href="/2020/03/04/RESETful%20API%20%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/" class="article-date">
   <time datetime="2020-03-04T03:32:00.457Z" itemprop="datePublished">2020-03-04</time>
 </a>
       
@@ -1499,7 +1499,7 @@
     <ul class="list-inline">
       <li>
         &copy;
-        2015-2020
+        2020
         Alex Wong
       </li>
       <li>
@@ -1523,9 +1523,11 @@
       </li>
       
       <li>
+        <a href="http://www.beian.miit.gov.cn/" target="_black">浙ICP备88888888</a>
+      </li>
+      
+      <li>
         <!-- cnzz统计 -->
-        
-        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
         
       </li>
     </ul>
@@ -1542,29 +1544,29 @@
 <nav class="navbar">
   
   <div class="logo">
-    <a href="./"><img src="./images/ayer-side.svg" alt="欢迎来到个人博客"></a>
+    <a href="/"><img src="./images/ayer-side.svg" alt="欢迎来到个人博客"></a>
   </div>
   
   <ul class="nav nav-main">
     
     <li class="nav-item">
-      <a class="nav-item-link" href="./">主页</a>
+      <a class="nav-item-link" href="/">主页</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="./archives">归档</a>
+      <a class="nav-item-link" href="/archives">归档</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="./categories">分类</a>
+      <a class="nav-item-link" href="/categories">分类</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="./tags">标签</a>
+      <a class="nav-item-link" href="/tags">标签</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="./tags/%E6%97%85%E8%A1%8C/">旅行</a>
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
     </li>
     
     <li class="nav-item">
@@ -1572,7 +1574,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="./2019/about">关于我</a>
+      <a class="nav-item-link" href="/2019/about">关于我</a>
     </li>
     
   </ul>
@@ -1586,7 +1588,7 @@
       </a>
       
       
-      <a class="nav-item-link" target="_blank" href="././atom.xml" title="RSS Feed">
+      <a class="nav-item-link" target="_blank" href="/./atom.xml" title="RSS Feed">
         <i class="ri-rss-line"></i>
       </a>
       
@@ -1609,36 +1611,36 @@
   <div class="reward-box">
     
     <div class="reward-item">
-      <img class="reward-img" src="././images/alipay.jpg">
+      <img class="reward-img" src="/./images/alipay.jpg">
       <span class="reward-type">支付宝</span>
     </div>
     
     
     <div class="reward-item">
-      <img class="reward-img" src="././images/wechat.jpg">
+      <img class="reward-img" src="/./images/wechat.jpg">
       <span class="reward-type">微信</span>
     </div>
     
   </div>
 </div>
     
-<script src="./js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery-2.0.3.min.js"></script>
 
 
-<script src="./js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
 
 
-<script src="./js/lazyload.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
 
 
-<script src="./js/busuanzi-2.3.pure.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
 
 
-<script src="./js/share.js"></script>
+<script src="/js/share.js"></script>
 
 
 
-<script src="./fancybox/jquery.fancybox.min.js"></script>
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
@@ -1668,7 +1670,7 @@
 </script>
 
 
-<script src="./js/ayer.js"></script>
+<script src="/js/ayer.js"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
@@ -1787,6 +1789,23 @@
 
 <script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
 
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=22707008&auto=1&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
     
   </div>
 </body>

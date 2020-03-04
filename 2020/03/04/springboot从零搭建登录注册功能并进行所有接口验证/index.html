@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    spring boot从零搭建登录注册功能并进行所有接口验证 |  欢迎来到Alex wong的个人博客
+    springboot从零搭建登录注册功能并进行所有接口验证 |  欢迎来到Alex wong的个人博客
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-spring boot从零搭建登录注册功能并进行所有接口验证" class="article article-type-post" itemscope
+  <article id="post-springboot从零搭建登录注册功能并进行所有接口验证" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  spring boot从零搭建登录注册功能并进行所有接口验证
+  springboot从零搭建登录注册功能并进行所有接口验证
 </h1>
   
 
@@ -48,7 +48,7 @@
 
     
     <div class="article-meta">
-      <a href="/2020/03/04/spring%20boot%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD%E5%B9%B6%E8%BF%9B%E8%A1%8C%E6%89%80%E6%9C%89%E6%8E%A5%E5%8F%A3%E9%AA%8C%E8%AF%81/" class="article-date">
+      <a href="/2020/03/04/springboot%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD%E5%B9%B6%E8%BF%9B%E8%A1%8C%E6%89%80%E6%9C%89%E6%8E%A5%E5%8F%A3%E9%AA%8C%E8%AF%81/" class="article-date">
   <time datetime="2020-03-04T03:32:00.671Z" itemprop="datePublished">2020-03-04</time>
 </a>
       
@@ -95,13 +95,13 @@
       
 
       
-      <h3 id="spring-boot从零搭建登录注册功能并进行所有接口验证"><a href="#spring-boot从零搭建登录注册功能并进行所有接口验证" class="headerlink" title="spring boot从零搭建登录注册功能并进行所有接口验证"></a><img src="assets/image-20191207125855636.png" alt="image-20191207125855636">spring boot从零搭建登录注册功能并进行所有接口验证</h3><p>[TOC]</p>
+      <h3 id="spring-boot从零搭建登录注册功能并进行所有接口验证"><a href="#spring-boot从零搭建登录注册功能并进行所有接口验证" class="headerlink" title="spring boot从零搭建登录注册功能并进行所有接口验证"></a><img src="/.io//image-20191207125855636.png" alt="image-20191207125855636">spring boot从零搭建登录注册功能并进行所有接口验证</h3><p>[TOC]</p>
 <p>目前大多项目是前后端分离。在后台接口服务开发过程中，往往我们需要先搭建一个基础服务，比如登录注册功能、自动对所有的接口进行token的安全校验等，这样可以防范安全问题的出现。并且这样后续的同事可以只关注业务代码的开发，不需要关心基础架构服务的实现。</p>
 <p>这次我准备搭建一个简单的后台服务，用的是<code>spring boot + mysql + mybatis</code>。</p>
 <h4 id="1、搭建Spring-boot项目"><a href="#1、搭建Spring-boot项目" class="headerlink" title="1、搭建Spring boot项目"></a>1、搭建Spring boot项目</h4><p>首先我们使用IDEA自带的初始化项目功能，创建一个Spring boot项目，如图：</p>
-<p><img src="./assets/image-20191207125203878.png" alt="image-20191207125203878"></p>
+<p><img src="/.io//image-20191207125203878.png" alt="image-20191207125203878"></p>
 <p>或者在线生成，<a href="https://start.spring.io/" target="_blank" rel="noopener">点击进入</a></p>
-<p><img src="assets/16ee2c228a6ffd63.png" alt=""></p>
+<p><img src="/.io//16ee2c228a6ffd63.png" alt></p>
 <blockquote>
 <p>pom.xml</p>
 </blockquote>
@@ -109,7 +109,7 @@
 <blockquote>
 <p>maven更改为国内阿里云镜像，这样比较快</p>
 </blockquote>
-<p><img src="assets/16ee2c8c324e66aa.png" alt=""></p>
+<p><img src="/.io//16ee2c8c324e66aa.png" alt></p>
 <p>settings.xml:</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">settings</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/SETTINGS/1.0.0"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/SETTINGS/1.0.0</span></span></span><br><span class="line"><span class="tag"><span class="string">    https://maven.apache.org/xsd/settings-1.0.0.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -118,7 +118,7 @@
 <blockquote>
 <p>Mybatis 推荐插件如下：</p>
 </blockquote>
-<p><img src="assets/image-20191207125851843.png" alt="image-20191207125851843"></p>
+<p><img src="/.io//image-20191207125851843.png" alt="image-20191207125851843"></p>
 <blockquote>
 <p>application.yml</p>
 </blockquote>
@@ -132,7 +132,7 @@
 <blockquote>
 <p>大概目录结构如下</p>
 </blockquote>
-<p><img src="assets/image-20191207133758025.png" alt="image-20191207133758025"></p>
+<p><img src="/.io//image-20191207133758025.png" alt="image-20191207133758025"></p>
 <p>搭建细节不再赘述；</p>
 <h4 id="2、读取自定义配置文件"><a href="#2、读取自定义配置文件" class="headerlink" title="2、读取自定义配置文件"></a>2、读取自定义配置文件</h4><blockquote>
 <p>com.zz.config.MyConfiguration</p>
@@ -236,20 +236,20 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取相关用户信息</span></span><br><span class="line"><span class="keyword">const</span> userNameInput = <span class="built_in">document</span>.getElementById(<span class="string">"js_input——user"</span>);</span><br><span class="line"><span class="keyword">const</span> passwordInput = <span class="built_in">document</span>.getElementById(<span class="string">"js_input——pwd"</span>);</span><br><span class="line"><span class="keyword">const</span> passwordConfirmInput = <span class="built_in">document</span>.getElementById(<span class="string">"js_input——pwd2"</span>);</span><br><span class="line"><span class="keyword">const</span> submitBtn = <span class="built_in">document</span>.getElementById(<span class="string">"submit"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// submit</span></span><br><span class="line">submitBtn.onclick = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> userName = userNameInput.value;</span><br><span class="line">	<span class="keyword">const</span> password = passwordInput.value;</span><br><span class="line">	<span class="keyword">const</span> confirmPassword = passwordConfirmInput.value;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// verify</span></span><br><span class="line">	<span class="keyword">if</span> (!userName) &#123;</span><br><span class="line">		weui.topTips(<span class="string">'用户姓名不能为空'</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (!password) &#123;</span><br><span class="line">		weui.topTips(<span class="string">'用户密码不能为空'</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (confirmPassword !== password) &#123;</span><br><span class="line">		weui.topTips(<span class="string">'前后密码不一致，请重试'</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 加密密码</span></span><br><span class="line">	<span class="keyword">const</span> newPassword = utils.generateMd5(userName, password);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 注册</span></span><br><span class="line">	dataService.addUser(&#123;</span><br><span class="line">		userName,</span><br><span class="line">		password: newPassword,</span><br><span class="line">	&#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">		<span class="keyword">const</span> &#123;code, data, msg&#125; = res;</span><br><span class="line">		<span class="keyword">if</span> (!data) &#123;</span><br><span class="line">			weui.topTips(msg);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			weui.topTips(<span class="string">`注册成功，欢迎 <span class="subst">$&#123;data.userName&#125;</span>`</span>);</span><br><span class="line">			<span class="built_in">window</span>.location.href = location.origin + <span class="string">'/login.html'</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>效果如图：</p>
-<p><img src="assets/image-20191207144736880.png" alt=""></p>
+<p><img src="/.io//image-20191207144736880.png" alt></p>
 <blockquote>
 <p>增加一些基本的校验</p>
 </blockquote>
-<p><img src="assets/image-20191207145008765.png" alt="image-20191207145008765"></p>
+<p><img src="/.io//image-20191207145008765.png" alt="image-20191207145008765"></p>
 <blockquote>
 <p>用户密码加密传输，并验证新用户是否已经注册</p>
 </blockquote>
-<p><img src="assets/image-20191207145612200.png" alt="image-20191207145612200"></p>
-<p><img src="assets/image-20191207150016196.png" alt="image-20191207150016196"></p>
+<p><img src="/.io//image-20191207145612200.png" alt="image-20191207145612200"></p>
+<p><img src="/.io//image-20191207150016196.png" alt="image-20191207150016196"></p>
 <blockquote>
 <p>mysql 查看下用户表</p>
 </blockquote>
-<p><img src="assets/image-20191207150530465.png" alt="image-20191207150530465"></p>
+<p><img src="/.io//image-20191207150530465.png" alt="image-20191207150530465"></p>
 <h4 id="11、后端-用户登录功能"><a href="#11、后端-用户登录功能" class="headerlink" title="11、后端-用户登录功能"></a>11、后端-用户登录功能</h4><p>按上面第9步骤所述，下面的添加内容，请直接添加到上述服务中，不再全部展示代码。</p>
 <blockquote>
 <p>com.zz.newController.UserController</p>
@@ -287,9 +287,9 @@
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取相关用户信息</span></span><br><span class="line"><span class="keyword">const</span> userNameInput = <span class="built_in">document</span>.getElementById(<span class="string">"js_input——user"</span>);</span><br><span class="line"><span class="keyword">const</span> passwordInput = <span class="built_in">document</span>.getElementById(<span class="string">"js_input——pwd"</span>);</span><br><span class="line"><span class="keyword">const</span> submitBtn = <span class="built_in">document</span>.getElementById(<span class="string">"submit"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// submit</span></span><br><span class="line">submitBtn.onclick = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> userName = userNameInput.value;</span><br><span class="line">	<span class="keyword">const</span> password = passwordInput.value;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// verify</span></span><br><span class="line">	<span class="keyword">if</span> (!userName) &#123;</span><br><span class="line">		weui.topTips(<span class="string">'用户姓名不能为空'</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (!password) &#123;</span><br><span class="line">		weui.topTips(<span class="string">'用户密码不能为空'</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 加密密码</span></span><br><span class="line">	<span class="keyword">const</span> newPassword = utils.generateMd5(userName, password);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 注册</span></span><br><span class="line">	dataService.login(&#123;</span><br><span class="line">		userName,</span><br><span class="line">		password: newPassword,</span><br><span class="line">	&#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">		<span class="keyword">const</span> &#123;code, data, msg&#125; = res;</span><br><span class="line">		<span class="keyword">if</span> (!data) &#123;</span><br><span class="line">			weui.topTips(msg);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			weui.topTips(<span class="string">`登录成功，欢迎 <span class="subst">$&#123;data.userName&#125;</span>`</span>);</span><br><span class="line">			utils.setCookie(<span class="string">'token'</span>, data.token);</span><br><span class="line">			location.href = location.origin + <span class="string">'/home.html'</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p><img src="assets/image-20191207152034072.png" alt="image-20191207152034072"></p>
-<p><img src="assets/image-20191207152244301.png" alt="image-20191207152244301"></p>
-<p><img src="assets/image-20191207152343686.png" alt="image-20191207152343686"></p>
+<p><img src="/.io//image-20191207152034072.png" alt="image-20191207152034072"></p>
+<p><img src="/.io//image-20191207152244301.png" alt="image-20191207152244301"></p>
+<p><img src="/.io//image-20191207152343686.png" alt="image-20191207152343686"></p>
 <p>登录接口返回用户凭证token，后续用来校验用户接口，增加安全性。</p>
 <h4 id="13、增加自定义注解和拦截器"><a href="#13、增加自定义注解和拦截器" class="headerlink" title="13、增加自定义注解和拦截器"></a>13、增加自定义注解和拦截器</h4><p>在常规的业务开发中，切记不可把接口服务暴露给任何人都可以访问，不然别人可以任意查看或者修改你的数据，这是很严重的事情。除了常规从网段IP方面限制固定客户端IP的范围，接口本身也要增加安全验证，这个时候我们就需要用到之前生成的用户凭证token;</p>
 <p>问题是我们如果自定义控制，哪些接口是需要经过验证，哪些接口是不需要通过验证的呢？有人可能会说，直接全部验证不就可以啦，何苦纠结。但是在真实的业务中，有些接口是不能强制校验的，比如一些用户分享到微信的那种接口，是不能增加验证，否则分享的页面无法正常显示。</p>
@@ -321,18 +321,18 @@
 <blockquote>
 <p>成功获取用户信息</p>
 </blockquote>
-<p><img src="assets/image-20191207154357109.png" alt="image-20191207154357109"></p>
+<p><img src="/.io//image-20191207154357109.png" alt="image-20191207154357109"></p>
 <blockquote>
 <p>删除token</p>
 </blockquote>
-<p><img src="assets/image-20191207154505224.png" alt="image-20191207154505224"></p>
-<p><img src="assets/image-20191207154542523.png" alt="image-20191207154542523"></p>
+<p><img src="/.io//image-20191207154505224.png" alt="image-20191207154505224"></p>
+<p><img src="/.io//image-20191207154542523.png" alt="image-20191207154542523"></p>
 <blockquote>
 <p>Token 故意改错</p>
 </blockquote>
-<p><img src="assets/image-20191207154655011.png" alt="image-20191207154655011"></p>
-<p><img src="assets/image-20191207154738162.png" alt="image-20191207154738162"></p>
-<p><img src="assets/image-20191207154806418.png" alt="image-20191207154806418"></p>
+<p><img src="/.io//image-20191207154655011.png" alt="image-20191207154655011"></p>
+<p><img src="/.io//image-20191207154738162.png" alt="image-20191207154738162"></p>
+<p><img src="/.io//image-20191207154806418.png" alt="image-20191207154806418"></p>
 <p>到此，验证过程完美成功；</p>
 <h4 id="14、总结"><a href="#14、总结" class="headerlink" title="14、总结"></a>14、总结</h4><p>以上过程，只是一个简单服务的搭建，真实的服务还需要更多配置，比如XSS配置防止XSS攻击等。好了，本篇文章到此为止，如果有哪里描述得不清楚，请多多包涵。</p>
 
@@ -371,19 +371,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/03/04/spring%20boot%E5%90%8C%E6%97%B6%E4%B8%8A%E4%BC%A0%E5%A4%9A%E4%B8%AA%E5%9B%BE%E7%89%87%E5%92%8C%E4%B8%8B%E8%BD%BD/" class="article-nav-link">
+      <a href="/2020/03/04/springboot%E7%94%9F%E6%88%90%E5%8A%A8%E6%80%81%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B9%B6%E9%AA%8C%E8%AF%81/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            spring boot同时上传多个图片和下载
+            springboot生成动态验证码并验证
           
         </div>
       </a>
     
     
-      <a href="/2020/03/04/RESETful%20API%20%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/" class="article-nav-link">
+      <a href="/2020/03/04/springboot%E5%90%8C%E6%97%B6%E4%B8%8A%E4%BC%A0%E5%A4%9A%E4%B8%AA%E5%9B%BE%E7%89%87%E5%92%8C%E4%B8%8B%E8%BD%BD/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">RESETful API 设计规范</div>
+        <div class="article-nav-title">springboot同时上传多个图片和下载</div>
       </a>
     
   </nav>

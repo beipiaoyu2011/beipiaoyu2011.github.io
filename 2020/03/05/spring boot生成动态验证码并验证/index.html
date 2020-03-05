@@ -49,9 +49,13 @@
     
     <div class="article-meta">
       <a href="" class="article-date">
-  <time datetime="2020-03-04T03:32:00.672Z" itemprop="datePublished">2020-03-04</time>
+  <time datetime="2020-03-04T23:38:32.733Z" itemprop="datePublished">2020-03-05</time>
 </a>
       
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
       
       
 <div class="word_count">
@@ -156,6 +160,8 @@
     <footer class="article-footer">
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/spring-boot/" rel="tag">spring boot</a></li></ul>
+
 
     </footer>
 
@@ -165,19 +171,19 @@
   
   <nav class="article-nav">
     
-      <a href="../%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83/" class="article-nav-link">
+      <a href="../spring%20boot%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD%E5%B9%B6%E8%BF%9B%E8%A1%8C%E6%89%80%E6%9C%89%E6%8E%A5%E5%8F%A3%E9%AA%8C%E8%AF%81/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            前端规范
+            spring boot从零搭建登录注册功能并进行所有接口验证
           
         </div>
       </a>
     
     
-      <a href="../spring%20boot%E5%90%8C%E6%97%B6%E4%B8%8A%E4%BC%A0%E5%A4%9A%E4%B8%AA%E5%9B%BE%E7%89%87%E5%92%8C%E4%B8%8B%E8%BD%BD/" class="article-nav-link">
+      <a href="../%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">spring boot同时上传多个图片和下载</div>
+        <div class="article-nav-title">前端规范</div>
       </a>
     
   </nav>
@@ -291,7 +297,7 @@
 <nav class="navbar">
   
   <div class="logo">
-    <a href="../../../../index.html"><img src="/images/ayer-side.svg" alt="欢迎来到Alex的博客"></a>
+    <a href="../../../../index.html"><img src="/images/logo.png" alt="欢迎来到Alex的博客"></a>
   </div>
   
   <ul class="nav nav-main">
@@ -313,15 +319,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="../../../../tags/%E6%97%85%E8%A1%8C/">旅行</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="../../../../http:/shenyu-vip.lofter.com">摄影</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="../../../../2019/about">关于我</a>
+      <a class="nav-item-link" href="../../../../about">关于我</a>
     </li>
     
   </ul>
@@ -354,7 +352,7 @@
 <!-- #reward -->
 <div id="reward">
   <span class="close"><i class="ri-close-line"></i></span>
-  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧～～～</p>
   <div class="reward-box">
     
     <div class="reward-item">
@@ -399,7 +397,7 @@
     startDelay: 0,
     typeSpeed: 200,
     loop: true,
-    backSpeed: 100,
+    backSpeed: 300,
     showCursor: true
     });
   } catch (err) {
@@ -436,7 +434,7 @@
 
 <script>
   var ayerConfig = {
-    mathjax: false
+    mathjax: true
   }
 </script>
 
@@ -556,6 +554,25 @@
 </script>
 
 
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
 <script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>

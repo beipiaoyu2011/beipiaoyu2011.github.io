@@ -3,10 +3,12 @@
 
 <head>
   <meta charset="utf-8" />
-    
+   
+  <meta name="keywords" content="beipiaoyu2011" />
+   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-     欢迎来到Alex的博客
+     欢迎来到Alex的世界
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -43,7 +45,7 @@
       <img src="/images/cover4.jpg" alt="image frame" />
     </div>
     <div class="cover-inner text-center text-white">
-      <h1><a href="../../index.html">欢迎来到Alex的博客</a></h1>
+      <h1><a href="../../index.html">欢迎来到Alex的世界</a></h1>
       <div id="subtitle-box">
         
         <span id="subtitle"></span>
@@ -70,7 +72,7 @@
     
     
     
-    <article id="post-前端/并发模式和 Event Loop 事件循环解读" class="article article-type-post" itemscope
+    <article id="post-网络/List-of-HTTP-header-fields" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -78,8 +80,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="../../2019/06/06/%E5%89%8D%E7%AB%AF/%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%BC%8F%E5%92%8C%20Event%20Loop%20%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E8%A7%A3%E8%AF%BB/"
-    >JavaScript - 并发模式和 Event Loop 事件循环解读</a
+  <a class="article-title" href="../../2019/06/06/%E7%BD%91%E7%BB%9C/List-of-HTTP-header-fields/"
+    >HTTP 报头字段列表</a
   >
 </h2>
   
@@ -89,12 +91,12 @@
 
     
     <div class="article-meta">
-      <a href="../../2019/06/06/%E5%89%8D%E7%AB%AF/%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%BC%8F%E5%92%8C%20Event%20Loop%20%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E8%A7%A3%E8%AF%BB/" class="article-date">
+      <a href="../../2019/06/06/%E7%BD%91%E7%BB%9C/List-of-HTTP-header-fields/" class="article-date">
   <time datetime="2019-06-06T09:01:34.000Z" itemprop="datePublished">2019-06-06</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="../../categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="../../categories/%E5%89%8D%E7%AB%AF/%E6%B7%B1%E5%BA%A6/">深度</a>
+    <a class="article-category-link" href="../../categories/%E7%BD%91%E7%BB%9C/">网络</a> / <a class="article-category-link" href="../../categories/%E7%BD%91%E7%BB%9C/HTTP/">HTTP</a>
   </div>
 
       
@@ -113,64 +115,129 @@
       
 
       
-      <h2 id="JavaScript-并发模式和-Event-Loop-事件循环解读"><a href="#JavaScript-并发模式和-Event-Loop-事件循环解读" class="headerlink" title="JavaScript - 并发模式和 Event Loop 事件循环解读"></a>JavaScript - 并发模式和 Event Loop 事件循环解读</h2><p>[TOC]</p>
-<h3 id="1、Runtime-concepts-执行相关的概念"><a href="#1、Runtime-concepts-执行相关的概念" class="headerlink" title="1、Runtime concepts 执行相关的概念"></a>1、Runtime concepts 执行相关的概念</h3><p><code>Javascript</code> 有一个基于<code>Event Loop</code> 事件循环的并发模型；</p>
-<p>下面讲解一个理论模型，讲解现代浏览器<code>javascript</code> 引擎实现机制和讲解一下描述的一些语义词；</p>
-<p>可视模型代表：</p>
-<p><img src="/images/stack-heap-queue.svg" alt></p>
-<h4 id="1-1、stack-栈"><a href="#1-1、stack-栈" class="headerlink" title="1.1、stack 栈"></a>1.1、stack 栈</h4><p>函数调用形成了一个栈帧</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">return</span> a + b + <span class="number">11</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> y = <span class="number">3</span>;</span><br><span class="line">  <span class="keyword">return</span> foo(x * y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(bar(<span class="number">7</span>)); <span class="comment">// 返回 42</span></span><br></pre></td></tr></table></figure>
+      <h3 id="HTTP-报头字段列表"><a href="#HTTP-报头字段列表" class="headerlink" title="HTTP 报头字段列表"></a>HTTP 报头字段列表</h3><p>[TOC]</p>
+<p>HTTP报头字段 是 HTTP中请求和响应消息的头部部分的组件。他们是定义HTTP事务的操作参数</p>
+<p>头部字段在<code>请求行</code>或者<code>响应行</code>发出之后，才会被传送；</p>
+<p>首先让我们以<code>RFC 7230</code>为例了解一下 报文格式 <code>Message Format</code>:</p>
+<h4 id="1、Message-Format-报文格式"><a href="#1、Message-Format-报文格式" class="headerlink" title="1、Message Format 报文格式"></a>1、Message Format 报文格式</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RFC 7230     HTTP/1.1 Message Syntax and Routing      June 2014</span><br><span class="line">HTTP-message = start-line</span><br><span class="line">               *( header-field CRLF )(0或多个)</span><br><span class="line">               CRLF（回车换行表明头部部分的结束）</span><br><span class="line">               [ message-body ]</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/event_stack.jpg" alt="stack"></p>
-<p>简单介绍下函数调用的过程：</p>
-<p>当调用<code>bar(7)</code>时，建立了第一个 <code>stack frame</code> 是 <code>bar</code> (包含参数<code>7</code>和本地变量)；当 <code>bar</code> 调用 <code>foo</code> 时候，建立了第二个 <code>stack frame</code> 是 <code>foo</code>(包含参数 <code>3* 7</code> 和本地变量), 并且放置在 <code>bar</code> 的<code>上方</code>，也就是<code>栈的顶部</code>了。</p>
-<p>当 <code>foo（21）</code> 执行完毕 返回 42 的时候，<code>foo</code> 这个栈帧会被移除掉，只剩下了 <code>bar（7）</code>；然后再执行 <code>bar</code>, 有返回后，整个栈都是空的。</p>
-<h4 id="1-2、Heap-堆"><a href="#1-2、Heap-堆" class="headerlink" title="1.2、Heap 堆"></a>1.2、Heap 堆</h4><p>对象都被关联在<code>Heap</code>里面，即用于表示一大块非结构化的内存区域。</p>
-<h4 id="1-3、Queue-消息队列"><a href="#1-3、Queue-消息队列" class="headerlink" title="1.3、Queue 消息队列"></a>1.3、Queue 消息队列</h4><p>一个 <code>Javascript</code> 运行时使用一系列待处理消息的消息队列。每个消息关联一个函数去处理消息。</p>
-<p><code>如果一个消息，比如click事件却没有回调函数，是不会被加入消息队列的</code>；</p>
-<p>在事件循环的一些时刻，<code>运行时从最先进入队列的消息开始处理队列中的消息</code>。这样做的话，消息从队列中被移除，并作为输入参数调用与之关联的函数。就如上面所说，调用一个函数总是为其创造一个的栈帧。</p>
-<p>函数的执行一直会持续到 <code>stack</code> 变成 空的。然后如果消息队列还有消息的话，事件循环将会执行消息队列的下一个消息。</p>
-<p>总之就是：</p>
-<p>Queue队列中的消息，会以一个个执行；首先会判断 stack 会不会为空，如果为空就执行下一个消息；如果不为空，等待上一个消息处理完。</p>
-<h3 id="2、Event-Loop-事件循环"><a href="#2、Event-Loop-事件循环" class="headerlink" title="2、Event Loop 事件循环"></a>2、Event Loop 事件循环</h3><p>之所以称为事件循环，是因为他的执行实现的方式如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (queue.waitForMessage()) &#123;</span><br><span class="line">  queue.processNextMessage();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="1-1、start-line-开始行"><a href="#1-1、start-line-开始行" class="headerlink" title="1.1、start-line 开始行"></a>1.1、start-line 开始行</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">start-line = request-line / status-line</span><br><span class="line"></span><br><span class="line">一个HTTP消息可以是客户端发往服务器的一个request请求也可以是服务器响应客户端的response响应。</span><br><span class="line">这个两者的区别就在于 start-line 是 request-line (针对请求) 或者 status-line（针对响应）.</span><br><span class="line"></span><br><span class="line">在理论上，一个客户端可以接收请求和一个服务端可以接收响应，根据他们的不同的 start-line.但是在实践中</span><br><span class="line">，服务器是被用来实现只希望接收一个请求（响应是作为一个未知名或者不合法的请求的一个解释）和客户端是实现只接受响应的。</span><br></pre></td></tr></table></figure>
 
-<p>如果当前没有消息，<code>queue.waitForMessage()</code>会同步等待消息的到达。</p>
-<p>事件循环是指等待队列同步接收消息的过程的术语。 事件循环移入的增量称为’tick’，每次’ticks’时它检查调用堆栈是否为空，如果是，它将事件队列中的top函数添加到调用堆栈并执行它。 完成处理此功能后，它会再次开始计时。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> link = <span class="built_in">document</span>.getElementById(<span class="string">"foo"</span>);</span><br><span class="line"></span><br><span class="line">  link.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> <span class="title">changeColor</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.style.color = <span class="string">"burlywood"</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">init();</span><br></pre></td></tr></table></figure>
+<h5 id="1-2、request-line-请求行"><a href="#1-2、request-line-请求行" class="headerlink" title="1.2、request-line 请求行"></a>1.2、request-line 请求行</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">request-line = method SP(空格) request-target SP HTTP-version CRLF(回车换行)</span><br><span class="line"></span><br><span class="line">method token 表明请求资源的请求方法，大小写敏感：</span><br><span class="line"></span><br><span class="line">+---------+-------------------------------------------------+-------+</span><br><span class="line">   | Method  | Description                                     | Sec.  |</span><br><span class="line">   +---------+-------------------------------------------------+-------+</span><br><span class="line">   | GET     | Transfer a current representation of the target | 4.3.1 |</span><br><span class="line">   |         | resource.                                       |       |</span><br><span class="line">   |         | 传输目标资源的当前表示                              |       |</span><br><span class="line">   | HEAD    | Same as GET, but only transfer the status line  | 4.3.2 |</span><br><span class="line">   |         | and header section.                             |       |</span><br><span class="line">   |         | 只传输状态行和头部                                 |       |</span><br><span class="line">   | POST    | Perform resource-specific processing on the     | 4.3.3 |</span><br><span class="line">   |         | request payload.                                |       |</span><br><span class="line">   |         | 请求负载中执行指定资源的处理                         |       |</span><br><span class="line">   | PUT     | Replace all current representations of the      | 4.3.4 |</span><br><span class="line">   |         | target resource with the request payload.       |       |</span><br><span class="line">   |         | 在请求负载中替换目标资源的当前表示                    |       |</span><br><span class="line">   | DELETE  | Remove all current representations of the       | 4.3.5 |</span><br><span class="line">   |         | target resource.                                |       |</span><br><span class="line">   |         | 移除目标资源的所有现在的表示                         |       |</span><br><span class="line">   | CONNECT | Establish a tunnel to the server identified by  | 4.3.6 |</span><br><span class="line">   |         | the target resource.                            |       |</span><br><span class="line">   |         | 目标资源定义建立的一个连接服务器的通道                 |       |</span><br><span class="line">   | OPTIONS | Describe the communication options for the      | 4.3.7 |</span><br><span class="line">   |         | target resource.                                |       |</span><br><span class="line">   |         | 描述目标资源的连接参数                              |       |</span><br><span class="line">   | TRACE   | Perform a message loop-back test along the path | 4.3.8 |</span><br><span class="line">   |         | to the target resource.                         |       |</span><br><span class="line">   |         | 跟随目标资源执行一个消息回环测试                      |       |</span><br><span class="line">   +---------+-------------------------------------------------+-------+</span><br><span class="line"></span><br><span class="line">request-target 是当前请求要求获取的资源</span><br><span class="line"></span><br><span class="line">接收者会用空格隔开的方式去格式化 request-line 到它的组件里面。不用空格隔开的话，只能有三个组件。</span><br><span class="line">不幸运的是，一些用户代理不能去合理的解压或者解码超文本里面发现的空格。导致了这些不允许的字符被发送到请求的目标那里。</span><br><span class="line"></span><br><span class="line">接收者的一个非法 request-line 应该被请求目标回应 400（bad request）错误 或者 301（永久移除）；</span><br><span class="line">接收者不应该尝试去自动更正然后没有重定向地处理这个请求，因为非法的 reqest-line 会跟着请求链故意精心的绕过安全过滤策略。</span><br><span class="line"></span><br><span class="line">HTTP并不会预先设置一个request-line的长度。服务器如果接收一个比其他任何请求都长的请求的时候，会反馈一个 501 （没有实现）的状态码。一个服务器接收一个比任何URL都长的请求目标是，它希望解析必须回应一个 414 （URL Too long）的状态码。</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-3、status-line-状态行"><a href="#1-3、status-line-状态行" class="headerlink" title="1.3、status line 状态行"></a>1.3、status line 状态行</h5><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">status-line = HTTP-version SP status-code SP reason-phrase CRLF</span><br><span class="line"></span><br><span class="line">响应消息的第一行就是 status-line，由 协议版本 + SP + statusCode + SP + reason-phrase + CRLF 组成。</span><br><span class="line"></span><br><span class="line">status-code = 3DIGIT （三个数字）</span><br><span class="line"></span><br><span class="line">状态码用来描述服务器尝试理解和满足客户端相应请求的结果。其他的响应信息是用来解释状态码的定义。</span><br><span class="line">状态码是可以扩展的，客户端不用去理解注册的状态码的含义，尽管这样的理解是明显令人向往的。</span><br><span class="line">但是客户端必须懂得这些状态码的分类，也就是第一个数字，不能把一个未被认可的状态码等价于 X00, 客户端不能缓存一个带有未知名状态码的响应消息。</span><br><span class="line"></span><br><span class="line">第一个数字代表状态码的分类，其他两个数字没有明显的分类规则，总共有5类状态码：</span><br><span class="line"></span><br><span class="line">1XX (Informational信息)： 请求被接收，持续处理的过程。</span><br><span class="line">2XX (Successfull成功): 请求被成功接收，解读和接受。</span><br><span class="line">3XX (Redirection重定向): 为了完成请求过程，更多的动作需要去执行。</span><br><span class="line">4XX (Client error 客户端错误): 请求包含错误的语法或者不能被实现。</span><br><span class="line">5XX (Server error 服务器错误): 服务器不能实现一个显然合法的请求。</span><br><span class="line"></span><br><span class="line">reason-phrase  = *( HTAB / SP / VCHAR / obs-text )</span><br><span class="line"></span><br><span class="line"><span class="attribute">reason-phrase设计的最底层目的是为了提供一个当前状态码的文本描述。客户端可忽略。</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="1-4、Header-Fields-头部字段"><a href="#1-4、Header-Fields-头部字段" class="headerlink" title="1.4、Header Fields 头部字段"></a>1.4、Header Fields 头部字段</h5><p>每一个<code>头部字段</code>由一个<code>大小写不敏感的字段名字</code>，跟着一个<code>冒号</code>，<code>可选的空格</code>，<code>字段值</code>和<code>可选的尾部空格</code>组成。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">header-field = field-name  ":" OWS(可选的空格) field-value OWS</span><br><span class="line"></span><br><span class="line"> 		 field-name     = token</span><br><span class="line">     field-value    = *( field-content / obs-fold )</span><br><span class="line">     field-content  = field-vchar [ 1*( SP / HTAB ) field-vchar ]</span><br><span class="line">     field-vchar    = VCHAR / obs-text</span><br><span class="line"></span><br><span class="line">     obs-fold       = CRLF 1*( SP / HTAB )</span><br><span class="line">                    ; obsolete line folding</span><br></pre></td></tr></table></figure>
 
 
 
-<p><img src="/images/event_loop_2.png" alt></p>
-<p>在这个例子中：</p>
-<p>当用户点击 元素 <code>foo</code> 和 触发 <code>onClick</code> 事件时，一个 <code>message</code> (and <code>callback</code>, <code>changeColor</code>) 被添加到消息队列中。</p>
-<p>当这个消息被移除时，它的回调函数 changeColor 被调用，当 changeColor returns 时（哪怕返回的是一个错误)，<code>call stack</code> 清空，事件循环再次开始；</p>
-<p>只要 <code>changeColor</code> 方法存在，然后指定为元素 <code>foo</code> 的点击回调函数，后续的点击元素会引起更多的消息（关联到回调函数 <code>changeColor</code>）被加入到消息队列。</p>
-<h4 id="2-1、Run-to-completion-运行到结束"><a href="#2-1、Run-to-completion-运行到结束" class="headerlink" title="2.1、Run-to-completion 运行到结束"></a>2.1、Run-to-completion 运行到结束</h4><p>每一个消息都被完全执行结束后，才回去执行下一个消息的处理。</p>
-<p>这为程序的分析提供了一些优秀的特性，包括：无论何时执行一个函数，都不会被抢占，并且会在其他代码执行之前就已经被完全执行（并且可以修改函数操作的数量）。</p>
-<p>这个和 C语言不太一样，比如，如果一个函数运行在一个线程中，一些时候，会被执行系统因在别的线程执行其他代码中断。</p>
-<p>这个模型的缺点时，当一个消息需要太长时间去执行的时候，web用户就无法处理一些，比如<code>click</code>, <code>srcoll</code>的交互。浏览器会弹出一个 <code>“a script is taking too long to run”</code> 这样的对话框来缓解这个情况。一个好的解决办法就是，<code>缩短消息处理的时间，或者把一个消息分割成多个消息</code>。</p>
-<h4 id="2-2、Adding-messages-添加消息"><a href="#2-2、Adding-messages-添加消息" class="headerlink" title="2.2、Adding messages 添加消息"></a>2.2、Adding messages 添加消息</h4><p>在web浏览器里面，<code>只要有事件发生并且有监听器绑定的时候，一定会增加一个消息</code>。如果没有监听器，则事件消失。所以，一个元素的点击并且带有点击事件处理，一定会增加一个消息到消息队列中去。</p>
-<p>setTimeout 函数有两个参数：<code>添加队列的消息</code> 和 <code>时间（默认 0 ）</code>，这个时间值代表着这个消息被添加到消息队列最小的延迟时间。如果消息队列中，没有别的消息，这个消息会在延迟时间达到之后，立马会被处理。如果消息队列有别的消息，<code>setTimeout</code> 这个消息一定要等到别的消息被处理完后才能执行。由于这个原因，所以第二参数表明了<code>最小的时间间隔</code>，而<code>非确切的时间</code>。</p>
-<p>举例说明，当第二个参数的时间过期后，setTimeout 不会被执行：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="built_in">Date</span>().getSeconds();</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// prints out "2", meaning that the callback is not called immediately after 500 milliseconds.</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Ran after "</span> + (<span class="keyword">new</span> <span class="built_in">Date</span>().getSeconds() - s) + <span class="string">" seconds"</span>);</span><br><span class="line">&#125;, <span class="number">500</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">new</span> <span class="built_in">Date</span>().getSeconds() - s &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Good, looped for 2 seconds"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="1-5、message-body"><a href="#1-5、message-body" class="headerlink" title="1.5、message body"></a>1.5、message body</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> message-body = *OCTET</span><br><span class="line"></span><br><span class="line">一个HTTP消息的消息正文是用来携带请求或者响应的负载正文。</span><br><span class="line">消息体是和有效载荷体是一致的，除非一个传输编码已经被完成。</span><br><span class="line"></span><br><span class="line">消息中允许的消息主体的规则在请求和响应中是不同的。</span><br><span class="line"></span><br><span class="line">request 请求中的 message body的预定义是被 Content-Length 或 Transfer-Encoding 头部字段控制。</span><br><span class="line"></span><br><span class="line">请求消息框架是和method的语义无关的。甚至请求方法对消息体没有任何用处。</span><br><span class="line"></span><br><span class="line">响应消息中的message body存在与否决定于请求的方法和响应返回的状态码。</span><br><span class="line">HEAD请求不会返回 message body，因为它只是关联响应头部字段。即使存在 message body ，如果方法是GET也是表明将会显示什么值.</span><br><span class="line">所有 1XX 204 304 都不会有 message body.</span><br></pre></td></tr></table></figure>
 
-<p>举例说明添加消息的顺序：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"foo"</span>);</span><br><span class="line">  setTimeout(g, <span class="number">0</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"baz"</span>);</span><br><span class="line">  h();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"bar"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">h</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"blix"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
-
-<p>由于 <code>setTimeout</code> 的非阻塞特性，它的回调函数将在 0 毫米后触发，并且不会作为 <code>f()</code>这个消息的一部分来处理。</p>
-<p>在这个例子中，调用 <code>setTimeout</code> ，传递回调函数 <code>g</code> 和 时间延迟 <code>0</code> ms; 当指定的延迟时间到了的时候，一个以 <code>g</code> 为回调函数的单独的消息会被加入到消息队列中。</p>
-<p>生成结果的控制台活动是 <code>“foo”, “baz”, “bilx”</code> 和在下一个事件循环中产生的结果：<code>“bar”</code>;</p>
-<p>如果<code>同一个调用帧</code>，对 <code>setTimeout</code> 进行两次调用，并且 <code>timeout</code> 时间相同，则按执行顺序进行处理。</p>
-<p><img src="/images/stack_3.png" alt></p>
-<h4 id="2-3、Zero-delays-零延迟"><a href="#2-3、Zero-delays-零延迟" class="headerlink" title="2.3、Zero delays 零延迟"></a>2.3、Zero delays 零延迟</h4><p>零延迟不是真实代表着在0毫秒后回调函数会执行。</p>
-<p>setTimeout 的零延迟，在给定的时间间隔后不会执行回调函数。</p>
-<p>是否执行决定于消息队列中的等待任务的数量。</p>
-<p>举例说明：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'this is the start'</span>);</span><br><span class="line"></span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">cb</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Callback 1: this is a msg from call back'</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'this is just a message'</span>);</span><br><span class="line"></span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">cb1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Callback 2: this is a msg from call back'</span>);</span><br><span class="line">  &#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'this is the end'</span>);</span><br><span class="line"></span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// "this is the start"</span></span><br><span class="line"><span class="comment">// "this is just a message"</span></span><br><span class="line"><span class="comment">// "this is the end"</span></span><br><span class="line"><span class="comment">// 当前函数 note that function return, which is undefined, happens here</span></span><br><span class="line"><span class="comment">// "Callback 1: this is a msg from call back"</span></span><br><span class="line"><span class="comment">// "Callback 2: this is a msg from call back"</span></span><br></pre></td></tr></table></figure>
-
-<p><code>this is just a message</code> 虽然在回调之后，却会在回调之前输出到打印台上，这是因为这个零延迟只是处理请求的最小延迟，并非一个保证的精确的时间。</p>
-<p>一般地，<code>setTimeout</code> 需要等待所有其他消息队列的代码执行完之后，才会执行，即时你设置了特殊的时间间隔。</p>
+<h4 id="2、Standard-request-fields-标准请求头字段"><a href="#2、Standard-request-fields-标准请求头字段" class="headerlink" title="2、Standard request fields 标准请求头字段"></a>2、Standard request fields 标准请求头字段</h4><table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>说明</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A-IM</td>
+<td>对请求可接受的接口实例化,同accept</td>
+<td>A-IM: feed</td>
+</tr>
+<tr>
+<td>Accept</td>
+<td>response可接受的媒体类型</td>
+<td>Accept: text/html<br>其他：text/html; q=1.0, text/*; q=0.8, image/gif; q=0.6, image/jpeg; q=0.6, image/*; q=0.5, */*; q=0.1</td>
+</tr>
+<tr>
+<td>Accept-Charset</td>
+<td>可接受的字符集</td>
+<td>Accept-Charset: utf-8</td>
+</tr>
+<tr>
+<td>Accept-Encoding</td>
+<td>可接受的文件解码格式</td>
+<td>Accept-Encoding: gzip, deflate</td>
+</tr>
+<tr>
+<td>Accept-Language</td>
+<td>response可接受的人类语言</td>
+<td>Accept-Language: en-US</td>
+</tr>
+<tr>
+<td>Accept-Datetime</td>
+<td>可接受的时间版本</td>
+<td>Accept-Datetime: Thu, 31 May 2007 20:35:00 GMT</td>
+</tr>
+<tr>
+<td>Access-Control-Request-Method,<br>Access-Control-Request-Headers</td>
+<td>利用origin发起跨域资源请求</td>
+<td>Access-Control-Request-Method: GET<br></td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>HTTP认证</td>
+<td>Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==</td>
+</tr>
+<tr>
+<td>Cache-Control</td>
+<td>用来指定一个在请求响应链中所有缓存机制必须遵守的一个指令</td>
+<td>Cache-Control: no-cache</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>当前连接和持续请求的的控制参数。HTTP/2不得用这个方法，默认持续连接</td>
+<td>Connection: keep-alive<br>Connection: Upgrade</td>
+</tr>
+<tr>
+<td>Content-Length</td>
+<td>request body的长度</td>
+<td>Content-Length: 348</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>request body的媒体格式（POST 和 PUT适用）</td>
+<td>Content-Type: application/x-www-form-urlencoded</td>
+</tr>
+<tr>
+<td>Cookie</td>
+<td>一个被服务器用set-cookie发送的数据</td>
+<td>Cookie: $Version=1; Skin=new;</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>message发出的时间</td>
+<td>Date: Tue, 15 Nov 1994 08:12:31 GMT</td>
+</tr>
+<tr>
+<td>Expect</td>
+<td>客户端表明的特殊的服务器要做的行为</td>
+<td>Expect: 100-continue</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 
       
       <!-- reward -->
@@ -183,7 +250,7 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/HTTP/" rel="tag">HTTP</a></li></ul>
 
 
     </footer>
@@ -558,7 +625,7 @@
 
 </article>
     
-    <article id="post-前端/iconFont生成教程" class="article article-type-post" itemscope
+    <article id="post-前端/window和document各种宽高计算" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -566,8 +633,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="../../2019/06/06/%E5%89%8D%E7%AB%AF/iconFont%E7%94%9F%E6%88%90%E6%95%99%E7%A8%8B/"
-    >三分钟教会你自制IconFont字体图标库</a
+  <a class="article-title" href="../../2019/06/06/%E5%89%8D%E7%AB%AF/window%E5%92%8Cdocument%E5%90%84%E7%A7%8D%E5%AE%BD%E9%AB%98%E8%AE%A1%E7%AE%97/"
+    >window和document各种宽高计算</a
   >
 </h2>
   
@@ -577,12 +644,12 @@
 
     
     <div class="article-meta">
-      <a href="../../2019/06/06/%E5%89%8D%E7%AB%AF/iconFont%E7%94%9F%E6%88%90%E6%95%99%E7%A8%8B/" class="article-date">
+      <a href="../../2019/06/06/%E5%89%8D%E7%AB%AF/window%E5%92%8Cdocument%E5%90%84%E7%A7%8D%E5%AE%BD%E9%AB%98%E8%AE%A1%E7%AE%97/" class="article-date">
   <time datetime="2019-06-06T09:01:34.000Z" itemprop="datePublished">2019-06-06</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="../../categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="../../categories/%E5%89%8D%E7%AB%AF/ICONFONT/">ICONFONT</a>
+    <a class="article-category-link" href="../../categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="../../categories/%E5%89%8D%E7%AB%AF/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">知识总结</a>
   </div>
 
       
@@ -601,29 +668,52 @@
       
 
       
-      <h3 id="三分钟教会你自制IconFont字体图标库"><a href="#三分钟教会你自制IconFont字体图标库" class="headerlink" title="三分钟教会你自制IconFont字体图标库"></a>三分钟教会你自制IconFont字体图标库</h3><p><code>app</code>开发的时候，我们大多会用到字体<code>icon</code>，下面我们就讲解一下，如何自定义生成 <code>iconFont</code></p>
-<p>一般情况，我们优先选择在 <a href="https://www.iconfont.cn/collections/index?spm=a313x.7781069.1998910419.4&type=1" target="_blank" rel="noopener">Iconfont-阿里巴巴矢量图标库</a> 下载我们需要的矢量icon的svg格式, 如果这里没有你需要的icon，也可以自己切图把png格式的图片转化为svg;</p>
-<p><img src="/.io//1571900747688.png" alt="1571900747688"></p>
-<h4 id="svg-导入并生成-font"><a href="#svg-导入并生成-font" class="headerlink" title="svg 导入并生成 font"></a>svg 导入并生成 font</h4><p>网址：<a href="https://icomoon.io/app/#/select" target="_blank" rel="noopener">https://icomoon.io/app/#/select</a></p>
-<p><img src="/.io//1571898904170.png" alt="1571898904170"></p>
-<p>导入多个<code>svg</code>图片</p>
-<p><img src="/.io//1571898834932.png" alt="1571898834932"></p>
-<p>点击右下角</p>
-<p><img src="/.io//1571898949883.png" alt="1571898949883"></p>
-<p>记好每个icon的<code>code</code></p>
-<p><img src="/.io//1571899023086.png" alt="1571899023086"></p>
-<p>然后点击 <code>download</code></p>
-<p>如图：</p>
-<p><img src="/.io//1571899147150.png" alt="1571899147150"></p>
-<p>然后我们写 less（或者css），定义这些icon的样式：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@assets:</span> <span class="string">'../assets/fonts'</span>;</span><br><span class="line"><span class="variable">@version:</span> <span class="string">'?v=1.1.0'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'icomoon'</span>;</span><br><span class="line">    <span class="comment">/* 自行安装第三方字体图标库 */</span></span><br><span class="line">    <span class="attribute">src</span>: url(<span class="string">'@&#123;assets&#125;/icomoon.eot@&#123;version&#125;'</span>);</span><br><span class="line">    <span class="attribute">src</span>: url(<span class="string">'@&#123;assets&#125;/icomoon.woff@&#123;version&#125;'</span>) format(<span class="string">'woff'</span>),</span><br><span class="line">    url(<span class="string">'@&#123;assets&#125;/icomoon.ttf@&#123;version&#125;'</span>) format(<span class="string">'truetype'</span>),</span><br><span class="line">    url(<span class="string">'@&#123;assets&#125;/icomoon.svg@&#123;version&#125;'</span>) format(<span class="string">'svg'</span>);</span><br><span class="line">    <span class="attribute">font-weight</span>: normal;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 根据第三方字体图标库编写 */</span></span><br><span class="line"><span class="comment">/* 举例：fa 就是 prefixClass 的值，下面的的图标 css class 命名都要用 fa- 开头  */</span></span><br><span class="line"><span class="selector-class">.fa</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="comment">/* 以下的 font 与上面 @font-face 的 font-family 要一致*/</span></span><br><span class="line">    <span class="attribute">font</span>: normal normal normal <span class="number">14px</span>/<span class="number">1</span> icomoon;</span><br><span class="line">    <span class="attribute">font-size</span>: inherit;</span><br><span class="line">    <span class="attribute">text-rendering</span>: auto;</span><br><span class="line">    <span class="attribute">-webkit-font-smoothing</span>: antialiased;</span><br><span class="line">    <span class="attribute">-moz-osx-font-smoothing</span>: grayscale;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fa-home</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">"\e900"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fa-doc</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">"\e903"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fa-knowledge</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">"\e906"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fa-discuss</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">"\e901"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fa-question</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">"\e902"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <h3 id="window和document各种宽高计算"><a href="#window和document各种宽高计算" class="headerlink" title="window和document各种宽高计算"></a>window和document各种宽高计算</h3><p>[TOC]</p>
+<h4 id="1、盒子模型"><a href="#1、盒子模型" class="headerlink" title="1、盒子模型"></a>1、盒子模型</h4><p><img src="/images/box-model-standard-small.png" alt="img"></p>
+<p>所谓<code>CSS</code>盒子模型是：</p>
+<p><code>margin</code> + <code>border</code> + <code>padding</code> + <code>content</code></p>
+<p>举例说明：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">  *&#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="css">  <span class="selector-class">.box</span>&#123;</span></span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    padding: 20px;</span><br><span class="line">    margin: 20px;</span><br><span class="line">    border: 2px solid red;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="css">  <span class="selector-class">.boxItem</span>&#123;</span></span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    background: green;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"boxItem"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>然后就可以把这个less引入到我们的入口文件里面；</p>
-<p>调用举例：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">className</span>=<span class="string">"fa fa-home"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">/**更改大小和颜色**/</span><br><span class="line"> <span class="tag">&lt;<span class="name">span</span> <span class="attr">className</span>=<span class="string">"fa fa-home"</span> <span class="attr">style</span>=<span class="string">"font-size:30;color: blue"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/box.jpg" alt></p>
+<p>如图所示：</p>
+<blockquote>
+<p>可视区域高度： clientHeight = height + padding = 240;</p>
+<p>正文全文高度：scrollHeight = height + padding = 240;</p>
+<p>可见区域偏移高度：offsetHeight = height + padding + border = 244;</p>
+</blockquote>
+<p>此时 <code>scrollHeight</code> 和 <code>clientHeight</code> 好像看起来并没有什么区别。</p>
+<p>如果我们上面的代码做以下修改：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">2px</span> solid red;</span><br><span class="line">    <span class="attribute">overflow</span>:auto;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.boxItem</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1000px</span>;</span><br><span class="line">    <span class="attribute">background</span>: green;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
-<p>实际效果：</p>
-<p><img src="/.io//1571900156424.png" alt="1571900156424"></p>
+<blockquote>
+<p>可视区域高度： clientHeight = height + padding = 240;</p>
+</blockquote>
+<blockquote>
+<p>正文全文高度：scrollHeight = height + padding = 1040;</p>
+</blockquote>
+<blockquote>
+<p>可见区域偏移高度：offsetHeight = height + padding + border = 244;</p>
+</blockquote>
+<p>这下就可以看到之间的区别了，其他计算属性如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">clientLeft: <span class="number">2</span>;</span><br><span class="line">clinetTop: <span class="number">2</span>;</span><br><span class="line">offsetLeft: <span class="number">20</span>;</span><br><span class="line">offsetTop: <span class="number">20</span>;</span><br><span class="line">scrollLeft:<span class="number">0</span>;</span><br><span class="line">scrollTop:<span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<p>当前<code>div.box</code>元素的称为当前元素，当前元素的<code>offsetParent</code>（父类节点）在这里是 <code>body</code>；</p>
+<p><code>Client</code></p>
+<blockquote>
+<p><code>clientleft</code>:元素的内边距的<code>外边缘</code>和元素边框的<code>外边缘</code>的距离，实际就是边框的左边框宽度</p>
+<p><code>clienttop</code>:同理边框的上边框的宽度</p>
+<p><code>clientwidth</code>:用于描述元素内尺寸宽度，是指 <code>元素内容</code>+<code>内边距</code> 大小，<code>不包括边框、外边距、滚动条部分</code></p>
+<p><code>clientheight</code>:同理 用于描述元素内尺寸高度，是指 <code>元素内容</code>+<code>内边距</code> 大小，不包括边框、外边距、滚动条部分</p>
+</blockquote>
+<p><code>Offset</code></p>
+<blockquote>
+<p><code>offsetleft</code>: 元素的边框的外边缘距离与已定位的父容器（<code>offsetparent</code>）的左边距离（不包括元素的边框和父容器的边框）。</p>
+<p><code>offsettop</code>:同理是指元素的边框的外边缘距离与已定位的父容器（<code>offsetparent</code>）的上边距离（不包括元素的边框和父容器的边框）。</p>
+<p><code>offsetwidth</code>:描述元素外尺寸宽度，是指 元素内容宽度+内边距宽度(左右两个)+边框(左右两个)，不包括外边距和滚动条部分。</p>
+<p><code>offsetheight</code>:同理 描述元素外尺寸高度，是指 元素内容高度+内边距高度(上下两个)+边框(上下两个)，不包括外边距和滚动条部分</p>
+</blockquote>
 
       
       <!-- reward -->
@@ -636,7 +726,7 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E5%B7%A7/" rel="tag">前端技巧</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
 
 
     </footer>
@@ -711,7 +801,7 @@
 <nav class="navbar">
   
   <div class="logo">
-    <a href="../../index.html"><img src="/images/logo.png" alt="欢迎来到Alex的博客"></a>
+    <a href="../../index.html"><img src="/images/logo.png" alt="欢迎来到Alex的世界"></a>
   </div>
   
   <ul class="nav nav-main">

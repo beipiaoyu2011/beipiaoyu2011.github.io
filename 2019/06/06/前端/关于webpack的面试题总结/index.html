@@ -8,7 +8,7 @@
    
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    前端/关于webpack的面试题总结 |  欢迎来到Alex的世界
+    关于webpack的面试题总结 |  欢迎来到Alex的世界
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -25,6 +25,7 @@
 
   
 
+<link rel="alternate" href="atom.xml" title="欢迎来到Alex的世界" type="application/atom+xml">
 </head>
 
 </html>
@@ -41,7 +42,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  前端/关于webpack的面试题总结
+  关于webpack的面试题总结
 </h1>
   
 
@@ -167,20 +168,21 @@
       
     </div>
     
-    
+
       <!-- copyright -->
+    
+      <div class="declare">
+        <ul class="post-copyright">
+          <li>
+            <i class="ri-copyright-line"></i>
+            <strong>版权声明： </strong s>
+            本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+              target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+          </li>
+        </ul>
+      </div>
       
-        <div class="declare">
-          <ul class="post-copyright">
-            <li>
-              <i class="ri-copyright-line"></i>
-              <strong>版权声明： </strong s>
-              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
-                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
-            </li>
-          </ul>
-        </div>
-        
+
     <footer class="article-footer">
       
           
@@ -244,11 +246,11 @@
   
   <nav class="article-nav">
     
-      <a href="../%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3javaScript%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/" class="article-nav-link">
+      <a href="../iconFont%E7%94%9F%E6%88%90%E6%95%99%E7%A8%8B/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            JavaScript 运行环境
+            三分钟教会你自制IconFont字体图标库
           
         </div>
       </a>
@@ -256,7 +258,7 @@
     
       <a href="../%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">前端/前端面试总结</div>
+        <div class="article-nav-title">前端面试总结</div>
       </a>
     
   </nav>
@@ -266,61 +268,52 @@
 
   
   
-<!-- valine评论 -->
-<div id="vcomments-box">
-    <div id="vcomments">
-    </div>
-</div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
-<script>
-    new Valine({
-        el: '#vcomments',
-        app_id: '',
-        app_key: '',
-        path: window.location.pathname,
-        notify: 'false',
-        verify: 'false',
-        avatar: 'mp',
-        placeholder: '给我的文章加点评论吧~',
-        recordIP: true
-    });
-    const infoEle = document.querySelector('#vcomments .info');
-    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
-        infoEle.childNodes.forEach(function (item) {
-            item.parentNode.removeChild(item);
-        });
-    }
+  
+
+  
+  <!-- 
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="../../../../../https:/cdn.jsdelivr.net/npm/gitalk@1.5.2/dist/gitalk.css">
+
+
+<script src="../../../../../https:/cdn.jsdelivr.net/npm/gitalk@1.5.2/dist/gitalk.min.js"></script>
+
+
+<script src="../../../../../https:/cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'b0601e7ea86ea740849e',
+    clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
+    repo: 'beipiaoyu2011.github.io',
+    owner: '11400346',
+    admin: ['11400346'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
 </script>
-<style>
-    #vcomments-box {
-        padding: 5px 30px;
-    }
-
-    @media screen and (max-width: 800px) {
-        #vcomments-box {
-            padding: 5px 0px;
-        }
-    }
-
-    #vcomments-box #vcomments {
-        background-color: #fff;
-    }
-
-    .v .vlist .vcard .vh {
-        padding-right: 20px;
-    }
-
-    .v .vlist .vcard {
-        padding-left: 10px;
-    }
-</style>
-
+ -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'b0601e7ea86ea740849e',
+        clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
+        id: window.location.pathname,
+        repo: 'beipiaoyu2011.github.io',
+        owner: '11400346',
+        admin: '11400346'
+    })
+    gitalk.render('gitalk-container')
+</script>
   
 
-  
-  
-  
 
 </article>
 </section>

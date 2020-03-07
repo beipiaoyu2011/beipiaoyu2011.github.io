@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    前端/前端面试总结 |  欢迎来到Alex的博客
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="../../../../../css/main.css">
+
+  
+<script src="../../../../../js/pace.min.js"></script>
+
+
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-前端/前端面试总结" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  前端/前端面试总结
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="" class="article-date">
+  <time datetime="2019-06-06T09:01:34.000Z" itemprop="datePublished">2019-06-06</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="../../../../../categories/%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95/">面试</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">10分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <p>最近一直在面试，却很少总结，反思了一下，这是不应该的。所以打算认真写一下。</p>
+<p><strong>先说下笔试题</strong></p>
+<h4 id="Q1"><a href="#Q1" class="headerlink" title="Q1:"></a>Q1:</h4><p>关于基本类型和==typeof==, 问的还是挺偏的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// number</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span></span><br><span class="line"><span class="comment">// number</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">12</span></span><br><span class="line"><span class="comment">// string</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">"12"</span></span><br><span class="line"><span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span></span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span></span><br><span class="line"><span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Date</span></span><br><span class="line"><span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> [<span class="number">1</span>]</span><br><span class="line"><span class="comment">// function</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span></span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="literal">NaN</span> == <span class="literal">NaN</span></span><br></pre></td></tr></table></figure>
+
+<p>类型判断这块的东西，比较基础，却容易混乱，接下来让我们深层次了解下这个东西。</p>
+<p><img src="/images/1.jpeg" alt="img"></p>
+<p>既然是数据类型判断，无可避免需要先说一下，==基本类型==有哪几种：</p>
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>null</li>
+<li>undefined</li>
+<li>Boolean</li>
+<li>Symbol(Es6)</li>
+</ul>
+<p>这六个属于基本数据类型，当然除此之外还有 ==Object== 这个属于引用类型。对象类型是有名字和键值的一个组合。</p>
+<p>看到这里我们不禁会问，==arrays==、==functions==、==regular expressions==、==Date==、==Error==等等又算什么。它们只是特殊的Object.</p>
+<p><strong>Example</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="string">""</span>); <span class="comment">// "string"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="string">"hello"</span>); <span class="comment">// "string"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">String</span>(<span class="string">"hello"</span>)); <span class="comment">// "string"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"hello"</span>)); <span class="comment">// "object"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="number">0</span>); <span class="comment">// "number"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="number">-0</span>); <span class="comment">// "number"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="number">0xff</span>); <span class="comment">// "number"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="number">-3.142</span>); <span class="comment">// "number"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">Infinity</span>); <span class="comment">// "number"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> -<span class="literal">Infinity</span>); <span class="comment">// "number"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">NaN</span>); <span class="comment">// "number"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Number</span>(<span class="number">53</span>)); <span class="comment">// "number"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">53</span>)); <span class="comment">// "object"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">true</span>); <span class="comment">// "boolean"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">false</span>); <span class="comment">// "boolean"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>)); <span class="comment">// "object"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">undefined</span>); <span class="comment">// "undefined"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">null</span>); <span class="comment">// "object"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Symbol</span>()); <span class="comment">// "symbol"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> []); <span class="comment">// "object"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Array</span>(<span class="number">5</span>)); <span class="comment">// "object"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;); <span class="comment">// "function"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Function</span>); <span class="comment">// "function"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Date</span>); <span class="comment">// "object"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> /^(.+)$/); <span class="comment">// "object"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"^(.+)$"</span>)); <span class="comment">// "object"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> &#123;&#125;); <span class="comment">// "object"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Object</span>); <span class="comment">// "object"</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>typeof</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>undefined</code></td>
+<td><code>&quot;undefined&quot;</code></td>
+</tr>
+<tr>
+<td><code>null</code></td>
+<td><code>&quot;object&quot;</code></td>
+</tr>
+<tr>
+<td><code>true</code> or <code>false</code></td>
+<td><code>&quot;boolean&quot;</code></td>
+</tr>
+<tr>
+<td>all numbers or <code>NaN</code></td>
+<td><code>&quot;number&quot;</code></td>
+</tr>
+<tr>
+<td>all strings</td>
+<td><code>&quot;string&quot;</code></td>
+</tr>
+<tr>
+<td>all symbols</td>
+<td><code>&quot;symbol&quot;</code></td>
+</tr>
+<tr>
+<td>all functions</td>
+<td><code>&quot;function&quot;</code></td>
+</tr>
+<tr>
+<td>all arrays</td>
+<td><code>&quot;object&quot;</code></td>
+</tr>
+<tr>
+<td>native objects</td>
+<td><code>&quot;object&quot;</code></td>
+</tr>
+<tr>
+<td>host objects</td>
+<td><em>dependent on implementation</em></td>
+</tr>
+<tr>
+<td>other objects</td>
+<td><code>&quot;object&quot;</code></td>
+</tr>
+</tbody></table>
+<p>你或许经常碰到这句话；</p>
+<p><img src="/images/1557903486895.png" alt="1557903486895"></p>
+<p>这句话其实是在某些点上是错的。</p>
+<p>很多人也许会问，那为什么有些不是对象但是我们依然可以如下调用对象的方法呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// getting length property of the string</span></span><br><span class="line">(“Hello World!”).length</span><br><span class="line"><span class="comment">//   getting the character of the string at index 8</span></span><br><span class="line">(“Another <span class="built_in">String</span>”)[<span class="number">8</span>]</span><br><span class="line"><span class="comment">//  calling Number.prototype.toFixed() method on the number</span></span><br><span class="line">(<span class="number">53.12345</span>).toFixed(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>真实的原因是javascript引擎创造了一个wrapped object 和这个原始语句相对应。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// wrapper object: new String("Hello World!")</span></span><br><span class="line">(<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"Hello World!"</span>)).toLowerCase();</span><br><span class="line"></span><br><span class="line"><span class="comment">// wrapper object: new String("Another String")</span></span><br><span class="line">(<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"Another String"</span>))[<span class="number">8</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// wrapper object: new Number(53.12345)</span></span><br><span class="line">(<span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">53.12345</span>)).toFixed(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<p>再次说下类型比较，==null== 和 ==[]==通过==typeof== 判断都返回 ==object==， 此时我们怎么样才能进行深层次的区分呢？</p>
+<h5 id="比较精确的类型比较，大概要通过下面几种方法"><a href="#比较精确的类型比较，大概要通过下面几种方法" class="headerlink" title="比较精确的类型比较，大概要通过下面几种方法"></a>比较精确的类型比较，大概要通过下面几种方法</h5><ul>
+<li><p>instanceof operator</p>
+</li>
+<li><p>checking the constructor property of the object</p>
+</li>
+<li><p>使用 toString() 方法检查类型.</p>
+</li>
+</ul>
+<h4 id="Checking-for-null"><a href="#Checking-for-null" class="headerlink" title="Checking for null"></a>Checking for null</h4>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNull</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> val === <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> == <span class="literal">null</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> === <span class="literal">null</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Checking-for-NaN"><a href="#Checking-for-NaN" class="headerlink" title="Checking for NaN"></a>Checking for NaN</h4><p>  NaN是一个计算导致的结果，一般没有实质意思。前面说过 typeof NaN = number 如果想进一步区分，可以通过 isNaN 或者 es6的 Number.isNaN()</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span> <span class="comment">//number</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="literal">NaN</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="literal">null</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="literal">undefined</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="literal">Infinity</span>)); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="literal">NaN</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="literal">null</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="literal">undefined</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="literal">Infinity</span>)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>  最终用法,兼容es6：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.isNaN = <span class="built_in">Number</span>.isNaN || (<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value !== value;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Checking-for-arrays"><a href="#Checking-for-arrays" class="headerlink" title="Checking for arrays"></a>Checking for arrays</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// METHOD 1: constructor property</span></span><br><span class="line"><span class="comment">// Not reliable</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> value == <span class="string">'object'</span> &amp;&amp; value.constructor === <span class="built_in">Array</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// METHOD 2: instanceof</span></span><br><span class="line"><span class="comment">// Not reliable since an object's prototype can be changed</span></span><br><span class="line"><span class="comment">// Unexpected results within frames</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value <span class="keyword">instanceof</span> <span class="built_in">Array</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// METHOD 3: Object.prototype.toString()</span></span><br><span class="line"><span class="comment">// Better option and very similar to ES6 Array.isArray()</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">'[object Array]'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// METHOD 4: ES6 Array.isArray()</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Array</span>.isArray(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其实最常用的 Object.prototype.toString.call(data) 是很有用的（apply也可以）。不过我们可以封装一下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">type</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">const</span> regex = <span class="regexp">/^\[object (\S+?)\]$/</span>;</span><br><span class="line">	<span class="keyword">const</span> matches = <span class="built_in">Object</span>.prototype.toString.call(value).match(regex) || [];</span><br><span class="line">	<span class="keyword">return</span> (matches[<span class="number">1</span>] || <span class="string">"undefined"</span>).toLowerCase();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(type(<span class="string">''</span>)); <span class="comment">// "string"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="string">'hello'</span>)); <span class="comment">// "string"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="built_in">String</span>(<span class="string">'hello'</span>))); <span class="comment">// "string"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'hello'</span>))); <span class="comment">// "string"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="number">0</span>)); <span class="comment">// "number"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="number">-0</span>)); <span class="comment">// "number"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="number">0xff</span>)); <span class="comment">// "number"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="number">-3.142</span>)); <span class="comment">// "number"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="literal">Infinity</span>)); <span class="comment">// "number"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(-<span class="literal">Infinity</span>)); <span class="comment">// "number"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="literal">NaN</span>)); <span class="comment">// "number"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="built_in">Number</span>(<span class="number">53</span>))); <span class="comment">// "number"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">53</span>))); <span class="comment">// "number"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="literal">true</span>)); <span class="comment">// "boolean"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="literal">false</span>)); <span class="comment">// "boolean"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>))); <span class="comment">// "boolean"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="literal">undefined</span>)); <span class="comment">// "undefined"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="literal">null</span>)); <span class="comment">// "null"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="built_in">Symbol</span>())); <span class="comment">// "symbol"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="built_in">Symbol</span>.species)); <span class="comment">// "symbol"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(type([])); <span class="comment">// "array"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="built_in">Array</span>(<span class="number">5</span>))); <span class="comment">// "array"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log((<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> type(<span class="built_in">arguments</span>) &#125;)()); <span class="comment">// "arguments"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;)); <span class="comment">// "function"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="keyword">new</span> <span class="built_in">Function</span>)); <span class="comment">// "function"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="class"><span class="keyword">class</span> </span>&#123;&#125;)); <span class="comment">// "function"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(type(&#123;&#125;)); <span class="comment">// "object"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="keyword">new</span> <span class="built_in">Object</span>)); <span class="comment">// "object"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="regexp">/^(.+)$/</span>)); <span class="comment">// "regexp"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"^(.+)$"</span>))); <span class="comment">// "regexp"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="keyword">new</span> <span class="built_in">Date</span>)); <span class="comment">// "date"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="keyword">new</span> <span class="built_in">Set</span>)); <span class="comment">// "set"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="keyword">new</span> <span class="built_in">Map</span>)); <span class="comment">// "map"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="keyword">new</span> <span class="built_in">WeakSet</span>)); <span class="comment">// "weakset"</span></span><br><span class="line"><span class="built_in">console</span>.log(type(<span class="keyword">new</span> <span class="built_in">WeakMap</span>)); <span class="comment">// "weakmap"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Q2"><a href="#Q2" class="headerlink" title="Q2:"></a>Q2:</h4><p>考察<strong>变量作用域</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"Hello body"</span>;</span><br><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">	name: <span class="string">"A"</span>,</span><br><span class="line">	sayHi: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> b = &#123;</span><br><span class="line">	name: <span class="string">'B'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> sayHi = a.sayHi;</span><br><span class="line">name = <span class="string">"Hello C"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//依次写出返回值</span></span><br><span class="line"><span class="built_in">console</span>.log(name);<span class="comment">//Hello C</span></span><br><span class="line"><span class="comment">// 此时 this 指向仍是 a</span></span><br><span class="line">a.sayHi();<span class="comment">// A</span></span><br><span class="line"><span class="comment">// 此时 this 指向是 window 也就是全局变量 name</span></span><br><span class="line">sayHi(); <span class="comment">// Hello C</span></span><br><span class="line"><span class="comment">// 改变 this 指向 b</span></span><br><span class="line">a.sayHi.call(b);<span class="comment">// 'B'</span></span><br></pre></td></tr></table></figure>
+
+<p>这应该是个大部分面试都会问的问题吧。</p>
+<h5 id><a href="#" class="headerlink" title></a><img src="/images/1557908240751.png" alt="1557908240751"></h5><p>搞笑一下，言归正传，继续。</p>
+<h4 id="Q3"><a href="#Q3" class="headerlink" title="Q3:"></a>Q3:</h4><p>考察 <strong>栈(Stack) &amp;&amp; 堆(Heap)</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">"a"</span>;</span><br><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  name: name,</span><br><span class="line">  php: [<span class="string">'Hello'</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> b = a;</span><br><span class="line">name = <span class="string">"CC"</span>;</span><br><span class="line">b.php = [<span class="string">'world'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* a = b = &#123;name: 'a', php: [world]&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="built_in">console</span>.log(b)</span><br></pre></td></tr></table></figure>
+
+<p><strong>Stack</strong></p>
+<p>存储有顺序的数据，所以存储 variables和指向堆内存中的该对象的指针</p>
+<p><img src="/images/stack1.png" alt></p>
+<p><strong>heap</strong></p>
+<p>无序存储数据，放置 objects</p>
+<p><img src="/images/1557916548775.png" alt="1557916548775"></p>
+<h3 id="扩展知识："><a href="#扩展知识：" class="headerlink" title="扩展知识："></a>扩展知识：</h3><p>javascript 是一种垃圾回收机制的语言。所谓垃圾回收，就是用完就会注销。</p>
+<p>并且是一种==单线程并发==的语言。</p>
+<h4 id="Q4"><a href="#Q4" class="headerlink" title="Q4:"></a>Q4:</h4><p><strong>trim 去除前后空格，实现方法？</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">" hello world "</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">trim</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> regex = <span class="regexp">/^\s|\s+$/g</span>;</span><br><span class="line">  <span class="keyword">return</span> str.replace(regex, <span class="string">''</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(trim(str));<span class="comment">// "hello world"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// trimLeft</span></span><br><span class="line"><span class="built_in">String</span>.prototype.trimLeft = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^\s+/g</span>, <span class="string">''</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// trimRight</span></span><br><span class="line"><span class="built_in">String</span>.prototype.trimRight = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/\s+$/g</span>, <span class="string">''</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Q5"><a href="#Q5" class="headerlink" title="Q5:"></a>Q5:</h4><p><strong>请把“my-name-is-andy”变成驼峰格式？</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">"my-name-is-andy"</span>;</span><br><span class="line"><span class="comment">// 正则</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatString</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(!str) <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">return</span> str.replace(<span class="regexp">/-(\w+)/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">...args</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> args[<span class="number">1</span>] ? args[<span class="number">1</span>].replace(<span class="regexp">/^\w&#123;1&#125;/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$<span class="number">1</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> $<span class="number">1.</span>toUpperCase();</span><br><span class="line">      &#125;) : str</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatString</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(!str) <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">if</span>(str.includes(<span class="string">'-'</span>))&#123;</span><br><span class="line">    <span class="keyword">const</span> arr = str.split(<span class="string">'-'</span>);</span><br><span class="line">    <span class="keyword">let</span> reuslt = <span class="string">''</span>;</span><br><span class="line">    <span class="comment">// forEach 循环  n 是不能被重新赋值，如果是object,array 则可以操作增加删除</span></span><br><span class="line">    arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">n,i</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(i&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        result += n.substr(<span class="number">0</span>, <span class="number">1</span>).toUpperCase() + n.substr(<span class="number">1</span>);</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">       	result = n;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>扩展知识：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.forEach(<span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">currentValue[, index [, array]]</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// your iterator</span></span><br><span class="line">&#125;[, thisArg])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Example:</span><br><span class="line"></span><br><span class="line"><span class="comment">//base useage</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].forEach(<span class="function">(<span class="params">n, i</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`a[<span class="subst">$&#123;i&#125;</span>]=<span class="subst">$&#123;n&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">a[0]=1</span></span><br><span class="line"><span class="comment">a[1]=2</span></span><br><span class="line"><span class="comment">a[2]=3</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// thisArg</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> items = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Counter</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">this</span>.count = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">Counter.prototype.add = <span class="function"><span class="keyword">function</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">  arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.sum += n;</span><br><span class="line">    <span class="keyword">this</span>.count++;</span><br><span class="line">  &#125;, <span class="keyword">this</span>)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> obj = <span class="keyword">new</span> Counter();</span><br><span class="line">obj.add(items);</span><br><span class="line"><span class="built_in">console</span>.log(obj.sum);<span class="comment">//6</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.count);<span class="comment">//3</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// deep copy a object 深度复制</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copy</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> copy = <span class="built_in">Object</span>.create(<span class="built_in">Object</span>.getPrototypeOf(obj));</span><br><span class="line">  <span class="keyword">const</span> propNames = <span class="built_in">Object</span>.getOwnPropertyNames(obj);</span><br><span class="line"></span><br><span class="line">  propNames.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> desc = <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, name);</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(copy, name, desc);</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> copy;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj1 = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;;<span class="comment">// &#123;a: 1&#125;</span></span><br><span class="line"><span class="keyword">const</span> obj2 = copy(obj1);<span class="comment">// &#123;a: 1&#125;</span></span><br><span class="line">obj1.a = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj1);<span class="comment">// &#123;a: 2&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(obj2);<span class="comment">// &#123;a: 1&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Q6"><a href="#Q6" class="headerlink" title="Q6:"></a>Q6:</h4><p><strong>执行以下代码，会发送什么，又如何改进？</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> spans = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'span'</span>);<span class="comment">// 5个</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt; spans.length; i++)&#123;</span><br><span class="line">	spans[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		alert(i)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i)<span class="comment">//5</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">结果是 点击任何一个span 都是 alert(5)</span></span><br><span class="line"><span class="comment">var i = 0 其实是一个全局变量，整个循环结束后 i == spans.length 依然存在</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 改进1 var 更改为 let，这样 i 就是一个当前代码块里的一个局部变量</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt; spans.length; i++)&#123;</span><br><span class="line">	spans[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		alert(i)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i)<span class="comment">// Uncaught ReferenceError: i is not defined</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用闭包  closure functon 这样就避免了最后只读 i</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;spans.length;i++)&#123;</span><br><span class="line">  spans[i].onclick = (<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      alert(n)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Q7"><a href="#Q7" class="headerlink" title="Q7:"></a>Q7:</h4><p><strong>写出Es6的几种用法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="下是面谈的问题"><a href="#下是面谈的问题" class="headerlink" title="下是面谈的问题"></a>下是面谈的问题</h3><h4 id="Q8"><a href="#Q8" class="headerlink" title="Q8:"></a>Q8:</h4><p><strong>Vue 生命周期实现过程？</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Q9"><a href="#Q9" class="headerlink" title="Q9:"></a>Q9:</h4><p><strong>vuex中 mumation 和 action 有什么不同？ 实现原理是什么？</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Q10："><a href="#Q10：" class="headerlink" title="Q10："></a>Q10：</h4><p><strong>vue v-if 和 v-show 的区别？ Key的作用？</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Q11"><a href="#Q11" class="headerlink" title="Q11:"></a>Q11:</h4><p><strong>vue keep-alive 用法？</strong></p>
+<h4 id="Q12"><a href="#Q12" class="headerlink" title="Q12:"></a>Q12:</h4><p><strong>vue router 如何返回和刷新？</strong></p>
+<h4 id="Q13："><a href="#Q13：" class="headerlink" title="Q13："></a>Q13：</h4><p><strong>Vue 框架特点</strong></p>
+<h4 id="Q14"><a href="#Q14" class="headerlink" title="Q14"></a>Q14</h4><p><strong>es6 箭头函数</strong></p>
+<h4 id="Q15"><a href="#Q15" class="headerlink" title="Q15:"></a>Q15:</h4><p><strong>bind 和 call apply 区别</strong></p>
+<h4 id="Q16"><a href="#Q16" class="headerlink" title="Q16:"></a>Q16:</h4><p><strong>Promise 和 async await 区别？</strong></p>
+<h4 id="Q17"><a href="#Q17" class="headerlink" title="Q17:"></a>Q17:</h4><p>移动端适配</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong s>
+              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="../../%E7%BD%91%E7%BB%9C/http%E7%AE%80%E4%BB%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            HTTP简介
+          
+        </div>
+      </a>
+    
+    
+      <a href="../%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7%E4%B9%8Bwebpack/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">构建工具之webpack</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2014-2020
+        Alex Wong
+      </li>
+      <li>
+        
+        Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+    <aside class="sidebar">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="../../../../../index.html"><img src="/images/logo.png" alt="欢迎来到Alex的博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../index.html">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="../../../../../atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧～～～</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="../../../../../images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="../../../../../images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="../../../../../js/jquery-2.0.3.min.js"></script>
+
+
+<script src="../../../../../js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="../../../../../js/lazyload.min.js"></script>
+
+
+<script src="../../../../../js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script src="../../../../../js/share.js"></script>
+
+
+
+<script src="../../../../../fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['面朝大海，春暖花开','愿你一生努力，一生被爱','想要的都拥有，得不到的都释怀'],
+    startDelay: 0,
+    typeSpeed: 200,
+    loop: true,
+    backSpeed: 300,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="../../../../../js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+
+<script src="../../../../../js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+    
+  </div>
+</body>
+
+</html>

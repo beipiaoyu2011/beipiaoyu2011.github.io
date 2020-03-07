@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    HTTP简介 |  欢迎来到Alex的博客
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="../../../../../css/main.css">
+
+  
+<script src="../../../../../js/pace.min.js"></script>
+
+
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-网络/http简介" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  HTTP简介
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="" class="article-date">
+  <time datetime="2019-06-06T09:01:34.000Z" itemprop="datePublished">2019-06-06</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../categories/%E7%BD%91%E7%BB%9C/">网络</a> / <a class="article-category-link" href="../../../../../categories/%E7%BD%91%E7%BB%9C/HTTP/">HTTP</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.9k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">7分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="HTTP简介"><a href="#HTTP简介" class="headerlink" title="HTTP简介"></a>HTTP简介</h2><p>[TOC]</p>
+<p><code>Hypertext transfer protocol</code>（简称：<code>HTTP</code>）<code>超文本传输协议</code>。<code>HTTP</code>是<code>WWW</code>(world wide web 万维网)在一个<code>超文本</code>里面包含<code>超链接</code>的数据通信的基础。</p>
+<p><code>HTTP</code>的发展起始于1989年被 <code>Tim Berners-Lee</code> 在 <code>CERN</code>创立。HTTP标准的发展是被<code>IEIF(Internet Engineering Task Force)</code>和<code>W3C (world wide web consortium)</code>调整，并在提出 <code>RFCs(request for comments)</code>后达到了顶点。</p>
+<p><code>HTTP</code>的第一个修订版<code>HTTP/1.1</code>,在1997被广泛应用，不过 在 1999 年被 <code>RFC 2616</code>废弃，之后在2014年又出现了 <code>RFC 7230</code>；</p>
+<p>稍后，在2015年，提出了 继任者HTTP/2（之后的继任者是HTTP/3, 建立在 HTTP/2之上）,现在被大部分主要的web服务器和浏览器通过 <code>TSL(Transport Layer Security 传输层安全协议)</code>使用<code>ALPN (Application-Layer Protocol Negotiation 应用层协议协商)</code>扩展支持的。</p>
+<h3 id="1、技术介绍"><a href="#1、技术介绍" class="headerlink" title="1、技术介绍"></a>1、技术介绍</h3><p><code>HTTP</code>方法作为一个<code>请求-响应</code>在<code>客户端-服务器</code>计算模式。举例，比如一个<code>web浏览器</code>,或者是一个<code>客户端</code>或<code>应用程序</code>运行在拥有网站域名的<code>电脑主机上</code>。客户端发起一个 <code>HTTP request</code> 请求，提供资源比如 HTML或者其他资源或代表客户机执行其他行为的<code>一个服务器</code>，返回一个<code>response message</code>响应的消息给客户端。返回的<code>响应信息</code>包含了请求的完整信息状态和或许会包含<code>请求的内容</code>。</p>
+<p>浏览器就是一个用户代理（<code>user agent 简称 UA</code>)。其他的用户代理包括，搜索提供服务的索引浏览器（web爬虫），语音浏览器，移动<code>apps</code>和其他软件，访问、消耗或者展示 网页内容。</p>
+<p>HTTP被设计去允许网络中间件元素去提高或者加强客户端和服务器之间的通信。高并发的网站经常受益在那些传递在上层服务器提高响应时间的<code>web cache(网页缓存)</code>上。网页浏览器缓存之前获取到的资源然后再减少网络拥堵的时候重复使用这些资源。在私有网络边界的HTTP代理服务器能够促进和通过额外的服务器传递消息的客户端的通信。</p>
+<p><code>HTTP</code>是一个设计在<code>互联网协议套件</code>（<code>Internet protocol suite</code>）里的一个应用层协议。它的定义内容假一个潜在的可靠的<code>传输层协议</code>（<code>transport layer protocol 简称 TLP</code> ）和 <code>传输控制协议</code>（<code>Transmission Control Protocol 简称 TCP</code>）被普遍应用。然而，HTTP可以被适用于不可靠额协议比如<code>用户数据报协议</code> <code>（User Dategram Protocol 简称 UDP）</code>,比如，<code>HTTPU 通用即用即插</code> 和<code>简单的服务发现协议</code> <a href="https://en.wikipedia.org/wiki/Simple_Service_Discovery_Protocol" target="_blank" rel="noopener">(Simple Service  Discovery Protocol 简称 SSDP)</a>。</p>
+<p>HTTP资源利用URLs 统一资源存放器（Uniform Resource Locators）定义和存放在网络上，利用URL‘s（Uniform Resource identifiers）统一资源标识符 http 和 https。比如：包含所有的可选择的组件：</p>
+<p><img src="/.io//1559022847926.png" alt></p>
+<p>URLs在HTML 文档中被解码为超链接，所以成为了相关联的超文本文档。</p>
+<p>HTTP/1.1是在原来HTTP(HTTP/1.0)的一次版本更新，在HTTP/1.0，每一次请求服务器资源，都要单独发一次请求连接。在HTTP/1.1,可以在页面被发布后，重复使用一个请求连接去请求下载图片，脚本和样式表等。</p>
+<h3 id="2、历史"><a href="#2、历史" class="headerlink" title="2、历史"></a>2、历史</h3><p>术语 <code>hypertext</code>最早在1985年被<code>Ted Nelson</code> 提出，反而在1930年的 <code>vannevar Bush</code> 的基于微缩胶卷的信息检索和管理的“<code>memex</code>”系统所激励。后来<code>Berners-Lee</code>和他的团队发明的最初的<code>HTTP</code>, 还有<code>Html</code>和相关的网页服务器和基于文本的网页浏览器的相关的技术，终于被认可。</p>
+<p><code>Broners-lee</code>在1989年 第一次提出了 “<code>worldWideWeb</code>”项目，也就是现在著名的 <code>World Wide Web</code>。第一个版本的协议只有一个方法：<code>GET</code>, 可以从一个服务器请一个页面，从服务器返回的一直是一个页面。</p>
+<p>第一个注明的HTTP版本是 <code>HTTP V0.9,</code> <code>Dave Ragget</code>t 创建HTTP工作小组(<code>HTTP WG</code>)，打算扩大协议扩展业务，扩大谈判，丰富媒体元信息，尝试使用一个安全协议，后来通过增加额外的方法和消息头变得更加有效率。<code>RFC 1945</code>官方介绍和发布认证<code>HTTP V1.0</code> 在1996；</p>
+<p><code>HTTP WG</code> 打算在1995年12月发布一些新的标准和对基于开发中的<code>RFC2068</code>的预标准HTTP/1.1提供支持，并在1996早期就被大部分浏览器开发者适用认可。同年三月，预标准 HTTP/1.1 被大部分浏览器支持。</p>
+<p>发展历程：</p>
+<ul>
+<li><code>RFC 7230</code>, HTTP/1.1: Message Syntax and Routing</li>
+<li><code>RFC 7231</code>, HTTP/1.1: Semantics and Content</li>
+<li><code>RFC 7232</code>, HTTP/1.1: Conditional Requests</li>
+<li><code>RFC 7233</code>, HTTP/1.1: Range Requests</li>
+<li><code>RFC 7234</code>, HTTP/1.1: Caching</li>
+<li><code>RFC 7235</code>, HTTP/1.1: Authentication</li>
+</ul>
+<p><code>HTTP/2</code> 作为 <code>RFC 7540</code> 在2015年五月发布。</p>
+<table>
+<thead>
+<tr>
+<th>年份</th>
+<th>HTTP 版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1991</td>
+<td>0.9</td>
+</tr>
+<tr>
+<td>1996</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>1997</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td>2018</td>
+<td>3.0</td>
+</tr>
+</tbody></table>
+<h3 id="3、HTTP-session-会话"><a href="#3、HTTP-session-会话" class="headerlink" title="3、HTTP session 会话"></a>3、HTTP session 会话</h3><p>一个HTTP回话是一系列网络请求-响应失误。一个HTTP客户端通过一个特殊的服务器端口（一般是80，偶尔是8080）建立一个<a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol" target="_blank" rel="noopener">TCP 连接</a> 。一个HTTP server 监听这个端口等待客户端发出请求信息。一旦是收到请求，服务器返回一个状态码：比如 <code>“HTTP/1.1 200 OK”</code>和它自己的消息。此消息的正文一般是请求的资源，或者也许可能是一些错误消息或者其他信息。</p>
+<p><img src="/.io//1559027962666.png" alt></p>
+<h4 id="3-1-持续连接"><a href="#3-1-持续连接" class="headerlink" title="3.1 持续连接"></a>3.1 持续连接</h4><p>在 <code>HTTP/0.9</code> 和 <code>1.0</code>，每一次单独请求/响应后，连接会被关闭。在 <code>HTTP/1.</code>1，一个 <code>keep-alive-mechanism</code> 保持存活机制被介绍，多次单个请求可以共用一个连接通道。这样的持续的连接明显地减少请求延迟时间，因为客户端在第一个请求发出去之后不需要重新谈判和T<code>CP进行三次握手</code>的连接。一般的，连接因为<code>TCP</code>的<code>slow-start</code>机制变得更加快速。</p>
+<h4 id="3-2-HTTP-会话状态"><a href="#3-2-HTTP-会话状态" class="headerlink" title="3.2 HTTP 会话状态"></a>3.2 HTTP 会话状态</h4><p>HTTP是一个<code>无状态协议</code>。一个无状态的协议不会要求HTTP 服务器在多个请求中去保存每一个用户的信息或者状态。但是，一些网页应用程序实现状态或者服务器端会话用做<code>HTTP cookie</code> 或者隐藏在<code>网页表单</code>里的变量。</p>
+<h3 id="4、HTTP-authentication-认证"><a href="#4、HTTP-authentication-认证" class="headerlink" title="4、HTTP authentication 认证"></a>4、HTTP authentication 认证</h3><p>HTTP 提供多种验证方案如：基本的 <code>访问验证</code> 和 <code>消化访问验证</code>，通过质问-验证机制凭借服务器标识符和在提供其请求内容之前提出一个质问权限的操作。</p>
+<p><strong>Authentication realms 身份验证领域</strong></p>
+<p><code>HTTP</code>身份验证规范提供了一个任意的，实现指定的构造，用于划分单独的资源到一个公共的给定的<code>Root URL</code>; 这个<code>realm</code>值是一个字符串，如果存在，一定是和规范的<code>root URL</code>结合来保护空间抵抗挑战。在一个根目录下，可以单独定义不同的认证作用域。</p>
+<h3 id="5、Message-format-消息格式"><a href="#5、Message-format-消息格式" class="headerlink" title="5、Message format 消息格式"></a>5、Message format 消息格式</h3><p>客户端和服务器之间的通信靠发送纯文本消息（ASCII）。客户端发送到服务器，服务器发送响应信息；</p>
+<h4 id="5-1-request-message-请求消息"><a href="#5-1-request-message-请求消息" class="headerlink" title="5.1 request message 请求消息"></a>5.1 request message 请求消息</h4><p>请求的消息有以下组成部分：</p>
+<ul>
+<li>一个 请求命令行 ，比如 （GET /images/logo.png HTTP/1.1）</li>
+<li>请求头 <a href="./List-of-HTTP-header-fields.md">request header fields</a></li>
+<li>一个空行</li>
+<li>一个可选择的消息正文</li>
+</ul>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong s>
+              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/HTTP/" rel="tag">HTTP</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="../List-of-HTTP-header-fields/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            HTTP 报头字段列表
+          
+        </div>
+      </a>
+    
+    
+      <a href="../../%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">前端/前端面试总结</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2014-2020
+        Alex Wong
+      </li>
+      <li>
+        
+        Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+    <aside class="sidebar">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="../../../../../index.html"><img src="/images/logo.png" alt="欢迎来到Alex的博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../index.html">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="../../../../../atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧～～～</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="../../../../../images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="../../../../../images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="../../../../../js/jquery-2.0.3.min.js"></script>
+
+
+<script src="../../../../../js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="../../../../../js/lazyload.min.js"></script>
+
+
+<script src="../../../../../js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script src="../../../../../js/share.js"></script>
+
+
+
+<script src="../../../../../fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['面朝大海，春暖花开','愿你一生努力，一生被爱','想要的都拥有，得不到的都释怀'],
+    startDelay: 0,
+    typeSpeed: 200,
+    loop: true,
+    backSpeed: 300,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="../../../../../js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+
+<script src="../../../../../js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+    
+  </div>
+</body>
+
+</html>

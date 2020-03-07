@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Mac下 Navicat Premium 12.1如何安装与激活 |  欢迎来到Alex的博客
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="../../../../../css/main.css">
+
+  
+<script src="../../../../../js/pace.min.js"></script>
+
+
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-工具/mac下navicat 12.1激活过程" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Mac下 Navicat Premium 12.1如何安装与激活
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="" class="article-date">
+  <time datetime="2019-07-14T09:01:34.000Z" itemprop="datePublished">2019-07-14</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../categories/%E5%B7%A5%E5%85%B7/">工具</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">861字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">3分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="Mac下Navicat-Premium-12-1如何安装与激活"><a href="#Mac下Navicat-Premium-12-1如何安装与激活" class="headerlink" title="Mac下Navicat Premium 12.1如何安装与激活"></a>Mac下Navicat Premium 12.1如何安装与激活</h2><p>[TOC]<br>###1 下载</p>
+<p>下载地址 <a href>https://www.navicat.com/en/products</a></p>
+<p><code>mac</code>安装过程省略，一直按照下去最后放到<code>Application</code>即可；</p>
+<p><img src="/images/navicat.jpg" alt="navicat"></p>
+<h3 id="2-破解"><a href="#2-破解" class="headerlink" title="2 破解"></a>2 破解</h3><p>本次的破解使用的是 <a href="https://github.com/DoubleLabyrinth/navicat-keygen" target="_blank" rel="noopener">navicat-keygen</a></p>
+<h4 id="1-下载-Navicat-keygen-项目"><a href="#1-下载-Navicat-keygen-项目" class="headerlink" title="1)下载 Navicat-keygen 项目"></a>1)下载 <code>Navicat-keygen</code> 项目</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alex:projects $ git <span class="built_in">clone</span> https://github.com/DoubleLabyrinth/navicat-keygen</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/keygen.jpg" alt="keygen"></p>
+<h4 id="2-进入项目"><a href="#2-进入项目" class="headerlink" title="2) 进入项目"></a>2) 进入项目</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alex:projects $ <span class="built_in">cd</span> navicat-keygen/</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-切换-mac-分支"><a href="#3-切换-mac-分支" class="headerlink" title="3) 切换 mac 分支"></a>3) 切换 <code>mac</code> 分支</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alex:navicat-keygen $ git checkout mac</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-编译前准备"><a href="#4-编译前准备" class="headerlink" title="4) 编译前准备"></a>4) 编译前准备</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ brew install openssl</span><br><span class="line">$ brew install capstone</span><br><span class="line">$ brew install keystone</span><br><span class="line">$ brew install rapidjson</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-进入到navicat-patcher-并编译"><a href="#5-进入到navicat-patcher-并编译" class="headerlink" title="5) 进入到navicat-patcher 并编译"></a>5) 进入到<code>navicat-patcher</code> 并编译</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alex:navicat-keygen $ make all</span><br><span class="line">//编译之后，会有着两个文件</span><br><span class="line">alex:navicat-keygen $ ls bin</span><br><span class="line">navicat-keygen	navicat-patcher</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-编译好navicat-keygen-navicat-patcher之后，记得备份你的app"><a href="#6-编译好navicat-keygen-navicat-patcher之后，记得备份你的app" class="headerlink" title="6) 编译好navicat-keygen, navicat-patcher之后，记得备份你的app"></a>6) 编译好<code>navicat-keygen</code>, <code>navicat-patcher</code>之后，记得备份你的app</h4><p><img src="/images/nav_bk.jpg" alt="nav_bk"></p>
+<p>甚至备份整个 <code>Contents</code>，都可以。</p>
+<h4 id="7-使用navicat-patcher替换掉公钥："><a href="#7-使用navicat-patcher替换掉公钥：" class="headerlink" title="7) 使用navicat-patcher替换掉公钥："></a>7) 使用<code>navicat-patcher</code>替换掉公钥：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">    navicat-patcher &lt;navicat executable file&gt; [RSA-2048 PrivateKey(PEM file)]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>&lt;navicat executable file&gt;</code>: Navicat可执行文件的路径。</p>
+<p><strong>这个参数必须指定。</strong></p>
+</li>
+<li><p><code>[RSA-2048 PrivateKey(PEM file)]</code>: RSA-2048私钥文件的路径。</p>
+<p><strong>这个参数是可选的。</strong> 如果没有指定，<code>navicat-patcher</code>将会在当前目录下生成一个新的RSA-2048私钥文件<code>RegPrivateKey.pem</code>。</p>
+</li>
+</ul>
+<p>我使用最简单的用法，不指定：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alex:navicat-keygen $ <span class="built_in">cd</span> bin</span><br><span class="line">alex:bin $ ls</span><br><span class="line">navicat-keygen	navicat-patcher</span><br><span class="line">alex:bin $ ./navicat-patcher /Applications/Navicat\Premium.app/Contents/MacOS/Navicat\ Premium</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20190727105419621.png" alt="image-20190727105419621"></p>
+<p>如上图：这只是样例生成<code>RSA public key</code>一部分。</p>
+<p>在<code>bin</code>里面生成了<code>RegPrivateKey.pem</code></p>
+<p><img src="/images/image-20190727105758411.png" alt="image-20190727105758411"></p>
+<p><strong>仅对 Navicat Premium 版本 &lt; 12.0.24 的说明：</strong></p>
+<p>如果你的Navicat版本小于12.0.24，那么<code>navicat-patcher</code>将会终止并且不会修改目标文件。</p>
+<p>你必须使用openssl生成<code>RegPrivateKey.pem</code>和<code>rpk</code>文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ openssl genrsa -out RegPrivateKey.pem 2048</span><br><span class="line">$ openssl rsa -<span class="keyword">in</span> RegPrivateKey.pem -pubout -out rpk</span><br></pre></td></tr></table></figure>
+
+<p>接着用刚生成的<code>rpk</code>文件替换</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Navicat Premium.app/Contents/Resources/rpk</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="8-重要的一步：生成一份自签名的代码证书，并总是信任该证书"><a href="#8-重要的一步：生成一份自签名的代码证书，并总是信任该证书" class="headerlink" title="8) 重要的一步：生成一份自签名的代码证书，并总是信任该证书"></a>8) 重要的一步：<strong>生成一份自签名的代码证书，并总是信任该证书</strong></h4><p><strong>用codesign对Navicat Premium.app重签名</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ codesign -f -s <span class="string">"Your self-signed code-sign certificate name"</span> &lt;path to Navicat Premium.app&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong></p>
+<p>“Your self-signed code-sign certificate name”是你证书的名字，不是路径。</p>
+<p><strong>例如：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alex:bin $ codesign -f -s <span class="string">"master"</span> /Applications/Navicat\ Premium.app/</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-接下来使用navicat-keygen来生成-序列号-和-激活码"><a href="#9-接下来使用navicat-keygen来生成-序列号-和-激活码" class="headerlink" title="9) 接下来使用navicat-keygen来生成 序列号 和 激活码"></a>9) 接下来使用<code>navicat-keygen</code>来生成 <strong>序列号</strong> 和 <strong>激活码</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">    navicat-keygen &lt;RSA-2048 PrivateKey(PEM file)&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>&lt;RSA-2048 PrivateKey(PEM file)&gt;</code>: RSA-2048私钥文件的路径。</p>
+<p><strong>这个参数必须指定。</strong></p>
+</li>
+</ul>
+<p><strong>例如：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">alex:bin $ ./navicat-keygen ./RegPrivateKey.pem</span><br><span class="line">Which is your Navicat Premium language?</span><br><span class="line">0. English</span><br><span class="line">1. Simplified Chinese</span><br><span class="line">2. Traditional Chinese</span><br><span class="line">3. Japanese</span><br><span class="line">4. Polish</span><br><span class="line">5. Spanish</span><br><span class="line">6. French</span><br><span class="line">7. German</span><br><span class="line">8. Korean</span><br><span class="line">9. Russian</span><br><span class="line">10. Portuguese</span><br><span class="line"></span><br><span class="line">(Input index)&gt; 0</span><br><span class="line">(Input major version number, range: 0 ~ 15, default: 12)&gt; 12</span><br><span class="line"></span><br><span class="line">Serial number:</span><br><span class="line">N6VM-YWXC-8ZJU-99VH</span><br><span class="line"></span><br><span class="line">Your name:</span><br></pre></td></tr></table></figure>
+
+<p>你可以使用这个 <strong>序列号</strong> 暂时激活Navicat。</p>
+<p>接下来你会被要求输入<code>用户名</code>和<code>组织名</code>；请随便填写，但不要太长</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Your name: alex</span><br><span class="line">Your organization: alex</span><br><span class="line"></span><br><span class="line">Input request code (<span class="keyword">in</span> Base64), input empty line to end:</span><br></pre></td></tr></table></figure>
+
+<p>之后你会被要求填入请求码。注意 <strong>不要关闭注册机</strong>.</p>
+<h4 id="10-手动激活"><a href="#10-手动激活" class="headerlink" title="10) 手动激活"></a>10) 手动激活</h4><p><strong>断开网络</strong> 并打开Navicat。找到<code>注册</code>窗口，填入注册机给你的序列号。然后点击<code>激活</code>按钮</p>
+<p>一般来说在线激活肯定会失败，这时候Navicat会询问你是否<code>手动激活</code>，直接选</p>
+<p>在<code>手动激活</code>窗口你会得到一个请求码，复制它并把它粘贴到keygen里。最后别忘了连按至少两下回车结束输入</p>
+<p><img src="/images/image-20190727111438303.png" alt="image-20190727111438303"></p>
+<h4 id="11-成功激活"><a href="#11-成功激活" class="headerlink" title="11) 成功激活"></a>11) 成功激活</h4><p>如果不出意外，你会得到一个看似用<code>Base64</code>编码的激活码。直接复制它，并把它粘贴到<code>Navicat</code>的<code>手动激活</code>窗口，最后点<code>激活</code>按钮。如果没什么意外的话应该能<code>成功激活</code></p>
+<p><img src="/images/image-20190727111542953.png" alt="image-20190727111542953"></p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong s>
+              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/mac/" rel="tag">mac</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="../%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D%E5%88%B0%E6%90%AD%E5%BB%BA%E6%95%B4%E4%B8%AA%E7%BD%91%E7%AB%99/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            申请免费域名到搭建整个网站
+          
+        </div>
+      </a>
+    
+    
+      <a href="../%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%88%87%E5%9B%BE%E4%B8%8D%E6%B1%82%E4%BA%BA%E7%B3%BB%E5%88%97%E4%B9%8B%E8%93%9D%E6%B9%96/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">求人不如求已系列工具：如何PSD文件自动标注切图和真机预览</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2014-2020
+        Alex Wong
+      </li>
+      <li>
+        
+        Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+    <aside class="sidebar">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="../../../../../index.html"><img src="/images/logo.png" alt="欢迎来到Alex的博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../index.html">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="../../../../../atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧～～～</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="../../../../../images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="../../../../../images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="../../../../../js/jquery-2.0.3.min.js"></script>
+
+
+<script src="../../../../../js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="../../../../../js/lazyload.min.js"></script>
+
+
+<script src="../../../../../js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script src="../../../../../js/share.js"></script>
+
+
+
+<script src="../../../../../fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['面朝大海，春暖花开','愿你一生努力，一生被爱','想要的都拥有，得不到的都释怀'],
+    startDelay: 0,
+    typeSpeed: 200,
+    loop: true,
+    backSpeed: 300,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="../../../../../js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+
+<script src="../../../../../js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+    
+  </div>
+</body>
+
+</html>

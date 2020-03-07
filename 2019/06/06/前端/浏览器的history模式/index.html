@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    深入了解 HTML5 History API，前端路由的生成，解读 webpack-dev-server 的 historyApiFallback 原理 |  欢迎来到Alex的博客
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="../../../../../css/main.css">
+
+  
+<script src="../../../../../js/pace.min.js"></script>
+
+
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-前端/浏览器的history模式" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  深入了解 HTML5 History API，前端路由的生成，解读 webpack-dev-server 的 historyApiFallback 原理
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="" class="article-date">
+  <time datetime="2019-06-06T09:01:34.000Z" itemprop="datePublished">2019-06-06</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="../../../../../categories/%E5%89%8D%E7%AB%AF/%E6%B7%B1%E5%BA%A6/">深度</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.8k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">12分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h3 id="深入了解-HTML5-History-API，前端路由的生成，解读-webpack-dev-server-的-historyApiFallback-原理"><a href="#深入了解-HTML5-History-API，前端路由的生成，解读-webpack-dev-server-的-historyApiFallback-原理" class="headerlink" title="深入了解 HTML5 History API，前端路由的生成，解读 webpack-dev-server 的 historyApiFallback 原理"></a>深入了解 HTML5 History API，前端路由的生成，解读 webpack-dev-server 的 historyApiFallback 原理</h3><p>[TOC]</p>
+<h4 id="1、history"><a href="#1、history" class="headerlink" title="1、history"></a>1、history</h4><p><code>History</code> 接口，允许操作浏览器的 <code>session history</code>，比如在当前<code>tab</code>下浏览的所有页面或者当前页面的会话记录。</p>
+<blockquote>
+<p>history属性</p>
+</blockquote>
+<p><img src="/images/1568966948334.png" alt="1568966948334"></p>
+<p>1、<code>length</code>(只读)</p>
+<p>   返回一个总数，<code>代表当前窗口下的所有会话记录数量</code>，包括当前页面。如果你在新开的一个<code>tab</code>里面输入一个地址，当前的<code>length</code>是<code>1</code>，如果再输入一个地址，就会变成<code>2</code>；</p>
+<p>   假设当前总数已经是<code>6</code>，无论是浏览器的返回还是 <code>history.back()</code>, 当前总数都不会改变。</p>
+<p><code>2、scrollRestoration</code>(实验性API)</p>
+<p>   允许<code>web</code>应用在<code>history</code>导航下指定一个默认返回的页面滚动行为，就是是否自动滚动到页面顶部；默认是 <code>auto</code>, 另外可以是 <code>manual</code>(手动)</p>
+<p>3、 <code>state</code> (当前页面状态)</p>
+<pre><code>返回一个任意的状态值，代表当前处在历史记录`栈`里最高的状态。其实就是返回当前页面的`state`，默认是 null</code></pre><blockquote>
+<p>history 方法</p>
+</blockquote>
+<p>History不继承任何方法；</p>
+<p>1、 <code>back()</code></p>
+<p>返回历史记录会话的上一个页面，同浏览器的返回，同 <code>history.go(-1)</code></p>
+<p>2、<code>forward()</code></p>
+<p>前进到历史会话记录的下一个页面，同浏览器的前进，同 <code>history.go(1)</code></p>
+<p>3、<code>go()</code></p>
+<p>从<code>session history</code>里面加载页面，取决于当前页面的相对位置，比如 <code>go(-1)</code> 是返回上一页，<code>go(1)</code>是前进到下一个页面。<br>如果你直接一个超过当前总<code>length</code>的返回，比如初始页面，没有前一个页面，也没有后一个页面，这个时候 <code>go(-1)</code> 和 <code>go(1)</code>,都不会有任何作用；<br>如果你不指定<code>任何参数</code>或者<code>go(0)</code>,将会重新加载当前页面；</p>
+<p>4、<code>pushState(StateObj, title, url)</code></p>
+<p>把提供的状态数据放到当前的会话栈里面，如果有参数的话，一般第二个是<code>title</code>，第三个是<code>UR</code>L。<br>这个数据被DOM当做透明数据；你可以传任何可以序列号的数据。不过火狐现在忽略 <code>title</code> 这个参数；<br>这个方法<code>会</code>引起会话记录<code>length</code>的增长。</p>
+<p>5、<code>replaceState(StateObj, title, url)</code></p>
+<p>把提供的状态数据更新到当前的会话栈里面最近的入口，如果有参数的话，一般第二个是<code>title</code>，第三个是<code>URL</code>。<br>这个数据被DOM当做透明数据；你可以传任何可以序列号的数据。不过火狐现在忽略 <code>title</code> 这个参数；<br>这个方法<code>不会</code>引起会话记录<code>length</code>的增长。</p>
+<hr>
+<p><code>综上所述，pushState</code> 和 <code>replaceState</code> 是修改当前<code>session history</code>的两个方法，他们都会触发一个方法 <code>onpopstate</code> 事件;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history.pushState(&#123;<span class="attr">demo</span>: <span class="number">12</span>&#125;, <span class="string">"8888"</span>, <span class="string">"en-US/docs/Web/API/XMLHttpRequest"</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/1568969522699.png" alt="1568969522699"></p>
+<p>如图 <code>pushState</code> 会改变当你在后面建立的页面发起XHR请求的时候，<code>请求header</code>里面的 <code>referrer；这个地址就是你在pushState里面的URL；</code></p>
+<p>另外URL <code>en-US/docs/Web/API/XMLHttpRequest（并非真实存在的URL）</code>, 在<code>pushState</code>完成之后，<code>并不触发页面的重新加载或者检查当前URL的目录是否存在</code>。</p>
+<p>只有当你此刻从这个页面跳转到 <code>google.com</code>, 然后再点击返回按钮，此时的页面就是你现在pushState的页面，state也会是当前的state, <code>也同时会加载当前的页面资源，oops，此刻会显示不存在；</code></p>
+<p><img src="/images/1568970176102.png" alt="1568970176102"></p>
+<p><code>replaceState</code> 同理；</p>
+<p>关于 <code>onpopstate</code>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onpopstate = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">"location: "</span> + <span class="built_in">document</span>.location + <span class="string">", state: "</span> + <span class="built_in">JSON</span>.stringify(event.state));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">history.pushState(&#123;<span class="attr">page</span>: <span class="number">1</span>&#125;, <span class="string">"title 1"</span>, <span class="string">"?page=1"</span>);</span><br><span class="line">history.pushState(&#123;<span class="attr">page</span>: <span class="number">2</span>&#125;, <span class="string">"title 2"</span>, <span class="string">"?page=2"</span>);</span><br><span class="line">history.replaceState(&#123;<span class="attr">page</span>: <span class="number">3</span>&#125;, <span class="string">"title 3"</span>, <span class="string">"?page=3"</span>);</span><br><span class="line">history.back(); <span class="comment">// alerts "location: http://example.com/example.html?page=1, state: &#123;"page":1&#125;"</span></span><br><span class="line">history.back(); <span class="comment">// alerts "location: http://example.com/example.html, state: null</span></span><br><span class="line">history.go(<span class="number">2</span>);  <span class="comment">// alerts "location: http://example.com/example.html?page=3, state: &#123;"page":3&#125;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="2、两种路由模式的生成"><a href="#2、两种路由模式的生成" class="headerlink" title="2、两种路由模式的生成"></a>2、两种路由模式的生成</h4><p>以下说明仅存在于当前路由是 <code>history</code> 模式；<br>说道 <code>webpack-dev-server</code>的 <code>historyApiFallback</code> 就不得不说下 VUE 前端路由，路由跳转原理；</p>
+<p>传统的web开发中，大多是多页应用，每个模块对应一个页面，在浏览器输入相关页面的路径，然后服务端处理相关浏览器的请求，通过HTTP把资源返回给客户端浏览器进行渲染。</p>
+<p>传统开发，后端定义好路由的路径和请求数据的地址；</p>
+<p>随着前端的发展，前端也承担着越来越大的责任，比如Ajax局部刷新数据，前端可以操控一些历史会话，而不用每次都从服务端进行数据交互。</p>
+<p><code>history.pushState</code> 和 <code>history.replaceState</code> ，这两个<code>history</code>新增的<code>api</code>，为前端操控浏览器历史栈提供了可能性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@data <span class="type">&#123;object&#125;</span> </span>state对象 最大640KB, 如果需要存很大的数据，考虑 sessionStorage localStorage</span></span><br><span class="line"><span class="comment">* <span class="doctag">@title <span class="type">&#123;string&#125;</span> </span>标题</span></span><br><span class="line"><span class="comment">* <span class="doctag">@url <span class="type">&#123;string&#125;</span> </span>必须同一个域下，相对路径和绝对路径都可以</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">history.pushState(data, title, url) <span class="comment">//向浏览器历史栈中增加一条记录。</span></span><br><span class="line">history.replaceState(data, title, url) <span class="comment">//替换历史栈中的当前记录。</span></span><br></pre></td></tr></table></figure>
+
+<p>这两个Api都会操作浏览器的历史栈，而不会引起页面的刷新。不同的是，<code>pushState</code>会增加一条新的历史记录，而<code>replaceState</code>则会替换当前的历史记录。所需的参数相同，在将新的历史记录存入栈后，会把传入的<code>data</code>（即state对象）同时存入，以便以后调用。同时，这俩api都会更新或者覆盖当前浏览器的<code>title</code>和<code>url</code>为对应传入的参数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 假设当前的URL： http://test.com</span></span><br><span class="line"></span><br><span class="line">history.pushState(<span class="literal">null</span>, <span class="literal">null</span>, <span class="string">"/login"</span>);</span><br><span class="line"><span class="comment">// http://test.com ----&gt;&gt;&gt;  http://test.com/login</span></span><br><span class="line"></span><br><span class="line">history.pushState(<span class="literal">null</span>, <span class="literal">null</span>, <span class="string">"http://test.com/regiest"</span>);</span><br><span class="line"><span class="comment">// http://test.com ----&gt;&gt;&gt;  http://test.com/regiest</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 错误用法</span></span><br><span class="line">history.pushState(<span class="literal">null</span>, <span class="literal">null</span>, <span class="string">"http://baidu.com/regiest"</span>);</span><br><span class="line"><span class="comment">// error 跨域报错</span></span><br></pre></td></tr></table></figure>
+
+<p>也正是基于浏览器的<code>hitroy</code>，慢慢的衍生出来现在的前端路由比如<code>vue</code>的<code>history</code>路由，<code>react</code>的<code>BrowseHistory</code>：</p>
+<p>==现在让我们手动写一个history路由模式==：</p>
+<blockquote>
+<p>Html</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">data-link</span>=<span class="string">"/"</span>&gt;</span>login<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">data-link</span>=<span class="string">"/news"</span>&gt;</span>news<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">data-link</span>=<span class="string">"/contact"</span>&gt;</span>contact<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// history 路由</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HistoryRouter</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(options = &#123;&#125;) &#123;</span><br><span class="line">    <span class="comment">// store all router</span></span><br><span class="line">    <span class="keyword">this</span>.routers = &#123;&#125;;</span><br><span class="line">    <span class="comment">// 遍历路由参数，保存到 this.routers</span></span><br><span class="line">    <span class="keyword">if</span> (options.router) &#123;</span><br><span class="line">      options.router.forEach(<span class="function"><span class="params">n</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.routers[n.path] = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">document</span>.getElementById(<span class="string">"content"</span>).innerHTML = n.component;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 绑定到 this.routers</span></span><br><span class="line">    <span class="keyword">this</span>.updateContent = <span class="keyword">this</span>.updateContent.bind(<span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">// 初始化事件</span></span><br><span class="line">    <span class="keyword">this</span>.init();</span><br><span class="line">    <span class="keyword">this</span>.bindClickEvent();</span><br><span class="line">  &#125;</span><br><span class="line">  init() &#123;</span><br><span class="line">    <span class="comment">// 页面初始化的时候，初始化当前匹配路由</span></span><br><span class="line">    <span class="comment">// 监听 load</span></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, <span class="keyword">this</span>.updateContent, <span class="literal">false</span>);</span><br><span class="line">    <span class="comment">// pushState replaceState 不能触发 popstate 事件</span></span><br><span class="line">    <span class="comment">// 当浏览器返回前进或者刷新，都会触发 popstate 更新</span></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">"popstate"</span>, <span class="keyword">this</span>.updateContent, <span class="literal">false</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 更新内容</span></span><br><span class="line">  updateContent(e) &#123;</span><br><span class="line">    alert(e ? e.type : <span class="string">"click"</span>);</span><br><span class="line">    <span class="keyword">const</span> currentPath = location.pathname || <span class="string">"/"</span>;</span><br><span class="line">    <span class="keyword">this</span>.routers[currentPath] &amp;&amp; <span class="keyword">this</span>.routers[currentPath]();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 绑定点击事件</span></span><br><span class="line">  bindClickEvent() &#123;</span><br><span class="line">    <span class="keyword">const</span> links = <span class="built_in">document</span>.querySelectorAll(<span class="string">'a'</span>);</span><br><span class="line">    <span class="built_in">Array</span>.prototype.forEach.call(links, link =&gt; &#123;</span><br><span class="line">      link.addEventListener(<span class="string">'click'</span>, e =&gt; &#123;</span><br><span class="line">        <span class="keyword">const</span> path = e.target.getAttribute(<span class="string">"data-link"</span>);</span><br><span class="line">        <span class="comment">// 添加到session history</span></span><br><span class="line">        <span class="keyword">this</span>.handlePush(path);</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// pushState 不会触发 popstate</span></span><br><span class="line">  handlePush(path)&#123;</span><br><span class="line">    <span class="built_in">window</span>.history.pushState(&#123;path&#125;, <span class="literal">null</span>, path);</span><br><span class="line">    <span class="keyword">this</span>.updateContent();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 实例</span></span><br><span class="line"><span class="keyword">new</span> HistoryRouter(&#123;</span><br><span class="line">  router: [&#123;</span><br><span class="line">    name: <span class="string">"index"</span>,</span><br><span class="line">    path: <span class="string">"/"</span>,</span><br><span class="line">    component: <span class="string">"Index"</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    name: <span class="string">"news"</span>,</span><br><span class="line">    path: <span class="string">"/news"</span>,</span><br><span class="line">    component: <span class="string">"News"</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    name: <span class="string">"contact"</span>,</span><br><span class="line">    path: <span class="string">"/contact"</span>,</span><br><span class="line">    component: <span class="string">"Contact"</span></span><br><span class="line">  &#125;]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>第一次渲染的时候，会根据当前的 <code>pathname</code> 进行更新对应的 <code>callback</code> 事件，然后更新 <code>content</code> , 这个时候无需服务器的请求；</p>
+<p>如果这个时候，我们点击<code>浏览器的返回🔙前进按钮</code>，发现依然会依次渲染相关 <code>content</code> ，这就是<code>history历史堆栈</code>的魅力所在。</p>
+<p><img src="/images/Jietu20190921-141014-HD.gif" alt></p>
+<p>最后我们发现当我们切换到非loading page的时候，我们刷新页面，会报出 Get 404，这个时候就是请求了server , 却发现不存在这个目录的资源；</p>
+<p>这个时候我们就需要 <code>historyApiFallback</code> 。</p>
+<hr>
+<h4 id="3、historyApiFallback"><a href="#3、historyApiFallback" class="headerlink" title="3、historyApiFallback"></a>3、historyApiFallback</h4><p><code>Webpack-dev-server</code> 的背后的是<code>connect-history-api-fallback</code>；</p>
+<blockquote>
+<p>关于 connect-history-api-fallback 中间件，解决这个404问题</p>
+</blockquote>
+<p>单页应用(SPA)一般只有一个<code>index.html</code>, 导航的跳转都是基于<a href="http://www.w3.org/html/wg/drafts/html/master/single-page.html#the-history-interface" target="_blank" rel="noopener">HTML5 History API</a>，当用户在越过<code>index.html</code> 页面直接访问这个地址或是通过浏览器的刷新按钮重新获取时，就会出现404问题；</p>
+<p>比如 直接访问<code>/login</code>,  <code>/login/online</code>，这时候越过了<code>index.html</code>，去查找这个地址下的文件。由于这是个一个单页应用，最终结果肯定是查找失败，返回一个<code>404错误</code>。</p>
+<p><strong>这个中间件就是用来解决这个问题的</strong>；</p>
+<p>只要满足下面四个条件之一，这个中间件就会改变请求的地址，指向到默认的<code>index.html</code>:</p>
+<blockquote>
+<p>1 <code>GET请求</code></p>
+<p>2  接受内容格式为<code>text/html</code></p>
+<p>3 不是一个直接的文件请求，比如路径中不带有 <code>.</code></p>
+<p>4 没有 <code>options.rewrites</code> 里的正则匹配</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>connect-history-api-fallback 源码：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"></span><br><span class="line">exports = <span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">historyApiFallback</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">  options = options || &#123;&#125;;</span><br><span class="line">  <span class="keyword">var</span> logger = getLogger(options);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> headers = req.headers;</span><br><span class="line">    <span class="keyword">if</span> (req.method !== <span class="string">'GET'</span>) &#123;</span><br><span class="line">      logger(</span><br><span class="line">        <span class="string">'Not rewriting'</span>,</span><br><span class="line">        req.method,</span><br><span class="line">        req.url,</span><br><span class="line">        <span class="string">'because the method is not GET.'</span></span><br><span class="line">      );</span><br><span class="line">      <span class="keyword">return</span> next();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!headers || <span class="keyword">typeof</span> headers.accept !== <span class="string">'string'</span>) &#123;</span><br><span class="line">      logger(</span><br><span class="line">        <span class="string">'Not rewriting'</span>,</span><br><span class="line">        req.method,</span><br><span class="line">        req.url,</span><br><span class="line">        <span class="string">'because the client did not send an HTTP accept header.'</span></span><br><span class="line">      );</span><br><span class="line">      <span class="keyword">return</span> next();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (headers.accept.indexOf(<span class="string">'application/json'</span>) === <span class="number">0</span>) &#123;</span><br><span class="line">      logger(</span><br><span class="line">        <span class="string">'Not rewriting'</span>,</span><br><span class="line">        req.method,</span><br><span class="line">        req.url,</span><br><span class="line">        <span class="string">'because the client prefers JSON.'</span></span><br><span class="line">      );</span><br><span class="line">      <span class="keyword">return</span> next();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!acceptsHtml(headers.accept, options)) &#123;</span><br><span class="line">      logger(</span><br><span class="line">        <span class="string">'Not rewriting'</span>,</span><br><span class="line">        req.method,</span><br><span class="line">        req.url,</span><br><span class="line">        <span class="string">'because the client does not accept HTML.'</span></span><br><span class="line">      );</span><br><span class="line">      <span class="keyword">return</span> next();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> parsedUrl = url.parse(req.url);</span><br><span class="line">    <span class="keyword">var</span> rewriteTarget;</span><br><span class="line">    options.rewrites = options.rewrites || [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; options.rewrites.length; i++) &#123;</span><br><span class="line">      <span class="keyword">var</span> rewrite = options.rewrites[i];</span><br><span class="line">      <span class="keyword">var</span> match = parsedUrl.pathname.match(rewrite.from);</span><br><span class="line">      <span class="keyword">if</span> (match !== <span class="literal">null</span>) &#123;</span><br><span class="line">        rewriteTarget = evaluateRewriteRule(parsedUrl, match, rewrite.to);</span><br><span class="line">        logger(<span class="string">'Rewriting'</span>, req.method, req.url, <span class="string">'to'</span>, rewriteTarget);</span><br><span class="line">        req.url = rewriteTarget;</span><br><span class="line">        <span class="keyword">return</span> next();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (parsedUrl.pathname.indexOf(<span class="string">'.'</span>) !== <span class="number">-1</span> &amp;&amp;</span><br><span class="line">        options.disableDotRule !== <span class="literal">true</span>) &#123;</span><br><span class="line">      logger(</span><br><span class="line">        <span class="string">'Not rewriting'</span>,</span><br><span class="line">        req.method,</span><br><span class="line">        req.url,</span><br><span class="line">        <span class="string">'because the path includes a dot (.) character.'</span></span><br><span class="line">      );</span><br><span class="line">      <span class="keyword">return</span> next();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    rewriteTarget = options.index || <span class="string">'/index.html'</span>;</span><br><span class="line">    logger(<span class="string">'Rewriting'</span>, req.method, req.url, <span class="string">'to'</span>, rewriteTarget);</span><br><span class="line">    req.url = rewriteTarget;</span><br><span class="line">    next();</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">evaluateRewriteRule</span>(<span class="params">parsedUrl, match, rule</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> rule === <span class="string">'string'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> rule;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> rule !== <span class="string">'function'</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Rewrite rule can only be of type string of function.'</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> rule(&#123;</span><br><span class="line">    parsedUrl: parsedUrl,</span><br><span class="line">    match: match</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">acceptsHtml</span>(<span class="params">header, options</span>) </span>&#123;</span><br><span class="line">  options.htmlAcceptHeaders = options.htmlAcceptHeaders || [<span class="string">'text/html'</span>, <span class="string">'*/*'</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; options.htmlAcceptHeaders.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (header.indexOf(options.htmlAcceptHeaders[i]) !== <span class="number">-1</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getLogger</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (options &amp;&amp; options.logger) &#123;</span><br><span class="line">    <span class="keyword">return</span> options.logger;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (options &amp;&amp; options.verbose) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">console</span>.log.bind(<span class="built_in">console</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其实代码也挺简单的，最主要先符合上面四个原则，然后先匹配自定义rewrites规则，再匹配点文件规则；</p>
+<blockquote>
+<p><code>getLogger</code>, 默认不输出，<code>options.verbose</code>如果为true，则输出，默认<code>console.log.bind(console)</code></p>
+</blockquote>
+<blockquote>
+<p>如果<code>req.method != &#39;GET&#39;</code>，结束<br>如果<code>!headers || !headers.accept != &#39;string&#39;</code> ，结束<br>如果<code>headers.accept.indexOf(&#39;application/json&#39;) === 0</code> 结束</p>
+</blockquote>
+<blockquote>
+<p><code>acceptsHtml</code>函数a判断<code>headers.accept</code>字符串是否含有[‘text/html’, ‘<em>/</em>‘]中任意一个<br>当然不够这两个不够你可以自定义到选项<code>options.htmlAcceptHeaders</code>中<br><code>!acceptsHtml(headers.accept, options)</code>，结束</p>
+</blockquote>
+<blockquote>
+<p>然后根据你定义的选项<code>rewrites</code>, 没定义就相当于跳过了<br>按定义的数组顺序，字符串依次匹配路由rewrite.from，匹配成功则走rewrite.to，to可以是字符串也可以是函数，结束</p>
+</blockquote>
+<blockquote>
+<p>判断dot file，即pathname中包含<code>.</code>(点)，并且选项<code>disableDotRule !== true</code>，即没有关闭点文件限制规则, 结束</p>
+</blockquote>
+<blockquote>
+<p><code>rewriteTarget = options.index || &#39;/index.html&#39;</code></p>
+</blockquote>
+<p>大致如此；</p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong s>
+              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="../%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%BC%8F%E5%92%8C%20Event%20Loop%20%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E8%A7%A3%E8%AF%BB/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            JavaScript - 并发模式和 Event Loop 事件循环解读
+          
+        </div>
+      </a>
+    
+    
+      <a href="../Vue%E6%8A%9B%E5%BC%83vue.config.js%E9%85%8D%E7%BD%AE%EF%BC%8C%E9%87%8D%E6%92%B8webpack4%E5%92%8Cbabel%E9%85%8D%E7%BD%AE/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Vue项目改造抛弃vue-cli配置，重撸webpack4和babel配置</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2014-2020
+        Alex Wong
+      </li>
+      <li>
+        
+        Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+    <aside class="sidebar">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="../../../../../index.html"><img src="/images/logo.png" alt="欢迎来到Alex的博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../index.html">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="../../../../../atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧～～～</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="../../../../../images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="../../../../../images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="../../../../../js/jquery-2.0.3.min.js"></script>
+
+
+<script src="../../../../../js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="../../../../../js/lazyload.min.js"></script>
+
+
+<script src="../../../../../js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script src="../../../../../js/share.js"></script>
+
+
+
+<script src="../../../../../fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['面朝大海，春暖花开','愿你一生努力，一生被爱','想要的都拥有，得不到的都释怀'],
+    startDelay: 0,
+    typeSpeed: 200,
+    loop: true,
+    backSpeed: 300,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="../../../../../js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+
+<script src="../../../../../js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+    
+  </div>
+</body>
+
+</html>

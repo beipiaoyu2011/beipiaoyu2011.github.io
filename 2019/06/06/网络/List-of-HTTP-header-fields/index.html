@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    HTTP 报头字段列表 |  欢迎来到Alex的博客
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="../../../../../css/main.css">
+
+  
+<script src="../../../../../js/pace.min.js"></script>
+
+
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-网络/List-of-HTTP-header-fields" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  HTTP 报头字段列表
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="" class="article-date">
+  <time datetime="2019-06-06T09:01:34.000Z" itemprop="datePublished">2019-06-06</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../categories/%E7%BD%91%E7%BB%9C/">网络</a> / <a class="article-category-link" href="../../../../../categories/%E7%BD%91%E7%BB%9C/HTTP/">HTTP</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.9k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">7分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h3 id="HTTP-报头字段列表"><a href="#HTTP-报头字段列表" class="headerlink" title="HTTP 报头字段列表"></a>HTTP 报头字段列表</h3><p>[TOC]</p>
+<p>HTTP报头字段 是 HTTP中请求和响应消息的头部部分的组件。他们是定义HTTP事务的操作参数</p>
+<p>头部字段在<code>请求行</code>或者<code>响应行</code>发出之后，才会被传送；</p>
+<p>首先让我们以<code>RFC 7230</code>为例了解一下 报文格式 <code>Message Format</code>:</p>
+<h4 id="1、Message-Format-报文格式"><a href="#1、Message-Format-报文格式" class="headerlink" title="1、Message Format 报文格式"></a>1、Message Format 报文格式</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RFC 7230     HTTP/1.1 Message Syntax and Routing      June 2014</span><br><span class="line">HTTP-message = start-line</span><br><span class="line">               *( header-field CRLF )(0或多个)</span><br><span class="line">               CRLF（回车换行表明头部部分的结束）</span><br><span class="line">               [ message-body ]</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-1、start-line-开始行"><a href="#1-1、start-line-开始行" class="headerlink" title="1.1、start-line 开始行"></a>1.1、start-line 开始行</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">start-line = request-line / status-line</span><br><span class="line"></span><br><span class="line">一个HTTP消息可以是客户端发往服务器的一个request请求也可以是服务器响应客户端的response响应。</span><br><span class="line">这个两者的区别就在于 start-line 是 request-line (针对请求) 或者 status-line（针对响应）.</span><br><span class="line"></span><br><span class="line">在理论上，一个客户端可以接收请求和一个服务端可以接收响应，根据他们的不同的 start-line.但是在实践中</span><br><span class="line">，服务器是被用来实现只希望接收一个请求（响应是作为一个未知名或者不合法的请求的一个解释）和客户端是实现只接受响应的。</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-2、request-line-请求行"><a href="#1-2、request-line-请求行" class="headerlink" title="1.2、request-line 请求行"></a>1.2、request-line 请求行</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">request-line = method SP(空格) request-target SP HTTP-version CRLF(回车换行)</span><br><span class="line"></span><br><span class="line">method token 表明请求资源的请求方法，大小写敏感：</span><br><span class="line"></span><br><span class="line">+---------+-------------------------------------------------+-------+</span><br><span class="line">   | Method  | Description                                     | Sec.  |</span><br><span class="line">   +---------+-------------------------------------------------+-------+</span><br><span class="line">   | GET     | Transfer a current representation of the target | 4.3.1 |</span><br><span class="line">   |         | resource.                                       |       |</span><br><span class="line">   |         | 传输目标资源的当前表示                              |       |</span><br><span class="line">   | HEAD    | Same as GET, but only transfer the status line  | 4.3.2 |</span><br><span class="line">   |         | and header section.                             |       |</span><br><span class="line">   |         | 只传输状态行和头部                                 |       |</span><br><span class="line">   | POST    | Perform resource-specific processing on the     | 4.3.3 |</span><br><span class="line">   |         | request payload.                                |       |</span><br><span class="line">   |         | 请求负载中执行指定资源的处理                         |       |</span><br><span class="line">   | PUT     | Replace all current representations of the      | 4.3.4 |</span><br><span class="line">   |         | target resource with the request payload.       |       |</span><br><span class="line">   |         | 在请求负载中替换目标资源的当前表示                    |       |</span><br><span class="line">   | DELETE  | Remove all current representations of the       | 4.3.5 |</span><br><span class="line">   |         | target resource.                                |       |</span><br><span class="line">   |         | 移除目标资源的所有现在的表示                         |       |</span><br><span class="line">   | CONNECT | Establish a tunnel to the server identified by  | 4.3.6 |</span><br><span class="line">   |         | the target resource.                            |       |</span><br><span class="line">   |         | 目标资源定义建立的一个连接服务器的通道                 |       |</span><br><span class="line">   | OPTIONS | Describe the communication options for the      | 4.3.7 |</span><br><span class="line">   |         | target resource.                                |       |</span><br><span class="line">   |         | 描述目标资源的连接参数                              |       |</span><br><span class="line">   | TRACE   | Perform a message loop-back test along the path | 4.3.8 |</span><br><span class="line">   |         | to the target resource.                         |       |</span><br><span class="line">   |         | 跟随目标资源执行一个消息回环测试                      |       |</span><br><span class="line">   +---------+-------------------------------------------------+-------+</span><br><span class="line"></span><br><span class="line">request-target 是当前请求要求获取的资源</span><br><span class="line"></span><br><span class="line">接收者会用空格隔开的方式去格式化 request-line 到它的组件里面。不用空格隔开的话，只能有三个组件。</span><br><span class="line">不幸运的是，一些用户代理不能去合理的解压或者解码超文本里面发现的空格。导致了这些不允许的字符被发送到请求的目标那里。</span><br><span class="line"></span><br><span class="line">接收者的一个非法 request-line 应该被请求目标回应 400（bad request）错误 或者 301（永久移除）；</span><br><span class="line">接收者不应该尝试去自动更正然后没有重定向地处理这个请求，因为非法的 reqest-line 会跟着请求链故意精心的绕过安全过滤策略。</span><br><span class="line"></span><br><span class="line">HTTP并不会预先设置一个request-line的长度。服务器如果接收一个比其他任何请求都长的请求的时候，会反馈一个 501 （没有实现）的状态码。一个服务器接收一个比任何URL都长的请求目标是，它希望解析必须回应一个 414 （URL Too long）的状态码。</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-3、status-line-状态行"><a href="#1-3、status-line-状态行" class="headerlink" title="1.3、status line 状态行"></a>1.3、status line 状态行</h5><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">status-line = HTTP-version SP status-code SP reason-phrase CRLF</span><br><span class="line"></span><br><span class="line">响应消息的第一行就是 status-line，由 协议版本 + SP + statusCode + SP + reason-phrase + CRLF 组成。</span><br><span class="line"></span><br><span class="line">status-code = 3DIGIT （三个数字）</span><br><span class="line"></span><br><span class="line">状态码用来描述服务器尝试理解和满足客户端相应请求的结果。其他的响应信息是用来解释状态码的定义。</span><br><span class="line">状态码是可以扩展的，客户端不用去理解注册的状态码的含义，尽管这样的理解是明显令人向往的。</span><br><span class="line">但是客户端必须懂得这些状态码的分类，也就是第一个数字，不能把一个未被认可的状态码等价于 X00, 客户端不能缓存一个带有未知名状态码的响应消息。</span><br><span class="line"></span><br><span class="line">第一个数字代表状态码的分类，其他两个数字没有明显的分类规则，总共有5类状态码：</span><br><span class="line"></span><br><span class="line">1XX (Informational信息)： 请求被接收，持续处理的过程。</span><br><span class="line">2XX (Successfull成功): 请求被成功接收，解读和接受。</span><br><span class="line">3XX (Redirection重定向): 为了完成请求过程，更多的动作需要去执行。</span><br><span class="line">4XX (Client error 客户端错误): 请求包含错误的语法或者不能被实现。</span><br><span class="line">5XX (Server error 服务器错误): 服务器不能实现一个显然合法的请求。</span><br><span class="line"></span><br><span class="line">reason-phrase  = *( HTAB / SP / VCHAR / obs-text )</span><br><span class="line"></span><br><span class="line"><span class="attribute">reason-phrase设计的最底层目的是为了提供一个当前状态码的文本描述。客户端可忽略。</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="1-4、Header-Fields-头部字段"><a href="#1-4、Header-Fields-头部字段" class="headerlink" title="1.4、Header Fields 头部字段"></a>1.4、Header Fields 头部字段</h5><p>每一个<code>头部字段</code>由一个<code>大小写不敏感的字段名字</code>，跟着一个<code>冒号</code>，<code>可选的空格</code>，<code>字段值</code>和<code>可选的尾部空格</code>组成。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">header-field = field-name  ":" OWS(可选的空格) field-value OWS</span><br><span class="line"></span><br><span class="line"> 		 field-name     = token</span><br><span class="line">     field-value    = *( field-content / obs-fold )</span><br><span class="line">     field-content  = field-vchar [ 1*( SP / HTAB ) field-vchar ]</span><br><span class="line">     field-vchar    = VCHAR / obs-text</span><br><span class="line"></span><br><span class="line">     obs-fold       = CRLF 1*( SP / HTAB )</span><br><span class="line">                    ; obsolete line folding</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="1-5、message-body"><a href="#1-5、message-body" class="headerlink" title="1.5、message body"></a>1.5、message body</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> message-body = *OCTET</span><br><span class="line"></span><br><span class="line">一个HTTP消息的消息正文是用来携带请求或者响应的负载正文。</span><br><span class="line">消息体是和有效载荷体是一致的，除非一个传输编码已经被完成。</span><br><span class="line"></span><br><span class="line">消息中允许的消息主体的规则在请求和响应中是不同的。</span><br><span class="line"></span><br><span class="line">request 请求中的 message body的预定义是被 Content-Length 或 Transfer-Encoding 头部字段控制。</span><br><span class="line"></span><br><span class="line">请求消息框架是和method的语义无关的。甚至请求方法对消息体没有任何用处。</span><br><span class="line"></span><br><span class="line">响应消息中的message body存在与否决定于请求的方法和响应返回的状态码。</span><br><span class="line">HEAD请求不会返回 message body，因为它只是关联响应头部字段。即使存在 message body ，如果方法是GET也是表明将会显示什么值.</span><br><span class="line">所有 1XX 204 304 都不会有 message body.</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、Standard-request-fields-标准请求头字段"><a href="#2、Standard-request-fields-标准请求头字段" class="headerlink" title="2、Standard request fields 标准请求头字段"></a>2、Standard request fields 标准请求头字段</h4><table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>说明</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A-IM</td>
+<td>对请求可接受的接口实例化,同accept</td>
+<td>A-IM: feed</td>
+</tr>
+<tr>
+<td>Accept</td>
+<td>response可接受的媒体类型</td>
+<td>Accept: text/html<br>其他：text/html; q=1.0, text/*; q=0.8, image/gif; q=0.6, image/jpeg; q=0.6, image/*; q=0.5, */*; q=0.1</td>
+</tr>
+<tr>
+<td>Accept-Charset</td>
+<td>可接受的字符集</td>
+<td>Accept-Charset: utf-8</td>
+</tr>
+<tr>
+<td>Accept-Encoding</td>
+<td>可接受的文件解码格式</td>
+<td>Accept-Encoding: gzip, deflate</td>
+</tr>
+<tr>
+<td>Accept-Language</td>
+<td>response可接受的人类语言</td>
+<td>Accept-Language: en-US</td>
+</tr>
+<tr>
+<td>Accept-Datetime</td>
+<td>可接受的时间版本</td>
+<td>Accept-Datetime: Thu, 31 May 2007 20:35:00 GMT</td>
+</tr>
+<tr>
+<td>Access-Control-Request-Method,<br>Access-Control-Request-Headers</td>
+<td>利用origin发起跨域资源请求</td>
+<td>Access-Control-Request-Method: GET<br></td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>HTTP认证</td>
+<td>Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==</td>
+</tr>
+<tr>
+<td>Cache-Control</td>
+<td>用来指定一个在请求响应链中所有缓存机制必须遵守的一个指令</td>
+<td>Cache-Control: no-cache</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>当前连接和持续请求的的控制参数。HTTP/2不得用这个方法，默认持续连接</td>
+<td>Connection: keep-alive<br>Connection: Upgrade</td>
+</tr>
+<tr>
+<td>Content-Length</td>
+<td>request body的长度</td>
+<td>Content-Length: 348</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>request body的媒体格式（POST 和 PUT适用）</td>
+<td>Content-Type: application/x-www-form-urlencoded</td>
+</tr>
+<tr>
+<td>Cookie</td>
+<td>一个被服务器用set-cookie发送的数据</td>
+<td>Cookie: $Version=1; Skin=new;</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>message发出的时间</td>
+<td>Date: Tue, 15 Nov 1994 08:12:31 GMT</td>
+</tr>
+<tr>
+<td>Expect</td>
+<td>客户端表明的特殊的服务器要做的行为</td>
+<td>Expect: 100-continue</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong s>
+              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/HTTP/" rel="tag">HTTP</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="../TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E8%BF%87%E7%A8%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            TCP三次握手和四次挥手过程
+          
+        </div>
+      </a>
+    
+    
+      <a href="../http%E7%AE%80%E4%BB%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">HTTP简介</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2014-2020
+        Alex Wong
+      </li>
+      <li>
+        
+        Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+    <aside class="sidebar">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="../../../../../index.html"><img src="/images/logo.png" alt="欢迎来到Alex的博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../index.html">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="../../../../../about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="../../../../../atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧～～～</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="../../../../../images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="../../../../../images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="../../../../../js/jquery-2.0.3.min.js"></script>
+
+
+<script src="../../../../../js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="../../../../../js/lazyload.min.js"></script>
+
+
+<script src="../../../../../js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script src="../../../../../js/share.js"></script>
+
+
+
+<script src="../../../../../fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['面朝大海，春暖花开','愿你一生努力，一生被爱','想要的都拥有，得不到的都释怀'],
+    startDelay: 0,
+    typeSpeed: 200,
+    loop: true,
+    backSpeed: 300,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="../../../../../js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+
+<script src="../../../../../js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+    
+  </div>
+</body>
+
+</html>

@@ -241,13 +241,16 @@
 </script>
  -->
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <div id="gitalk-container"></div>
 <script type="text/javascript">
     var gitalk = new Gitalk({
         clientID: 'b0601e7ea86ea740849e',
         clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
-        id: window.location.pathname,
+        // id: window.location.pathname,
+        // 避免422
+        id: md5(location.pathname),
         repo: 'beipiaoyu2011.github.io',
         owner: 'beipiaoyu2011',
         admin: 'beipiaoyu2011'
@@ -259,7 +262,7 @@
 
 </article>
     
-    <article id="post-前端/React的Lazy-loading路由" class="article article-type-post" itemscope
+    <article id="post-前端/前端面试测试题目" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -267,8 +270,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="../../2019/06/06/%E5%89%8D%E7%AB%AF/React%E7%9A%84Lazy-loading%E8%B7%AF%E7%94%B1/"
-    >使用React v16.9的Lazy-loading懒加载组件，进行路由封装</a
+  <a class="article-title" href="../../2019/06/06/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%B5%8B%E8%AF%95%E9%A2%98%E7%9B%AE/"
+    >前端面试测试题目</a
   >
 </h2>
   
@@ -278,12 +281,12 @@
 
     
     <div class="article-meta">
-      <a href="../../2019/06/06/%E5%89%8D%E7%AB%AF/React%E7%9A%84Lazy-loading%E8%B7%AF%E7%94%B1/" class="article-date">
+      <a href="../../2019/06/06/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%B5%8B%E8%AF%95%E9%A2%98%E7%9B%AE/" class="article-date">
   <time datetime="2019-06-06T09:01:34.000Z" itemprop="datePublished">2019-06-06</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="../../categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="../../categories/%E5%89%8D%E7%AB%AF/React/">React</a>
+    <a class="article-category-link" href="../../categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="../../categories/%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95/">面试</a>
   </div>
 
       
@@ -302,28 +305,16 @@
       
 
       
-      <h3 id="使用React-v16-9的Lazy-loading懒加载组件，进行路由封装"><a href="#使用React-v16-9的Lazy-loading懒加载组件，进行路由封装" class="headerlink" title="使用React v16.9的Lazy-loading懒加载组件，进行路由封装"></a>使用React v16.9的Lazy-loading懒加载组件，进行路由封装</h3><p>[TOC]</p>
-<p><img src="/images/1568696159178.png" alt="1568696159178"></p>
-<p>使用<code>Suspense</code>和 <code>React.lazy()</code>，进行代码分割和懒加载组件:</p>
-<h4 id="code-splitting"><a href="#code-splitting" class="headerlink" title="code-splitting"></a>code-splitting</h4><p><code>React</code>官网有相关代码分离的说明，这里不再赘述，使用 <code>import()</code> 动态导入会更加有利于代码的分离。</p>
-<p>关于<code>import()</code>语法，如果你使用CRA（create-react-app）搭建的项目，可以直接使用这个语法。如果是自己从零开始搭建的项目，需要<code>babel</code>的插件 <code>babel-plugin-syntax-dynamic-import</code>;</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn add babel-plugin-syntax-dynamic-import</span><br><span class="line">or</span><br><span class="line">npm install babel-plugin-syntax-dynamic-import</span><br></pre></td></tr></table></figure>
+      <p>[TOC]</p>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="1-基本类型"><a href="#1-基本类型" class="headerlink" title="1 基本类型"></a>1 基本类型</h3><p>介绍一下基本类型有几种？</p>
+<p>怎么判断数据类型？</p>
+<p>Object 和 Array，怎么区分？</p>
+<p>null == undefined ?</p>
+<h3 id="2-变量作用域"><a href="#2-变量作用域" class="headerlink" title="2 变量作用域"></a>2 变量作用域</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"Hello body"</span>;</span><br><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">	name: <span class="string">"A"</span>,</span><br><span class="line">	sayHi: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> b = &#123;</span><br><span class="line">	name: <span class="string">'B'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> sayHi = a.sayHi;</span><br><span class="line">name = <span class="string">"Hello C"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(name)</span><br><span class="line"></span><br><span class="line">a.sayHi()</span><br><span class="line">sayHi()</span><br><span class="line">a.sayHi.call(b)</span><br></pre></td></tr></table></figure>
 
-<p>.babelrc 或者 babel.config.js 中增加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;plugins&quot;: [&quot;syntax-dynamic-import&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="React-lazy"><a href="#React-lazy" class="headerlink" title="React.lazy()"></a>React.lazy()</h4><p><code>React.lazy()</code>允许你渲染一个动态引入的组件像普通组件一样执行;</p>
-<p><code>React.lazy</code> 可接受一个返回<code>Promise</code>的调用<code>import()</code>的<code>function</code>，这个<code>promise</code>最后<code>resolve</code>一个默认导出当前组件。</p>
-<p>一般写法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123;lazy&#125; from &quot;react&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 默认后缀 .jsx</span><br><span class="line">const App &#x3D; lazy(()&#x3D;&gt; import(&quot;..&#x2F;pages&#x2F;App&quot;));</span><br><span class="line">const About &#x3D; lazy(()&#x3D;&gt; import(&quot;..&#x2F;pages&#x2F;About&quot;));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 路由配置</span><br><span class="line">const routerConfig &#x3D; [</span><br><span class="line">    &#123;</span><br><span class="line">        path: &#39;&#x2F;&#39;,</span><br><span class="line">        component: App</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        path: &#39;&#x2F;about&#39;,</span><br><span class="line">        component: About</span><br><span class="line">    &#125;,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">function AppRouter() &#123;</span><br><span class="line">  return (</span><br><span class="line">      &lt;Suspense fallback&#x3D;&#123;&lt;div&gt;Loading...&lt;&#x2F;div&gt;&#125;&gt;</span><br><span class="line">        &lt;Router basename&#x3D;&quot;&#x2F;&quot;&gt;</span><br><span class="line">			&lt;Switch&gt;</span><br><span class="line">				&#123;routerConfig.map((n, index) &#x3D;&gt; &#123;</span><br><span class="line">					return &lt;Route path&#x3D;&#123;n.path&#125; exact component&#x3D;&#123;n.component&#125; key&#x3D;&#123;index&#125;&gt;&lt;&#x2F;Route&gt;;</span><br><span class="line">				&#125;)&#125;</span><br><span class="line">			&lt;&#x2F;Switch&gt;</span><br><span class="line">        &lt;&#x2F;Router&gt;</span><br><span class="line">      &lt;&#x2F;Suspense&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default AppRouter;</span><br></pre></td></tr></table></figure>
 
-<p><code>Lazy</code>组件需要反之在 <code>Suspense</code> 组件内部, <code>Suspense</code> 提供一个 <code>fallback</code> 内容填充，当正在懒加载组件的时候，比如加个loading;</p>
-<p>我们下面对lazy进行二次封装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; lazy load</span><br><span class="line">const lazyLoad &#x3D; path &#x3D;&gt;</span><br><span class="line">    lazy(() &#x3D;&gt; &#123;</span><br><span class="line">        return new Promise(resolve &#x3D;&gt; setTimeout(resolve, 1 * 1000)).then(() &#x3D;&gt; import(&#96;..&#x2F;pages&#x2F;$&#123;path&#125;&#96;)).catch(() &#x3D;&gt; import(&#39;..&#x2F;components&#x2F;Error&#39;));</span><br><span class="line">	&#125;);</span><br><span class="line">&#x2F;&#x2F;这个方法需要注意的一点，这个 path 不能直接传&#96;相对路径&#96;类似 &#96;..&#x2F;pages&#x2F;App&#96;,</span><br><span class="line">&#x2F;&#x2F;会找不到组件，所以最好只传过来一个组件名字，然后内部拼接相对路径</span><br><span class="line">&#x2F;&#x2F;另外在后面加了一个Promise的reject状态处理，如果组件加载错误，将会默认加载Error组件；</span><br><span class="line">import Loading from &#39;@c&#x2F;Loading&#39;;</span><br><span class="line">const App &#x3D; lazyLoad(&#39;App&#39;);</span><br><span class="line">const About &#x3D; lazyLoad(&#39;About&#39;);</span><br><span class="line"></span><br><span class="line">function AppRouter() &#123;</span><br><span class="line">    return (</span><br><span class="line">		&lt;Suspense fallback&#x3D;&#123;&lt;Loading &#x2F;&gt;&#125;&gt;</span><br><span class="line">			&#123;&#x2F;* 只有当你的应用部署到服务器的二级目录的时候，才需要设置basename *&#x2F;&#125;</span><br><span class="line">			&#123;&#x2F;* &lt;Router basename&#x3D;&quot;&#x2F;&quot;&gt; *&#x2F;&#125;</span><br><span class="line">			&lt;Router basename&#x3D;&quot;&#x2F;&quot;&gt;</span><br><span class="line">				&lt;Switch&gt;</span><br><span class="line">					&#123;routerConfig.map((n, index) &#x3D;&gt; &#123;</span><br><span class="line">						return &lt;Route path&#x3D;&#123;n.path&#125; exact component&#x3D;&#123;n.component&#125; key&#x3D;&#123;index&#125;&gt;&lt;&#x2F;Route&gt;;</span><br><span class="line">					&#125;)&#125;</span><br><span class="line">				&lt;&#x2F;Switch&gt;</span><br><span class="line">			&lt;&#x2F;Router&gt;</span><br><span class="line">		&lt;&#x2F;Suspense&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default AppRouter;</span><br></pre></td></tr></table></figure>
-
-<p>这样就完成了懒加载路由的简单封装。</p>
-<p><img src="/images/lazy.gif" alt></p>
-
+<h3 id="3-闭包"><a href="#3-闭包" class="headerlink" title="3 闭包"></a>3 闭包</h3><h3 id="4-call-和-apply的区别"><a href="#4-call-和-apply的区别" class="headerlink" title="4 call 和 apply的区别"></a>4 call 和 apply的区别</h3><h3 id="5-浅拷贝-和-深拷贝"><a href="#5-浅拷贝-和-深拷贝" class="headerlink" title="5 浅拷贝 和 深拷贝"></a>5 浅拷贝 和 深拷贝</h3><h3 id="6-const-和-let-的区别"><a href="#6-const-和-let-的区别" class="headerlink" title="6 const  和 let 的区别"></a>6 const  和 let 的区别</h3><h3 id="7-写出Es6的几种用法"><a href="#7-写出Es6的几种用法" class="headerlink" title="7 写出Es6的几种用法"></a>7 写出Es6的几种用法</h3><h3 id="8-Vue-生命周期实现过程？"><a href="#8-Vue-生命周期实现过程？" class="headerlink" title="8 Vue 生命周期实现过程？"></a>8 Vue 生命周期实现过程？</h3><h3 id="9-vuex中-mumation-和-action-有什么不同？-实现原理是什么？"><a href="#9-vuex中-mumation-和-action-有什么不同？-实现原理是什么？" class="headerlink" title="9 vuex中 mumation 和 action 有什么不同？ 实现原理是什么？"></a>9 vuex中 mumation 和 action 有什么不同？ 实现原理是什么？</h3><h3 id="10-vue-v-if-和-v-show-的区别？-Key的作用？"><a href="#10-vue-v-if-和-v-show-的区别？-Key的作用？" class="headerlink" title="10 vue v-if 和 v-show 的区别？ Key的作用？"></a>10 vue v-if 和 v-show 的区别？ Key的作用？</h3><h3 id="11-vue-keep-alive-用法？"><a href="#11-vue-keep-alive-用法？" class="headerlink" title="11 vue keep-alive 用法？"></a>11 vue keep-alive 用法？</h3><h3 id="12-bind-和-call-apply-区别"><a href="#12-bind-和-call-apply-区别" class="headerlink" title="12 bind 和 call apply 区别"></a>12 bind 和 call apply 区别</h3><h3 id="13-Promise-和-async-await-区别？"><a href="#13-Promise-和-async-await-区别？" class="headerlink" title="13 Promise 和 async await 区别？"></a>13 Promise 和 async await 区别？</h3><h3 id="14-本地存储"><a href="#14-本地存储" class="headerlink" title="14 本地存储"></a>14 本地存储</h3><h3 id="15-跨域"><a href="#15-跨域" class="headerlink" title="15 跨域"></a>15 跨域</h3><h3 id="16-Event-Loop"><a href="#16-Event-Loop" class="headerlink" title="16 Event Loop"></a>16 Event Loop</h3><h3 id="17-事件委托机制"><a href="#17-事件委托机制" class="headerlink" title="17 事件委托机制"></a>17 事件委托机制</h3><h3 id="18-异步请求"><a href="#18-异步请求" class="headerlink" title="18 异步请求"></a>18 异步请求</h3><h3 id="19-Vue-双向数据绑定的原理"><a href="#19-Vue-双向数据绑定的原理" class="headerlink" title="19 Vue 双向数据绑定的原理"></a>19 Vue 双向数据绑定的原理</h3><h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="1-盒子模型"><a href="#1-盒子模型" class="headerlink" title="1 盒子模型"></a>1 盒子模型</h3><h3 id="2、垂直居中问题"><a href="#2、垂直居中问题" class="headerlink" title="2、垂直居中问题"></a>2、垂直居中问题</h3>
       
       <!-- reward -->
       
@@ -336,7 +327,7 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/React/" rel="tag">React</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E5%89%8D%E7%AB%AF%E6%B5%8B%E9%AA%8C/" rel="tag">前端测验</a></li></ul>
 
 
     </footer>
@@ -378,13 +369,16 @@
 </script>
  -->
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <div id="gitalk-container"></div>
 <script type="text/javascript">
     var gitalk = new Gitalk({
         clientID: 'b0601e7ea86ea740849e',
         clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
-        id: window.location.pathname,
+        // id: window.location.pathname,
+        // 避免422
+        id: md5(location.pathname),
         repo: 'beipiaoyu2011.github.io',
         owner: 'beipiaoyu2011',
         admin: 'beipiaoyu2011'
@@ -536,13 +530,16 @@
 </script>
  -->
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <div id="gitalk-container"></div>
 <script type="text/javascript">
     var gitalk = new Gitalk({
         clientID: 'b0601e7ea86ea740849e',
         clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
-        id: window.location.pathname,
+        // id: window.location.pathname,
+        // 避免422
+        id: md5(location.pathname),
         repo: 'beipiaoyu2011.github.io',
         owner: 'beipiaoyu2011',
         admin: 'beipiaoyu2011'
@@ -554,7 +551,7 @@
 
 </article>
     
-    <article id="post-网络/List-of-HTTP-header-fields" class="article article-type-post" itemscope
+    <article id="post-前端/并发模式和 Event Loop 事件循环解读" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -562,8 +559,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="../../2019/06/06/%E7%BD%91%E7%BB%9C/List-of-HTTP-header-fields/"
-    >HTTP 报头字段列表</a
+  <a class="article-title" href="../../2019/06/06/%E5%89%8D%E7%AB%AF/%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%BC%8F%E5%92%8C%20Event%20Loop%20%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E8%A7%A3%E8%AF%BB/"
+    >JavaScript - 并发模式和 Event Loop 事件循环解读</a
   >
 </h2>
   
@@ -573,12 +570,12 @@
 
     
     <div class="article-meta">
-      <a href="../../2019/06/06/%E7%BD%91%E7%BB%9C/List-of-HTTP-header-fields/" class="article-date">
+      <a href="../../2019/06/06/%E5%89%8D%E7%AB%AF/%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%BC%8F%E5%92%8C%20Event%20Loop%20%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E8%A7%A3%E8%AF%BB/" class="article-date">
   <time datetime="2019-06-06T09:01:34.000Z" itemprop="datePublished">2019-06-06</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="../../categories/%E7%BD%91%E7%BB%9C/">网络</a> / <a class="article-category-link" href="../../categories/%E7%BD%91%E7%BB%9C/HTTP/">HTTP</a>
+    <a class="article-category-link" href="../../categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="../../categories/%E5%89%8D%E7%AB%AF/%E6%B7%B1%E5%BA%A6/">深度</a>
   </div>
 
       
@@ -597,129 +594,64 @@
       
 
       
-      <h3 id="HTTP-报头字段列表"><a href="#HTTP-报头字段列表" class="headerlink" title="HTTP 报头字段列表"></a>HTTP 报头字段列表</h3><p>[TOC]</p>
-<p>HTTP报头字段 是 HTTP中请求和响应消息的头部部分的组件。他们是定义HTTP事务的操作参数</p>
-<p>头部字段在<code>请求行</code>或者<code>响应行</code>发出之后，才会被传送；</p>
-<p>首先让我们以<code>RFC 7230</code>为例了解一下 报文格式 <code>Message Format</code>:</p>
-<h4 id="1、Message-Format-报文格式"><a href="#1、Message-Format-报文格式" class="headerlink" title="1、Message Format 报文格式"></a>1、Message Format 报文格式</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RFC 7230     HTTP/1.1 Message Syntax and Routing      June 2014</span><br><span class="line">HTTP-message = start-line</span><br><span class="line">               *( header-field CRLF )(0或多个)</span><br><span class="line">               CRLF（回车换行表明头部部分的结束）</span><br><span class="line">               [ message-body ]</span><br></pre></td></tr></table></figure>
+      <h2 id="JavaScript-并发模式和-Event-Loop-事件循环解读"><a href="#JavaScript-并发模式和-Event-Loop-事件循环解读" class="headerlink" title="JavaScript - 并发模式和 Event Loop 事件循环解读"></a>JavaScript - 并发模式和 Event Loop 事件循环解读</h2><p>[TOC]</p>
+<h3 id="1、Runtime-concepts-执行相关的概念"><a href="#1、Runtime-concepts-执行相关的概念" class="headerlink" title="1、Runtime concepts 执行相关的概念"></a>1、Runtime concepts 执行相关的概念</h3><p><code>Javascript</code> 有一个基于<code>Event Loop</code> 事件循环的并发模型；</p>
+<p>下面讲解一个理论模型，讲解现代浏览器<code>javascript</code> 引擎实现机制和讲解一下描述的一些语义词；</p>
+<p>可视模型代表：</p>
+<p><img src="/images/stack-heap-queue.svg" alt></p>
+<h4 id="1-1、stack-栈"><a href="#1-1、stack-栈" class="headerlink" title="1.1、stack 栈"></a>1.1、stack 栈</h4><p>函数调用形成了一个栈帧</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">return</span> a + b + <span class="number">11</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> y = <span class="number">3</span>;</span><br><span class="line">  <span class="keyword">return</span> foo(x * y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(bar(<span class="number">7</span>)); <span class="comment">// 返回 42</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="1-1、start-line-开始行"><a href="#1-1、start-line-开始行" class="headerlink" title="1.1、start-line 开始行"></a>1.1、start-line 开始行</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">start-line = request-line / status-line</span><br><span class="line"></span><br><span class="line">一个HTTP消息可以是客户端发往服务器的一个request请求也可以是服务器响应客户端的response响应。</span><br><span class="line">这个两者的区别就在于 start-line 是 request-line (针对请求) 或者 status-line（针对响应）.</span><br><span class="line"></span><br><span class="line">在理论上，一个客户端可以接收请求和一个服务端可以接收响应，根据他们的不同的 start-line.但是在实践中</span><br><span class="line">，服务器是被用来实现只希望接收一个请求（响应是作为一个未知名或者不合法的请求的一个解释）和客户端是实现只接受响应的。</span><br></pre></td></tr></table></figure>
+<p><img src="/images/event_stack.jpg" alt="stack"></p>
+<p>简单介绍下函数调用的过程：</p>
+<p>当调用<code>bar(7)</code>时，建立了第一个 <code>stack frame</code> 是 <code>bar</code> (包含参数<code>7</code>和本地变量)；当 <code>bar</code> 调用 <code>foo</code> 时候，建立了第二个 <code>stack frame</code> 是 <code>foo</code>(包含参数 <code>3* 7</code> 和本地变量), 并且放置在 <code>bar</code> 的<code>上方</code>，也就是<code>栈的顶部</code>了。</p>
+<p>当 <code>foo（21）</code> 执行完毕 返回 42 的时候，<code>foo</code> 这个栈帧会被移除掉，只剩下了 <code>bar（7）</code>；然后再执行 <code>bar</code>, 有返回后，整个栈都是空的。</p>
+<h4 id="1-2、Heap-堆"><a href="#1-2、Heap-堆" class="headerlink" title="1.2、Heap 堆"></a>1.2、Heap 堆</h4><p>对象都被关联在<code>Heap</code>里面，即用于表示一大块非结构化的内存区域。</p>
+<h4 id="1-3、Queue-消息队列"><a href="#1-3、Queue-消息队列" class="headerlink" title="1.3、Queue 消息队列"></a>1.3、Queue 消息队列</h4><p>一个 <code>Javascript</code> 运行时使用一系列待处理消息的消息队列。每个消息关联一个函数去处理消息。</p>
+<p><code>如果一个消息，比如click事件却没有回调函数，是不会被加入消息队列的</code>；</p>
+<p>在事件循环的一些时刻，<code>运行时从最先进入队列的消息开始处理队列中的消息</code>。这样做的话，消息从队列中被移除，并作为输入参数调用与之关联的函数。就如上面所说，调用一个函数总是为其创造一个的栈帧。</p>
+<p>函数的执行一直会持续到 <code>stack</code> 变成 空的。然后如果消息队列还有消息的话，事件循环将会执行消息队列的下一个消息。</p>
+<p>总之就是：</p>
+<p>Queue队列中的消息，会以一个个执行；首先会判断 stack 会不会为空，如果为空就执行下一个消息；如果不为空，等待上一个消息处理完。</p>
+<h3 id="2、Event-Loop-事件循环"><a href="#2、Event-Loop-事件循环" class="headerlink" title="2、Event Loop 事件循环"></a>2、Event Loop 事件循环</h3><p>之所以称为事件循环，是因为他的执行实现的方式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (queue.waitForMessage()) &#123;</span><br><span class="line">  queue.processNextMessage();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="1-2、request-line-请求行"><a href="#1-2、request-line-请求行" class="headerlink" title="1.2、request-line 请求行"></a>1.2、request-line 请求行</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">request-line = method SP(空格) request-target SP HTTP-version CRLF(回车换行)</span><br><span class="line"></span><br><span class="line">method token 表明请求资源的请求方法，大小写敏感：</span><br><span class="line"></span><br><span class="line">+---------+-------------------------------------------------+-------+</span><br><span class="line">   | Method  | Description                                     | Sec.  |</span><br><span class="line">   +---------+-------------------------------------------------+-------+</span><br><span class="line">   | GET     | Transfer a current representation of the target | 4.3.1 |</span><br><span class="line">   |         | resource.                                       |       |</span><br><span class="line">   |         | 传输目标资源的当前表示                              |       |</span><br><span class="line">   | HEAD    | Same as GET, but only transfer the status line  | 4.3.2 |</span><br><span class="line">   |         | and header section.                             |       |</span><br><span class="line">   |         | 只传输状态行和头部                                 |       |</span><br><span class="line">   | POST    | Perform resource-specific processing on the     | 4.3.3 |</span><br><span class="line">   |         | request payload.                                |       |</span><br><span class="line">   |         | 请求负载中执行指定资源的处理                         |       |</span><br><span class="line">   | PUT     | Replace all current representations of the      | 4.3.4 |</span><br><span class="line">   |         | target resource with the request payload.       |       |</span><br><span class="line">   |         | 在请求负载中替换目标资源的当前表示                    |       |</span><br><span class="line">   | DELETE  | Remove all current representations of the       | 4.3.5 |</span><br><span class="line">   |         | target resource.                                |       |</span><br><span class="line">   |         | 移除目标资源的所有现在的表示                         |       |</span><br><span class="line">   | CONNECT | Establish a tunnel to the server identified by  | 4.3.6 |</span><br><span class="line">   |         | the target resource.                            |       |</span><br><span class="line">   |         | 目标资源定义建立的一个连接服务器的通道                 |       |</span><br><span class="line">   | OPTIONS | Describe the communication options for the      | 4.3.7 |</span><br><span class="line">   |         | target resource.                                |       |</span><br><span class="line">   |         | 描述目标资源的连接参数                              |       |</span><br><span class="line">   | TRACE   | Perform a message loop-back test along the path | 4.3.8 |</span><br><span class="line">   |         | to the target resource.                         |       |</span><br><span class="line">   |         | 跟随目标资源执行一个消息回环测试                      |       |</span><br><span class="line">   +---------+-------------------------------------------------+-------+</span><br><span class="line"></span><br><span class="line">request-target 是当前请求要求获取的资源</span><br><span class="line"></span><br><span class="line">接收者会用空格隔开的方式去格式化 request-line 到它的组件里面。不用空格隔开的话，只能有三个组件。</span><br><span class="line">不幸运的是，一些用户代理不能去合理的解压或者解码超文本里面发现的空格。导致了这些不允许的字符被发送到请求的目标那里。</span><br><span class="line"></span><br><span class="line">接收者的一个非法 request-line 应该被请求目标回应 400（bad request）错误 或者 301（永久移除）；</span><br><span class="line">接收者不应该尝试去自动更正然后没有重定向地处理这个请求，因为非法的 reqest-line 会跟着请求链故意精心的绕过安全过滤策略。</span><br><span class="line"></span><br><span class="line">HTTP并不会预先设置一个request-line的长度。服务器如果接收一个比其他任何请求都长的请求的时候，会反馈一个 501 （没有实现）的状态码。一个服务器接收一个比任何URL都长的请求目标是，它希望解析必须回应一个 414 （URL Too long）的状态码。</span><br></pre></td></tr></table></figure>
-
-<h5 id="1-3、status-line-状态行"><a href="#1-3、status-line-状态行" class="headerlink" title="1.3、status line 状态行"></a>1.3、status line 状态行</h5><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">status-line = HTTP-version SP status-code SP reason-phrase CRLF</span><br><span class="line"></span><br><span class="line">响应消息的第一行就是 status-line，由 协议版本 + SP + statusCode + SP + reason-phrase + CRLF 组成。</span><br><span class="line"></span><br><span class="line">status-code = 3DIGIT （三个数字）</span><br><span class="line"></span><br><span class="line">状态码用来描述服务器尝试理解和满足客户端相应请求的结果。其他的响应信息是用来解释状态码的定义。</span><br><span class="line">状态码是可以扩展的，客户端不用去理解注册的状态码的含义，尽管这样的理解是明显令人向往的。</span><br><span class="line">但是客户端必须懂得这些状态码的分类，也就是第一个数字，不能把一个未被认可的状态码等价于 X00, 客户端不能缓存一个带有未知名状态码的响应消息。</span><br><span class="line"></span><br><span class="line">第一个数字代表状态码的分类，其他两个数字没有明显的分类规则，总共有5类状态码：</span><br><span class="line"></span><br><span class="line">1XX (Informational信息)： 请求被接收，持续处理的过程。</span><br><span class="line">2XX (Successfull成功): 请求被成功接收，解读和接受。</span><br><span class="line">3XX (Redirection重定向): 为了完成请求过程，更多的动作需要去执行。</span><br><span class="line">4XX (Client error 客户端错误): 请求包含错误的语法或者不能被实现。</span><br><span class="line">5XX (Server error 服务器错误): 服务器不能实现一个显然合法的请求。</span><br><span class="line"></span><br><span class="line">reason-phrase  = *( HTAB / SP / VCHAR / obs-text )</span><br><span class="line"></span><br><span class="line"><span class="attribute">reason-phrase设计的最底层目的是为了提供一个当前状态码的文本描述。客户端可忽略。</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="1-4、Header-Fields-头部字段"><a href="#1-4、Header-Fields-头部字段" class="headerlink" title="1.4、Header Fields 头部字段"></a>1.4、Header Fields 头部字段</h5><p>每一个<code>头部字段</code>由一个<code>大小写不敏感的字段名字</code>，跟着一个<code>冒号</code>，<code>可选的空格</code>，<code>字段值</code>和<code>可选的尾部空格</code>组成。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">header-field = field-name  ":" OWS(可选的空格) field-value OWS</span><br><span class="line"></span><br><span class="line"> 		 field-name     = token</span><br><span class="line">     field-value    = *( field-content / obs-fold )</span><br><span class="line">     field-content  = field-vchar [ 1*( SP / HTAB ) field-vchar ]</span><br><span class="line">     field-vchar    = VCHAR / obs-text</span><br><span class="line"></span><br><span class="line">     obs-fold       = CRLF 1*( SP / HTAB )</span><br><span class="line">                    ; obsolete line folding</span><br></pre></td></tr></table></figure>
+<p>如果当前没有消息，<code>queue.waitForMessage()</code>会同步等待消息的到达。</p>
+<p>事件循环是指等待队列同步接收消息的过程的术语。 事件循环移入的增量称为’tick’，每次’ticks’时它检查调用堆栈是否为空，如果是，它将事件队列中的top函数添加到调用堆栈并执行它。 完成处理此功能后，它会再次开始计时。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> link = <span class="built_in">document</span>.getElementById(<span class="string">"foo"</span>);</span><br><span class="line"></span><br><span class="line">  link.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> <span class="title">changeColor</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.style.color = <span class="string">"burlywood"</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">init();</span><br></pre></td></tr></table></figure>
 
 
 
-<h5 id="1-5、message-body"><a href="#1-5、message-body" class="headerlink" title="1.5、message body"></a>1.5、message body</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> message-body = *OCTET</span><br><span class="line"></span><br><span class="line">一个HTTP消息的消息正文是用来携带请求或者响应的负载正文。</span><br><span class="line">消息体是和有效载荷体是一致的，除非一个传输编码已经被完成。</span><br><span class="line"></span><br><span class="line">消息中允许的消息主体的规则在请求和响应中是不同的。</span><br><span class="line"></span><br><span class="line">request 请求中的 message body的预定义是被 Content-Length 或 Transfer-Encoding 头部字段控制。</span><br><span class="line"></span><br><span class="line">请求消息框架是和method的语义无关的。甚至请求方法对消息体没有任何用处。</span><br><span class="line"></span><br><span class="line">响应消息中的message body存在与否决定于请求的方法和响应返回的状态码。</span><br><span class="line">HEAD请求不会返回 message body，因为它只是关联响应头部字段。即使存在 message body ，如果方法是GET也是表明将会显示什么值.</span><br><span class="line">所有 1XX 204 304 都不会有 message body.</span><br></pre></td></tr></table></figure>
+<p><img src="/images/event_loop_2.png" alt></p>
+<p>在这个例子中：</p>
+<p>当用户点击 元素 <code>foo</code> 和 触发 <code>onClick</code> 事件时，一个 <code>message</code> (and <code>callback</code>, <code>changeColor</code>) 被添加到消息队列中。</p>
+<p>当这个消息被移除时，它的回调函数 changeColor 被调用，当 changeColor returns 时（哪怕返回的是一个错误)，<code>call stack</code> 清空，事件循环再次开始；</p>
+<p>只要 <code>changeColor</code> 方法存在，然后指定为元素 <code>foo</code> 的点击回调函数，后续的点击元素会引起更多的消息（关联到回调函数 <code>changeColor</code>）被加入到消息队列。</p>
+<h4 id="2-1、Run-to-completion-运行到结束"><a href="#2-1、Run-to-completion-运行到结束" class="headerlink" title="2.1、Run-to-completion 运行到结束"></a>2.1、Run-to-completion 运行到结束</h4><p>每一个消息都被完全执行结束后，才回去执行下一个消息的处理。</p>
+<p>这为程序的分析提供了一些优秀的特性，包括：无论何时执行一个函数，都不会被抢占，并且会在其他代码执行之前就已经被完全执行（并且可以修改函数操作的数量）。</p>
+<p>这个和 C语言不太一样，比如，如果一个函数运行在一个线程中，一些时候，会被执行系统因在别的线程执行其他代码中断。</p>
+<p>这个模型的缺点时，当一个消息需要太长时间去执行的时候，web用户就无法处理一些，比如<code>click</code>, <code>srcoll</code>的交互。浏览器会弹出一个 <code>“a script is taking too long to run”</code> 这样的对话框来缓解这个情况。一个好的解决办法就是，<code>缩短消息处理的时间，或者把一个消息分割成多个消息</code>。</p>
+<h4 id="2-2、Adding-messages-添加消息"><a href="#2-2、Adding-messages-添加消息" class="headerlink" title="2.2、Adding messages 添加消息"></a>2.2、Adding messages 添加消息</h4><p>在web浏览器里面，<code>只要有事件发生并且有监听器绑定的时候，一定会增加一个消息</code>。如果没有监听器，则事件消失。所以，一个元素的点击并且带有点击事件处理，一定会增加一个消息到消息队列中去。</p>
+<p>setTimeout 函数有两个参数：<code>添加队列的消息</code> 和 <code>时间（默认 0 ）</code>，这个时间值代表着这个消息被添加到消息队列最小的延迟时间。如果消息队列中，没有别的消息，这个消息会在延迟时间达到之后，立马会被处理。如果消息队列有别的消息，<code>setTimeout</code> 这个消息一定要等到别的消息被处理完后才能执行。由于这个原因，所以第二参数表明了<code>最小的时间间隔</code>，而<code>非确切的时间</code>。</p>
+<p>举例说明，当第二个参数的时间过期后，setTimeout 不会被执行：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="built_in">Date</span>().getSeconds();</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// prints out "2", meaning that the callback is not called immediately after 500 milliseconds.</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Ran after "</span> + (<span class="keyword">new</span> <span class="built_in">Date</span>().getSeconds() - s) + <span class="string">" seconds"</span>);</span><br><span class="line">&#125;, <span class="number">500</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">new</span> <span class="built_in">Date</span>().getSeconds() - s &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Good, looped for 2 seconds"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="2、Standard-request-fields-标准请求头字段"><a href="#2、Standard-request-fields-标准请求头字段" class="headerlink" title="2、Standard request fields 标准请求头字段"></a>2、Standard request fields 标准请求头字段</h4><table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>说明</th>
-<th>举例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>A-IM</td>
-<td>对请求可接受的接口实例化,同accept</td>
-<td>A-IM: feed</td>
-</tr>
-<tr>
-<td>Accept</td>
-<td>response可接受的媒体类型</td>
-<td>Accept: text/html<br>其他：text/html; q=1.0, text/*; q=0.8, image/gif; q=0.6, image/jpeg; q=0.6, image/*; q=0.5, */*; q=0.1</td>
-</tr>
-<tr>
-<td>Accept-Charset</td>
-<td>可接受的字符集</td>
-<td>Accept-Charset: utf-8</td>
-</tr>
-<tr>
-<td>Accept-Encoding</td>
-<td>可接受的文件解码格式</td>
-<td>Accept-Encoding: gzip, deflate</td>
-</tr>
-<tr>
-<td>Accept-Language</td>
-<td>response可接受的人类语言</td>
-<td>Accept-Language: en-US</td>
-</tr>
-<tr>
-<td>Accept-Datetime</td>
-<td>可接受的时间版本</td>
-<td>Accept-Datetime: Thu, 31 May 2007 20:35:00 GMT</td>
-</tr>
-<tr>
-<td>Access-Control-Request-Method,<br>Access-Control-Request-Headers</td>
-<td>利用origin发起跨域资源请求</td>
-<td>Access-Control-Request-Method: GET<br></td>
-</tr>
-<tr>
-<td>Authorization</td>
-<td>HTTP认证</td>
-<td>Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==</td>
-</tr>
-<tr>
-<td>Cache-Control</td>
-<td>用来指定一个在请求响应链中所有缓存机制必须遵守的一个指令</td>
-<td>Cache-Control: no-cache</td>
-</tr>
-<tr>
-<td>Connection</td>
-<td>当前连接和持续请求的的控制参数。HTTP/2不得用这个方法，默认持续连接</td>
-<td>Connection: keep-alive<br>Connection: Upgrade</td>
-</tr>
-<tr>
-<td>Content-Length</td>
-<td>request body的长度</td>
-<td>Content-Length: 348</td>
-</tr>
-<tr>
-<td>Content-Type</td>
-<td>request body的媒体格式（POST 和 PUT适用）</td>
-<td>Content-Type: application/x-www-form-urlencoded</td>
-</tr>
-<tr>
-<td>Cookie</td>
-<td>一个被服务器用set-cookie发送的数据</td>
-<td>Cookie: $Version=1; Skin=new;</td>
-</tr>
-<tr>
-<td>Date</td>
-<td>message发出的时间</td>
-<td>Date: Tue, 15 Nov 1994 08:12:31 GMT</td>
-</tr>
-<tr>
-<td>Expect</td>
-<td>客户端表明的特殊的服务器要做的行为</td>
-<td>Expect: 100-continue</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
+<p>举例说明添加消息的顺序：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"foo"</span>);</span><br><span class="line">  setTimeout(g, <span class="number">0</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"baz"</span>);</span><br><span class="line">  h();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"bar"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">h</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"blix"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+
+<p>由于 <code>setTimeout</code> 的非阻塞特性，它的回调函数将在 0 毫米后触发，并且不会作为 <code>f()</code>这个消息的一部分来处理。</p>
+<p>在这个例子中，调用 <code>setTimeout</code> ，传递回调函数 <code>g</code> 和 时间延迟 <code>0</code> ms; 当指定的延迟时间到了的时候，一个以 <code>g</code> 为回调函数的单独的消息会被加入到消息队列中。</p>
+<p>生成结果的控制台活动是 <code>“foo”, “baz”, “bilx”</code> 和在下一个事件循环中产生的结果：<code>“bar”</code>;</p>
+<p>如果<code>同一个调用帧</code>，对 <code>setTimeout</code> 进行两次调用，并且 <code>timeout</code> 时间相同，则按执行顺序进行处理。</p>
+<p><img src="/images/stack_3.png" alt></p>
+<h4 id="2-3、Zero-delays-零延迟"><a href="#2-3、Zero-delays-零延迟" class="headerlink" title="2.3、Zero delays 零延迟"></a>2.3、Zero delays 零延迟</h4><p>零延迟不是真实代表着在0毫秒后回调函数会执行。</p>
+<p>setTimeout 的零延迟，在给定的时间间隔后不会执行回调函数。</p>
+<p>是否执行决定于消息队列中的等待任务的数量。</p>
+<p>举例说明：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'this is the start'</span>);</span><br><span class="line"></span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">cb</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Callback 1: this is a msg from call back'</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'this is just a message'</span>);</span><br><span class="line"></span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">cb1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Callback 2: this is a msg from call back'</span>);</span><br><span class="line">  &#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'this is the end'</span>);</span><br><span class="line"></span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// "this is the start"</span></span><br><span class="line"><span class="comment">// "this is just a message"</span></span><br><span class="line"><span class="comment">// "this is the end"</span></span><br><span class="line"><span class="comment">// 当前函数 note that function return, which is undefined, happens here</span></span><br><span class="line"><span class="comment">// "Callback 1: this is a msg from call back"</span></span><br><span class="line"><span class="comment">// "Callback 2: this is a msg from call back"</span></span><br></pre></td></tr></table></figure>
+
+<p><code>this is just a message</code> 虽然在回调之后，却会在回调之前输出到打印台上，这是因为这个零延迟只是处理请求的最小延迟，并非一个保证的精确的时间。</p>
+<p>一般地，<code>setTimeout</code> 需要等待所有其他消息队列的代码执行完之后，才会执行，即时你设置了特殊的时间间隔。</p>
 
       
       <!-- reward -->
@@ -733,7 +665,7 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/HTTP/" rel="tag">HTTP</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
 
 
     </footer>
@@ -775,13 +707,16 @@
 </script>
  -->
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <div id="gitalk-container"></div>
 <script type="text/javascript">
     var gitalk = new Gitalk({
         clientID: 'b0601e7ea86ea740849e',
         clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
-        id: window.location.pathname,
+        // id: window.location.pathname,
+        // 避免422
+        id: md5(location.pathname),
         repo: 'beipiaoyu2011.github.io',
         owner: 'beipiaoyu2011',
         admin: 'beipiaoyu2011'
@@ -793,7 +728,7 @@
 
 </article>
     
-    <article id="post-前端/前端面试测试题目" class="article article-type-post" itemscope
+    <article id="post-前端/深入了解javaScript运行环境" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -801,8 +736,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="../../2019/06/06/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%B5%8B%E8%AF%95%E9%A2%98%E7%9B%AE/"
-    >前端面试测试题目</a
+  <a class="article-title" href="../../2019/06/06/%E5%89%8D%E7%AB%AF/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3javaScript%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/"
+    >JavaScript 运行环境</a
   >
 </h2>
   
@@ -812,12 +747,12 @@
 
     
     <div class="article-meta">
-      <a href="../../2019/06/06/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%B5%8B%E8%AF%95%E9%A2%98%E7%9B%AE/" class="article-date">
+      <a href="../../2019/06/06/%E5%89%8D%E7%AB%AF/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3javaScript%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/" class="article-date">
   <time datetime="2019-06-06T09:01:34.000Z" itemprop="datePublished">2019-06-06</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="../../categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="../../categories/%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95/">面试</a>
+    <a class="article-category-link" href="../../categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="../../categories/%E5%89%8D%E7%AB%AF/%E6%B7%B1%E5%BA%A6/">深度</a>
   </div>
 
       
@@ -836,16 +771,19 @@
       
 
       
-      <p>[TOC]</p>
-<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="1-基本类型"><a href="#1-基本类型" class="headerlink" title="1 基本类型"></a>1 基本类型</h3><p>介绍一下基本类型有几种？</p>
-<p>怎么判断数据类型？</p>
-<p>Object 和 Array，怎么区分？</p>
-<p>null == undefined ?</p>
-<h3 id="2-变量作用域"><a href="#2-变量作用域" class="headerlink" title="2 变量作用域"></a>2 变量作用域</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"Hello body"</span>;</span><br><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">	name: <span class="string">"A"</span>,</span><br><span class="line">	sayHi: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> b = &#123;</span><br><span class="line">	name: <span class="string">'B'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> sayHi = a.sayHi;</span><br><span class="line">name = <span class="string">"Hello C"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(name)</span><br><span class="line"></span><br><span class="line">a.sayHi()</span><br><span class="line">sayHi()</span><br><span class="line">a.sayHi.call(b)</span><br></pre></td></tr></table></figure>
+      <h3 id="JavaScript-运行环境"><a href="#JavaScript-运行环境" class="headerlink" title="JavaScript 运行环境"></a>JavaScript 运行环境</h3><p>[TOC]</p>
+<p>我们在这里会深入了解浏览器的<code>javaScript</code>的运行机制。</p>
+<p>我们将了解 <code>chrome V8</code>引擎如何格式化代码和如何通过 <code>Event Loop</code> 让代码运行在一个线程上，包括 <code>同步</code> 和 <code>异步</code>。</p>
+<h4 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h4><p>当我们在浏览器里面访问一个网址，比如 <code>Chrome</code>， <code>Edge</code>， <code>Firefox</code>  或者 <code>safari</code>。每一个浏览器都有一个 <code>Javascript Running Environment</code> 。在这个环境里，开发者可以访问构。一个程序的<code>Web API</code>。</p>
+<p><code>AJAX</code>、<code>DOM树</code>和<code>其他API</code>，不是<code>JavaScript</code>的一部分，它们只是<code>浏览器提供</code>的可以在<code>JS 运行环境</code>里面运行的含有<code>方法</code>和<code>属性</code>的<code>对象</code>。</p>
+<p>当然，在运行环境中，是一个 <code>js 引擎</code>来格式化代码。每个浏览器都有自己的引擎版本。<code>Chrome</code> 使用 <code>V8 JS 引擎</code>，也就是我们接下来要分析的。</p>
+<h4 id="2、V8-JS-引擎"><a href="#2、V8-JS-引擎" class="headerlink" title="2、V8 JS 引擎"></a>2、V8 JS 引擎</h4><p>一旦<code>Chrome</code> 接收到<code>web</code>页面的<code>javaScript</code> 代码或者脚本，<code>V8 js</code>引擎就开始格式化代码。刚开始，它会部分的格式化代码来检查语法错误。如果没有找到语法错误，它将从上到下开始解读代码。它的最终目的是将<code>JavaScript</code>代码转化为机器可以读懂的机器码。但是在我们了解它到底对代码做了什么之前，我们必须先了解格式化代码的运行环境。</p>
+<h4 id="3、Javascript-运行环境"><a href="#3、Javascript-运行环境" class="headerlink" title="3、Javascript 运行环境"></a>3、Javascript 运行环境</h4><p>可以把js运行环境想象是一个大容器。在这个大容器里面还有其他的小容器。当 JS 引擎开始格式化代码时，代码被分块放入不同的容器中。</p>
+<p><img src="/images/js_running.png" alt></p>
+<h5 id="3-1-、Heap-堆"><a href="#3-1-、Heap-堆" class="headerlink" title="3.1 、Heap 堆"></a>3.1 、Heap 堆</h5><p>环境里面的第一个容器，也是<code>V8 js</code> 引擎的一部分，被称为“<code>内存堆</code>”。</p>
+<p>当 <code>JS 引擎</code>在代码里碰到<code>变量</code>和<code>函数声明</code>，它把它们储存在<code>堆</code>里。</p>
+<h5 id="3-2、Stack-栈"><a href="#3-2、Stack-栈" class="headerlink" title="3.2、Stack 栈"></a>3.2、Stack 栈</h5><p>环境里面的第二个容器是 <code>call stack</code> 调用栈。它也是 <code>JS V8</code> 引擎的一部分。当<code>JS引擎</code>碰到一个调用指令，比如一个 <code>function call</code>，</p>
 
-
-
-<h3 id="3-闭包"><a href="#3-闭包" class="headerlink" title="3 闭包"></a>3 闭包</h3><h3 id="4-call-和-apply的区别"><a href="#4-call-和-apply的区别" class="headerlink" title="4 call 和 apply的区别"></a>4 call 和 apply的区别</h3><h3 id="5-浅拷贝-和-深拷贝"><a href="#5-浅拷贝-和-深拷贝" class="headerlink" title="5 浅拷贝 和 深拷贝"></a>5 浅拷贝 和 深拷贝</h3><h3 id="6-const-和-let-的区别"><a href="#6-const-和-let-的区别" class="headerlink" title="6 const  和 let 的区别"></a>6 const  和 let 的区别</h3><h3 id="7-写出Es6的几种用法"><a href="#7-写出Es6的几种用法" class="headerlink" title="7 写出Es6的几种用法"></a>7 写出Es6的几种用法</h3><h3 id="8-Vue-生命周期实现过程？"><a href="#8-Vue-生命周期实现过程？" class="headerlink" title="8 Vue 生命周期实现过程？"></a>8 Vue 生命周期实现过程？</h3><h3 id="9-vuex中-mumation-和-action-有什么不同？-实现原理是什么？"><a href="#9-vuex中-mumation-和-action-有什么不同？-实现原理是什么？" class="headerlink" title="9 vuex中 mumation 和 action 有什么不同？ 实现原理是什么？"></a>9 vuex中 mumation 和 action 有什么不同？ 实现原理是什么？</h3><h3 id="10-vue-v-if-和-v-show-的区别？-Key的作用？"><a href="#10-vue-v-if-和-v-show-的区别？-Key的作用？" class="headerlink" title="10 vue v-if 和 v-show 的区别？ Key的作用？"></a>10 vue v-if 和 v-show 的区别？ Key的作用？</h3><h3 id="11-vue-keep-alive-用法？"><a href="#11-vue-keep-alive-用法？" class="headerlink" title="11 vue keep-alive 用法？"></a>11 vue keep-alive 用法？</h3><h3 id="12-bind-和-call-apply-区别"><a href="#12-bind-和-call-apply-区别" class="headerlink" title="12 bind 和 call apply 区别"></a>12 bind 和 call apply 区别</h3><h3 id="13-Promise-和-async-await-区别？"><a href="#13-Promise-和-async-await-区别？" class="headerlink" title="13 Promise 和 async await 区别？"></a>13 Promise 和 async await 区别？</h3><h3 id="14-本地存储"><a href="#14-本地存储" class="headerlink" title="14 本地存储"></a>14 本地存储</h3><h3 id="15-跨域"><a href="#15-跨域" class="headerlink" title="15 跨域"></a>15 跨域</h3><h3 id="16-Event-Loop"><a href="#16-Event-Loop" class="headerlink" title="16 Event Loop"></a>16 Event Loop</h3><h3 id="17-事件委托机制"><a href="#17-事件委托机制" class="headerlink" title="17 事件委托机制"></a>17 事件委托机制</h3><h3 id="18-异步请求"><a href="#18-异步请求" class="headerlink" title="18 异步请求"></a>18 异步请求</h3><h3 id="19-Vue-双向数据绑定的原理"><a href="#19-Vue-双向数据绑定的原理" class="headerlink" title="19 Vue 双向数据绑定的原理"></a>19 Vue 双向数据绑定的原理</h3><h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="1-盒子模型"><a href="#1-盒子模型" class="headerlink" title="1 盒子模型"></a>1 盒子模型</h3><h3 id="2、垂直居中问题"><a href="#2、垂直居中问题" class="headerlink" title="2、垂直居中问题"></a>2、垂直居中问题</h3>
       
       <!-- reward -->
       
@@ -858,7 +796,7 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E5%89%8D%E7%AB%AF%E6%B5%8B%E9%AA%8C/" rel="tag">前端测验</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
 
 
     </footer>
@@ -900,13 +838,16 @@
 </script>
  -->
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <div id="gitalk-container"></div>
 <script type="text/javascript">
     var gitalk = new Gitalk({
         clientID: 'b0601e7ea86ea740849e',
         clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
-        id: window.location.pathname,
+        // id: window.location.pathname,
+        // 避免422
+        id: md5(location.pathname),
         repo: 'beipiaoyu2011.github.io',
         owner: 'beipiaoyu2011',
         admin: 'beipiaoyu2011'

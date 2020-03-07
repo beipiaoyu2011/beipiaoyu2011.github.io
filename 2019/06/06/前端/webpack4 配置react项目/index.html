@@ -235,11 +235,11 @@
   
   <nav class="article-nav">
     
-      <a href="../%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7%E4%B9%8Bwebpack/" class="article-nav-link">
+      <a href="../%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84history%E6%A8%A1%E5%BC%8F/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            构建工具之webpack
+            深入了解 HTML5 History API，前端路由的生成，解读 webpack-dev-server 的 historyApiFallback 原理
           
         </div>
       </a>
@@ -288,13 +288,16 @@
 </script>
  -->
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <div id="gitalk-container"></div>
 <script type="text/javascript">
     var gitalk = new Gitalk({
         clientID: 'b0601e7ea86ea740849e',
         clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
-        id: window.location.pathname,
+        // id: window.location.pathname,
+        // 避免422
+        id: md5(location.pathname),
         repo: 'beipiaoyu2011.github.io',
         owner: 'beipiaoyu2011',
         admin: 'beipiaoyu2011'

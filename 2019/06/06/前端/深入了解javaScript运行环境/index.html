@@ -202,20 +202,15 @@
   
   <nav class="article-nav">
     
-      <a href="../window%E5%92%8Cdocument%E5%90%84%E7%A7%8D%E5%AE%BD%E9%AB%98%E8%AE%A1%E7%AE%97/" class="article-nav-link">
+      <a href="../%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%BC%8F%E5%92%8C%20Event%20Loop%20%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E8%A7%A3%E8%AF%BB/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            window和document各种宽高计算
+            JavaScript - 并发模式和 Event Loop 事件循环解读
           
         </div>
       </a>
     
-    
-      <a href="../iconFont%E7%94%9F%E6%88%90%E6%95%99%E7%A8%8B/" class="article-nav-link">
-        <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">三分钟教会你自制IconFont字体图标库</div>
-      </a>
     
   </nav>
 
@@ -255,13 +250,16 @@
 </script>
  -->
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <div id="gitalk-container"></div>
 <script type="text/javascript">
     var gitalk = new Gitalk({
         clientID: 'b0601e7ea86ea740849e',
         clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
-        id: window.location.pathname,
+        // id: window.location.pathname,
+        // 避免422
+        id: md5(location.pathname),
         repo: 'beipiaoyu2011.github.io',
         owner: 'beipiaoyu2011',
         admin: 'beipiaoyu2011'

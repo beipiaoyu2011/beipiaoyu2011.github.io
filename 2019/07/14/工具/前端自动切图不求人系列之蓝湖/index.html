@@ -296,13 +296,16 @@
 </script>
  -->
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <div id="gitalk-container"></div>
 <script type="text/javascript">
     var gitalk = new Gitalk({
         clientID: 'b0601e7ea86ea740849e',
         clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
-        id: window.location.pathname,
+        // id: window.location.pathname,
+        // 避免422
+        id: md5(location.pathname),
         repo: 'beipiaoyu2011.github.io',
         owner: 'beipiaoyu2011',
         admin: 'beipiaoyu2011'

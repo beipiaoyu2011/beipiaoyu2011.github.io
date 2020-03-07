@@ -199,15 +199,20 @@
   
   <nav class="article-nav">
     
-      <a href="../../%E7%BD%91%E7%BB%9C/List-of-HTTP-header-fields/" class="article-nav-link">
+      <a href="../../%E7%BD%91%E7%BB%9C/http%E7%AE%80%E4%BB%8B/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            HTTP 报头字段列表
+            HTTP简介
           
         </div>
       </a>
     
+    
+      <a href="../../%E7%BD%91%E7%BB%9C/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E8%BF%87%E7%A8%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">TCP三次握手和四次挥手过程</div>
+      </a>
     
   </nav>
 
@@ -247,13 +252,16 @@
 </script>
  -->
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <div id="gitalk-container"></div>
 <script type="text/javascript">
     var gitalk = new Gitalk({
         clientID: 'b0601e7ea86ea740849e',
         clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
-        id: window.location.pathname,
+        // id: window.location.pathname,
+        // 避免422
+        id: md5(location.pathname),
         repo: 'beipiaoyu2011.github.io',
         owner: 'beipiaoyu2011',
         admin: 'beipiaoyu2011'

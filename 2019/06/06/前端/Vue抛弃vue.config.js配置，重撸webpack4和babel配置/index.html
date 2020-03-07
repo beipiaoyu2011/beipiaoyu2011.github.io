@@ -220,19 +220,19 @@
   
   <nav class="article-nav">
     
-      <a href="../%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" class="article-nav-link">
+      <a href="../../../../07/14/%E5%B7%A5%E5%85%B7/mac%E4%B8%8Bnavicat%2012.1%E6%BF%80%E6%B4%BB%E8%BF%87%E7%A8%8B/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            前端面试总结
+            Mac下 Navicat Premium 12.1如何安装与激活
           
         </div>
       </a>
     
     
-      <a href="../%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%BC%8F%E5%92%8C%20Event%20Loop%20%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E8%A7%A3%E8%AF%BB/" class="article-nav-link">
+      <a href="../%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7%E4%B9%8Bwebpack/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">JavaScript - 并发模式和 Event Loop 事件循环解读</div>
+        <div class="article-nav-title">构建工具之webpack</div>
       </a>
     
   </nav>
@@ -273,13 +273,16 @@
 </script>
  -->
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <div id="gitalk-container"></div>
 <script type="text/javascript">
     var gitalk = new Gitalk({
         clientID: 'b0601e7ea86ea740849e',
         clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
-        id: window.location.pathname,
+        // id: window.location.pathname,
+        // 避免422
+        id: md5(location.pathname),
         repo: 'beipiaoyu2011.github.io',
         owner: 'beipiaoyu2011',
         admin: 'beipiaoyu2011'

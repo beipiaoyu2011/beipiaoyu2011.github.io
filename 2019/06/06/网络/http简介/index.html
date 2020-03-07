@@ -260,19 +260,19 @@
   
   <nav class="article-nav">
     
-      <a href="../../%E5%89%8D%E7%AB%AF/%E5%85%B3%E4%BA%8Ewebpack%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="article-nav-link">
+      <a href="../List-of-HTTP-header-fields/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            关于webpack的面试题总结
+            HTTP 报头字段列表
           
         </div>
       </a>
     
     
-      <a href="../../%E5%89%8D%E7%AB%AF/React%E7%9A%84Lazy-loading%E8%B7%AF%E7%94%B1/" class="article-nav-link">
+      <a href="../../%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%B5%8B%E8%AF%95%E9%A2%98%E7%9B%AE/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">使用React v16.9的Lazy-loading懒加载组件，进行路由封装</div>
+        <div class="article-nav-title">前端面试测试题目</div>
       </a>
     
   </nav>
@@ -313,13 +313,16 @@
 </script>
  -->
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <div id="gitalk-container"></div>
 <script type="text/javascript">
     var gitalk = new Gitalk({
         clientID: 'b0601e7ea86ea740849e',
         clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
-        id: window.location.pathname,
+        // id: window.location.pathname,
+        // 避免422
+        id: md5(location.pathname),
         repo: 'beipiaoyu2011.github.io',
         owner: 'beipiaoyu2011',
         admin: 'beipiaoyu2011'

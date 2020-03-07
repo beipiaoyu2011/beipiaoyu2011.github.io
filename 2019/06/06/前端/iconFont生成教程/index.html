@@ -213,19 +213,19 @@
   
   <nav class="article-nav">
     
-      <a href="../%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7%E4%B9%8Bwebpack/" class="article-nav-link">
+      <a href="../%E5%85%B3%E4%BA%8Ewebpack%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            构建工具之webpack
+            关于webpack的面试题总结
           
         </div>
       </a>
     
     
-      <a href="../%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84history%E6%A8%A1%E5%BC%8F/" class="article-nav-link">
+      <a href="../%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">深入了解 HTML5 History API，前端路由的生成，解读 webpack-dev-server 的 historyApiFallback 原理</div>
+        <div class="article-nav-title">前端面试总结</div>
       </a>
     
   </nav>
@@ -275,10 +275,10 @@
         clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
         // id: window.location.pathname,
         // 避免422
-        id: md5(location.pathname),
+        id: md5(window.location.href),
         repo: 'beipiaoyu2011.github.io',
         owner: 'beipiaoyu2011',
-        admin: 'beipiaoyu2011'
+        admin: 'beipiaoyu2011',
     })
     gitalk.render('gitalk-container')
 </script>

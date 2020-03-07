@@ -191,10 +191,10 @@
         clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
         // id: window.location.pathname,
         // 避免422
-        id: md5(location.pathname),
+        id: md5(window.location.href),
         repo: 'beipiaoyu2011.github.io',
         owner: 'beipiaoyu2011',
-        admin: 'beipiaoyu2011'
+        admin: 'beipiaoyu2011',
     })
     gitalk.render('gitalk-container')
 </script>

@@ -133,11 +133,11 @@
   </entry>
   
   <entry>
-    <title>nginx开启gzip、gzip_static 加速你的应用</title>
-    <link href="https://beipiaoyu2011.github.io/2019/08/06/%E8%BF%90%E7%BB%B4/nginx%E5%BC%80%E5%90%AFgzip%20gzip_static/"/>
-    <id>https://beipiaoyu2011.github.io/2019/08/06/%E8%BF%90%E7%BB%B4/nginx%E5%BC%80%E5%90%AFgzip%20gzip_static/</id>
+    <title>nginx服务器配置React的Browser路由模式，并避免出现404</title>
+    <link href="https://beipiaoyu2011.github.io/2019/08/06/%E8%BF%90%E7%BB%B4/nginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEReact%E7%9A%84Browser%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://beipiaoyu2011.github.io/2019/08/06/%E8%BF%90%E7%BB%B4/nginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEReact%E7%9A%84Browser%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/</id>
     <published>2019-08-06T09:01:34.000Z</published>
-    <updated>2020-03-07T02:51:26.254Z</updated>
+    <updated>2020-03-07T02:50:33.193Z</updated>
     
     <summary type="html">
     
@@ -145,7 +145,7 @@
       
         
         
-          &lt;h3 id=&quot;nginx开启gzip、gzip-static-加速你的应用&quot;&gt;&lt;a href=&quot;#nginx开启gzip、gzip-static-加速你的应用&quot; class=&quot;headerlink&quot; title=&quot;nginx开启gzip、gzip_static
+          &lt;h3 id=&quot;nginx服务器配置React的Browser路由模式，并避免出现404&quot;&gt;&lt;a href=&quot;#nginx服务器配置React的Browser路由模式，并避免出现404&quot; class=&quot;headerlink&quot;
         
       
     
@@ -162,11 +162,11 @@
   </entry>
   
   <entry>
-    <title>nginx服务器配置React的Browser路由模式，并避免出现404</title>
-    <link href="https://beipiaoyu2011.github.io/2019/08/06/%E8%BF%90%E7%BB%B4/nginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEReact%E7%9A%84Browser%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://beipiaoyu2011.github.io/2019/08/06/%E8%BF%90%E7%BB%B4/nginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEReact%E7%9A%84Browser%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/</id>
+    <title>nginx开启gzip、gzip_static 加速你的应用</title>
+    <link href="https://beipiaoyu2011.github.io/2019/08/06/%E8%BF%90%E7%BB%B4/nginx%E5%BC%80%E5%90%AFgzip%20gzip_static/"/>
+    <id>https://beipiaoyu2011.github.io/2019/08/06/%E8%BF%90%E7%BB%B4/nginx%E5%BC%80%E5%90%AFgzip%20gzip_static/</id>
     <published>2019-08-06T09:01:34.000Z</published>
-    <updated>2020-03-07T02:50:33.193Z</updated>
+    <updated>2020-03-07T02:51:26.254Z</updated>
     
     <summary type="html">
     
@@ -174,7 +174,7 @@
       
         
         
-          &lt;h3 id=&quot;nginx服务器配置React的Browser路由模式，并避免出现404&quot;&gt;&lt;a href=&quot;#nginx服务器配置React的Browser路由模式，并避免出现404&quot; class=&quot;headerlink&quot;
+          &lt;h3 id=&quot;nginx开启gzip、gzip-static-加速你的应用&quot;&gt;&lt;a href=&quot;#nginx开启gzip、gzip-static-加速你的应用&quot; class=&quot;headerlink&quot; title=&quot;nginx开启gzip、gzip_static
         
       
     
@@ -217,33 +217,6 @@
     
     
       <category term="代码规范" scheme="https://beipiaoyu2011.github.io/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>求人不如求已系列工具：如何PSD文件自动标注切图和真机预览</title>
-    <link href="https://beipiaoyu2011.github.io/2019/07/14/%E5%B7%A5%E5%85%B7/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%88%87%E5%9B%BE%E4%B8%8D%E6%B1%82%E4%BA%BA%E7%B3%BB%E5%88%97%E4%B9%8B%E8%93%9D%E6%B9%96/"/>
-    <id>https://beipiaoyu2011.github.io/2019/07/14/%E5%B7%A5%E5%85%B7/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%88%87%E5%9B%BE%E4%B8%8D%E6%B1%82%E4%BA%BA%E7%B3%BB%E5%88%97%E4%B9%8B%E8%93%9D%E6%B9%96/</id>
-    <published>2019-07-14T09:01:34.000Z</published>
-    <updated>2020-03-07T02:35:14.258Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;求人不如求已系列工具：如何PSD文件自动标注切图和真机预览&quot;&gt;&lt;a href=&quot;#求人不如求已系列工具：如何PSD文件自动标注切图和真机预览&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="工具" scheme="https://beipiaoyu2011.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="PSD切图" scheme="https://beipiaoyu2011.github.io/tags/PSD%E5%88%87%E5%9B%BE/"/>
     
   </entry>
   
@@ -302,11 +275,11 @@
   </entry>
   
   <entry>
-    <title>Vue项目改造抛弃vue-cli配置，重撸webpack4和babel配置</title>
-    <link href="https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/Vue%E6%8A%9B%E5%BC%83vue.config.js%E9%85%8D%E7%BD%AE%EF%BC%8C%E9%87%8D%E6%92%B8webpack4%E5%92%8Cbabel%E9%85%8D%E7%BD%AE/"/>
-    <id>https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/Vue%E6%8A%9B%E5%BC%83vue.config.js%E9%85%8D%E7%BD%AE%EF%BC%8C%E9%87%8D%E6%92%B8webpack4%E5%92%8Cbabel%E9%85%8D%E7%BD%AE/</id>
-    <published>2019-06-06T09:01:34.000Z</published>
-    <updated>2020-03-07T03:03:58.811Z</updated>
+    <title>求人不如求已系列工具：如何PSD文件自动标注切图和真机预览</title>
+    <link href="https://beipiaoyu2011.github.io/2019/07/14/%E5%B7%A5%E5%85%B7/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%88%87%E5%9B%BE%E4%B8%8D%E6%B1%82%E4%BA%BA%E7%B3%BB%E5%88%97%E4%B9%8B%E8%93%9D%E6%B9%96/"/>
+    <id>https://beipiaoyu2011.github.io/2019/07/14/%E5%B7%A5%E5%85%B7/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%88%87%E5%9B%BE%E4%B8%8D%E6%B1%82%E4%BA%BA%E7%B3%BB%E5%88%97%E4%B9%8B%E8%93%9D%E6%B9%96/</id>
+    <published>2019-07-14T09:01:34.000Z</published>
+    <updated>2020-03-07T02:35:14.258Z</updated>
     
     <summary type="html">
     
@@ -314,19 +287,17 @@
       
         
         
-          &lt;h3 id=&quot;Vue项目改造抛弃vue-cli配置，重撸webpack4和babel配置&quot;&gt;&lt;a href=&quot;#Vue项目改造抛弃vue-cli配置，重撸webpack4和babel配置&quot; class=&quot;headerlink&quot;
+          &lt;h3 id=&quot;求人不如求已系列工具：如何PSD文件自动标注切图和真机预览&quot;&gt;&lt;a href=&quot;#求人不如求已系列工具：如何PSD文件自动标注切图和真机预览&quot; class=&quot;headerlink&quot;
         
       
     
     </summary>
     
     
-      <category term="前端" scheme="https://beipiaoyu2011.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="Vue" scheme="https://beipiaoyu2011.github.io/categories/%E5%89%8D%E7%AB%AF/Vue/"/>
+      <category term="工具" scheme="https://beipiaoyu2011.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="Vue" scheme="https://beipiaoyu2011.github.io/tags/Vue/"/>
+      <category term="PSD切图" scheme="https://beipiaoyu2011.github.io/tags/PSD%E5%88%87%E5%9B%BE/"/>
     
   </entry>
   
@@ -389,11 +360,11 @@
   </entry>
   
   <entry>
-    <title>深入了解 HTML5 History API，前端路由的生成，解读 webpack-dev-server 的 historyApiFallback 原理</title>
-    <link href="https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84history%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84history%E6%A8%A1%E5%BC%8F/</id>
+    <title>使用React v16.9的Lazy-loading懒加载组件，进行路由封装</title>
+    <link href="https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/React%E7%9A%84Lazy-loading%E8%B7%AF%E7%94%B1/"/>
+    <id>https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/React%E7%9A%84Lazy-loading%E8%B7%AF%E7%94%B1/</id>
     <published>2019-06-06T09:01:34.000Z</published>
-    <updated>2020-03-07T02:34:01.168Z</updated>
+    <updated>2020-03-07T02:53:05.005Z</updated>
     
     <summary type="html">
     
@@ -401,7 +372,7 @@
       
         
         
-          &lt;h3 id=&quot;深入了解-HTML5-History-API，前端路由的生成，解读-webpack-dev-server-的-historyApiFallback-原理&quot;&gt;&lt;a
+          &lt;h3 id=&quot;使用React-v16-9的Lazy-loading懒加载组件，进行路由封装&quot;&gt;&lt;a href=&quot;#使用React-v16-9的Lazy-loading懒加载组件，进行路由封装&quot; class=&quot;headerlink&quot; title=&quot;使用React
         
       
     
@@ -410,10 +381,39 @@
     
       <category term="前端" scheme="https://beipiaoyu2011.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
-      <category term="深度" scheme="https://beipiaoyu2011.github.io/categories/%E5%89%8D%E7%AB%AF/%E6%B7%B1%E5%BA%A6/"/>
+      <category term="React" scheme="https://beipiaoyu2011.github.io/categories/%E5%89%8D%E7%AB%AF/React/"/>
     
     
-      <category term="JavaScript" scheme="https://beipiaoyu2011.github.io/tags/JavaScript/"/>
+      <category term="React" scheme="https://beipiaoyu2011.github.io/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue项目改造抛弃vue-cli配置，重撸webpack4和babel配置</title>
+    <link href="https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/Vue%E6%8A%9B%E5%BC%83vue.config.js%E9%85%8D%E7%BD%AE%EF%BC%8C%E9%87%8D%E6%92%B8webpack4%E5%92%8Cbabel%E9%85%8D%E7%BD%AE/"/>
+    <id>https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/Vue%E6%8A%9B%E5%BC%83vue.config.js%E9%85%8D%E7%BD%AE%EF%BC%8C%E9%87%8D%E6%92%B8webpack4%E5%92%8Cbabel%E9%85%8D%E7%BD%AE/</id>
+    <published>2019-06-06T09:01:34.000Z</published>
+    <updated>2020-03-07T03:03:58.811Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Vue项目改造抛弃vue-cli配置，重撸webpack4和babel配置&quot;&gt;&lt;a href=&quot;#Vue项目改造抛弃vue-cli配置，重撸webpack4和babel配置&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="https://beipiaoyu2011.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Vue" scheme="https://beipiaoyu2011.github.io/categories/%E5%89%8D%E7%AB%AF/Vue/"/>
+    
+    
+      <category term="Vue" scheme="https://beipiaoyu2011.github.io/tags/Vue/"/>
     
   </entry>
   
@@ -476,6 +476,65 @@
   </entry>
   
   <entry>
+    <title>关于webpack的面试题总结</title>
+    <link href="https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/%E5%85%B3%E4%BA%8Ewebpack%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    <id>https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/%E5%85%B3%E4%BA%8Ewebpack%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/</id>
+    <published>2019-06-06T09:01:34.000Z</published>
+    <updated>2020-03-07T13:05:48.829Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;关于webpack的面试题总结&quot;&gt;&lt;a href=&quot;#关于webpack的面试题总结&quot; class=&quot;headerlink&quot; title=&quot;关于webpack的面试题总结&quot;&gt;&lt;/a&gt;关于webpack的面试题总结&lt;/h1&gt;&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="https://beipiaoyu2011.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="面试" scheme="https://beipiaoyu2011.github.io/categories/%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+      <category term="webpack面试" scheme="https://beipiaoyu2011.github.io/tags/webpack%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>三分钟教会你自制IconFont字体图标库</title>
+    <link href="https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/iconFont%E7%94%9F%E6%88%90%E6%95%99%E7%A8%8B/"/>
+    <id>https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/iconFont%E7%94%9F%E6%88%90%E6%95%99%E7%A8%8B/</id>
+    <published>2019-06-06T09:01:34.000Z</published>
+    <updated>2020-03-07T13:04:54.021Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;三分钟教会你自制IconFont字体图标库&quot;&gt;&lt;a href=&quot;#三分钟教会你自制IconFont字体图标库&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="https://beipiaoyu2011.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="ICONFONT" scheme="https://beipiaoyu2011.github.io/categories/%E5%89%8D%E7%AB%AF/ICONFONT/"/>
+    
+    
+      <category term="前端技巧" scheme="https://beipiaoyu2011.github.io/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>前端面试总结</title>
     <link href="https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/"/>
     <id>https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</id>
@@ -507,11 +566,11 @@
   </entry>
   
   <entry>
-    <title>使用React v16.9的Lazy-loading懒加载组件，进行路由封装</title>
-    <link href="https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/React%E7%9A%84Lazy-loading%E8%B7%AF%E7%94%B1/"/>
-    <id>https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/React%E7%9A%84Lazy-loading%E8%B7%AF%E7%94%B1/</id>
+    <title>前端面试测试题目</title>
+    <link href="https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%B5%8B%E8%AF%95%E9%A2%98%E7%9B%AE/"/>
+    <id>https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%B5%8B%E8%AF%95%E9%A2%98%E7%9B%AE/</id>
     <published>2019-06-06T09:01:34.000Z</published>
-    <updated>2020-03-07T02:53:05.005Z</updated>
+    <updated>2020-03-07T13:07:44.283Z</updated>
     
     <summary type="html">
     
@@ -519,37 +578,8 @@
       
         
         
-          &lt;h3 id=&quot;使用React-v16-9的Lazy-loading懒加载组件，进行路由封装&quot;&gt;&lt;a href=&quot;#使用React-v16-9的Lazy-loading懒加载组件，进行路由封装&quot; class=&quot;headerlink&quot; title=&quot;使用React
-        
-      
-    
-    </summary>
-    
-    
-      <category term="前端" scheme="https://beipiaoyu2011.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="React" scheme="https://beipiaoyu2011.github.io/categories/%E5%89%8D%E7%AB%AF/React/"/>
-    
-    
-      <category term="React" scheme="https://beipiaoyu2011.github.io/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于webpack的面试题总结</title>
-    <link href="https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/%E5%85%B3%E4%BA%8Ewebpack%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/"/>
-    <id>https://beipiaoyu2011.github.io/2019/06/06/%E5%89%8D%E7%AB%AF/%E5%85%B3%E4%BA%8Ewebpack%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/</id>
-    <published>2019-06-06T09:01:34.000Z</published>
-    <updated>2020-03-07T13:05:48.829Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;关于webpack的面试题总结&quot;&gt;&lt;a href=&quot;#关于webpack的面试题总结&quot; class=&quot;headerlink&quot; title=&quot;关于webpack的面试题总结&quot;&gt;&lt;/a&gt;关于webpack的面试题总结&lt;/h1&gt;&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2
+          &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;JavaScript&quot;&gt;&lt;a href=&quot;#JavaScript&quot; class=&quot;headerlink&quot; title=&quot;JavaScript&quot;&gt;&lt;/a&gt;JavaScript&lt;/h2&gt;&lt;h3 id=&quot;1-基本类型&quot;&gt;&lt;a
         
       
     
@@ -561,37 +591,7 @@
       <category term="面试" scheme="https://beipiaoyu2011.github.io/categories/%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95/"/>
     
     
-      <category term="webpack面试" scheme="https://beipiaoyu2011.github.io/tags/webpack%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP 报头字段列表</title>
-    <link href="https://beipiaoyu2011.github.io/2019/06/06/%E7%BD%91%E7%BB%9C/List-of-HTTP-header-fields/"/>
-    <id>https://beipiaoyu2011.github.io/2019/06/06/%E7%BD%91%E7%BB%9C/List-of-HTTP-header-fields/</id>
-    <published>2019-06-06T09:01:34.000Z</published>
-    <updated>2020-03-07T02:47:32.186Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;HTTP-报头字段列表&quot;&gt;&lt;a href=&quot;#HTTP-报头字段列表&quot; class=&quot;headerlink&quot; title=&quot;HTTP 报头字段列表&quot;&gt;&lt;/a&gt;HTTP 报头字段列表&lt;/h3&gt;&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;p&gt;HTTP报头字段 是
-        
-      
-    
-    </summary>
-    
-    
-      <category term="网络" scheme="https://beipiaoyu2011.github.io/categories/%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="HTTP" scheme="https://beipiaoyu2011.github.io/categories/%E7%BD%91%E7%BB%9C/HTTP/"/>
-    
-    
-      <category term="HTTP" scheme="https://beipiaoyu2011.github.io/tags/HTTP/"/>
+      <category term="前端测验" scheme="https://beipiaoyu2011.github.io/tags/%E5%89%8D%E7%AB%AF%E6%B5%8B%E9%AA%8C/"/>
     
   </entry>
   

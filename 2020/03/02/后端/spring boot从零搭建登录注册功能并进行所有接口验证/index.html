@@ -431,9 +431,9 @@
   <nav class="article-nav">
     
     
-      <a href="../spring%20boot%E5%90%8C%E6%97%B6%E4%B8%8A%E4%BC%A0%E5%A4%9A%E4%B8%AA%E5%9B%BE%E7%89%87%E5%92%8C%E4%B8%8B%E8%BD%BD/" class="article-nav-link">
+      <a href="../spring%20boot%E7%94%9F%E6%88%90%E5%8A%A8%E6%80%81%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B9%B6%E9%AA%8C%E8%AF%81/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">spring boot解决如何同时上传多个图片和下载的问题</div>
+        <div class="article-nav-title">Spring boot 生成动态验证码并前后端校验</div>
       </a>
     
   </nav>
@@ -483,10 +483,10 @@
         clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
         // id: window.location.pathname,
         // 避免422
-        id: md5(location.pathname),
+        id: md5(window.location.href),
         repo: 'beipiaoyu2011.github.io',
         owner: 'beipiaoyu2011',
-        admin: 'beipiaoyu2011'
+        admin: 'beipiaoyu2011',
     })
     gitalk.render('gitalk-container')
 </script>

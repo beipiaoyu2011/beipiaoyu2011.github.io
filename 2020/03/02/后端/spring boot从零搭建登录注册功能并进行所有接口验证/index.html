@@ -430,10 +430,19 @@
   
   <nav class="article-nav">
     
-    
       <a href="../spring%20boot%E7%94%9F%E6%88%90%E5%8A%A8%E6%80%81%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B9%B6%E9%AA%8C%E8%AF%81/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Spring boot 生成动态验证码并前后端校验
+          
+        </div>
+      </a>
+    
+    
+      <a href="../../../../../2019/08/14/%E5%90%8E%E7%AB%AF/RESETful%20API%20%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Spring boot 生成动态验证码并前后端校验</div>
+        <div class="article-nav-title">RESETful API 设计规范</div>
       </a>
     
   </nav>
@@ -460,7 +469,7 @@
 <script type="text/javascript">
   var gitalk = new Gitalk({
     clientID: 'b0601e7ea86ea740849e',
-    clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
+    clientSecret: '770e5195b09cf3942fc1abc2b1f7f88a1b5c13f7',
     repo: 'beipiaoyu2011.github.io',
     owner: 'beipiaoyu2011',
     admin: ['beipiaoyu2011'],
@@ -478,17 +487,18 @@
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <div id="gitalk-container"></div>
 <script type="text/javascript">
-    var gitalk = new Gitalk({
-        clientID: 'b0601e7ea86ea740849e',
-        clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
-        // id: window.location.pathname,
-        // 避免422
-        id: md5(window.location.href),
-        repo: 'beipiaoyu2011.github.io',
-        owner: 'beipiaoyu2011',
-        admin: 'beipiaoyu2011',
-    })
-    gitalk.render('gitalk-container')
+var gitalk = new Gitalk({
+    clientID: 'b0601e7ea86ea740849e',
+    clientSecret: '770e5195b09cf3942fc1abc2b1f7f88a1b5c13f7',
+    // id: window.location.pathname,
+    // 避免422
+    id: md5(window.location.pathname),
+    repo: 'beipiaoyu2011.github.io',
+    owner: 'beipiaoyu2011',
+    admin: 'beipiaoyu2011',
+    distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
 </script>
   
 

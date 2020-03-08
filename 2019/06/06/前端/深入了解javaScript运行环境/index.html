@@ -202,20 +202,15 @@
   
   <nav class="article-nav">
     
-      <a href="../%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7%E4%B9%8Bwebpack/" class="article-nav-link">
+      <a href="../../%E7%BD%91%E7%BB%9C/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E8%BF%87%E7%A8%8B/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            构建工具之webpack
+            TCP三次握手和四次挥手过程
           
         </div>
       </a>
     
-    
-      <a href="../React%E7%9A%84Lazy-loading%E8%B7%AF%E7%94%B1/" class="article-nav-link">
-        <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">使用React v16.9的Lazy-loading懒加载组件，进行路由封装</div>
-      </a>
     
   </nav>
 
@@ -241,7 +236,7 @@
 <script type="text/javascript">
   var gitalk = new Gitalk({
     clientID: 'b0601e7ea86ea740849e',
-    clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
+    clientSecret: '770e5195b09cf3942fc1abc2b1f7f88a1b5c13f7',
     repo: 'beipiaoyu2011.github.io',
     owner: 'beipiaoyu2011',
     admin: ['beipiaoyu2011'],
@@ -259,17 +254,18 @@
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <div id="gitalk-container"></div>
 <script type="text/javascript">
-    var gitalk = new Gitalk({
-        clientID: 'b0601e7ea86ea740849e',
-        clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
-        // id: window.location.pathname,
-        // 避免422
-        id: md5(window.location.href),
-        repo: 'beipiaoyu2011.github.io',
-        owner: 'beipiaoyu2011',
-        admin: 'beipiaoyu2011',
-    })
-    gitalk.render('gitalk-container')
+var gitalk = new Gitalk({
+    clientID: 'b0601e7ea86ea740849e',
+    clientSecret: '770e5195b09cf3942fc1abc2b1f7f88a1b5c13f7',
+    // id: window.location.pathname,
+    // 避免422
+    id: md5(window.location.pathname),
+    repo: 'beipiaoyu2011.github.io',
+    owner: 'beipiaoyu2011',
+    admin: 'beipiaoyu2011',
+    distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
 </script>
   
 

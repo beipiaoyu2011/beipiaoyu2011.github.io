@@ -211,19 +211,19 @@
   
   <nav class="article-nav">
     
-      <a href="../%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3javaScript%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/" class="article-nav-link">
+      <a href="../webpack4%20%E9%85%8D%E7%BD%AEreact%E9%A1%B9%E7%9B%AE/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            JavaScript 运行环境
+            webpack4配置React项目，同时配置DEV和PROD环境
           
         </div>
       </a>
     
     
-      <a href="../Vue%E6%8A%9B%E5%BC%83vue.config.js%E9%85%8D%E7%BD%AE%EF%BC%8C%E9%87%8D%E6%92%B8webpack4%E5%92%8Cbabel%E9%85%8D%E7%BD%AE/" class="article-nav-link">
+      <a href="../%E5%85%B3%E4%BA%8Ewebpack%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Vue项目改造抛弃vue-cli配置，重撸webpack4和babel配置</div>
+        <div class="article-nav-title">关于webpack的面试题总结</div>
       </a>
     
   </nav>
@@ -250,7 +250,7 @@
 <script type="text/javascript">
   var gitalk = new Gitalk({
     clientID: 'b0601e7ea86ea740849e',
-    clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
+    clientSecret: '770e5195b09cf3942fc1abc2b1f7f88a1b5c13f7',
     repo: 'beipiaoyu2011.github.io',
     owner: 'beipiaoyu2011',
     admin: ['beipiaoyu2011'],
@@ -268,17 +268,18 @@
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <div id="gitalk-container"></div>
 <script type="text/javascript">
-    var gitalk = new Gitalk({
-        clientID: 'b0601e7ea86ea740849e',
-        clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
-        // id: window.location.pathname,
-        // 避免422
-        id: md5(window.location.href),
-        repo: 'beipiaoyu2011.github.io',
-        owner: 'beipiaoyu2011',
-        admin: 'beipiaoyu2011',
-    })
-    gitalk.render('gitalk-container')
+var gitalk = new Gitalk({
+    clientID: 'b0601e7ea86ea740849e',
+    clientSecret: '770e5195b09cf3942fc1abc2b1f7f88a1b5c13f7',
+    // id: window.location.pathname,
+    // 避免422
+    id: md5(window.location.pathname),
+    repo: 'beipiaoyu2011.github.io',
+    owner: 'beipiaoyu2011',
+    admin: 'beipiaoyu2011',
+    distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
 </script>
   
 

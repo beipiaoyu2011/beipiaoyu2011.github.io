@@ -246,19 +246,19 @@
   
   <nav class="article-nav">
     
-      <a href="../window%E5%92%8Cdocument%E5%90%84%E7%A7%8D%E5%AE%BD%E9%AB%98%E8%AE%A1%E7%AE%97/" class="article-nav-link">
+      <a href="../React%E7%9A%84Lazy-loading%E8%B7%AF%E7%94%B1/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            window和document各种宽高计算
+            使用React v16.9的Lazy-loading懒加载组件，进行路由封装
           
         </div>
       </a>
     
     
-      <a href="../iconFont%E7%94%9F%E6%88%90%E6%95%99%E7%A8%8B/" class="article-nav-link">
+      <a href="../window%E5%92%8Cdocument%E5%90%84%E7%A7%8D%E5%AE%BD%E9%AB%98%E8%AE%A1%E7%AE%97/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">三分钟教会你自制IconFont字体图标库</div>
+        <div class="article-nav-title">window和document各种宽高计算</div>
       </a>
     
   </nav>
@@ -285,7 +285,7 @@
 <script type="text/javascript">
   var gitalk = new Gitalk({
     clientID: 'b0601e7ea86ea740849e',
-    clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
+    clientSecret: '770e5195b09cf3942fc1abc2b1f7f88a1b5c13f7',
     repo: 'beipiaoyu2011.github.io',
     owner: 'beipiaoyu2011',
     admin: ['beipiaoyu2011'],
@@ -303,17 +303,18 @@
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <div id="gitalk-container"></div>
 <script type="text/javascript">
-    var gitalk = new Gitalk({
-        clientID: 'b0601e7ea86ea740849e',
-        clientSecret: '65655b8141ca21e06280836d74807b7cb13a40e8',
-        // id: window.location.pathname,
-        // 避免422
-        id: md5(window.location.href),
-        repo: 'beipiaoyu2011.github.io',
-        owner: 'beipiaoyu2011',
-        admin: 'beipiaoyu2011',
-    })
-    gitalk.render('gitalk-container')
+var gitalk = new Gitalk({
+    clientID: 'b0601e7ea86ea740849e',
+    clientSecret: '770e5195b09cf3942fc1abc2b1f7f88a1b5c13f7',
+    // id: window.location.pathname,
+    // 避免422
+    id: md5(window.location.pathname),
+    repo: 'beipiaoyu2011.github.io',
+    owner: 'beipiaoyu2011',
+    admin: 'beipiaoyu2011',
+    distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
 </script>
   
 
